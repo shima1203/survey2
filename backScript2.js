@@ -57,7 +57,7 @@ var screen_y = screen.availHeight;
 function resizeWindow(){
     window_x = window.innerWidth;
     window_y = window.innerHeight;
-    console.log("resize");
+    console.log(window_x, window_y);
 }
 window.onresize = resizeWindow;
 
