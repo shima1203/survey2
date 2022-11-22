@@ -50,6 +50,16 @@ if(document.addEventListener){
 //setInterval(MouseMoveFunc, 100);    <-なぜか動かない
 
 
+//ウィンドウサイズの変更時に発火するイベント
+var window_x, window_y;
+var screen_x = screen.availWidth;
+var screen_y = screen.availHeight;
+function resizeWindow(){
+    window_x = window.innerWidth;
+    window_y = window.innerHeight;
+    console.log();
+}
+window.onresize = resizeWindow;
 
 //送信
 function modifysubmit(event){
