@@ -69,7 +69,7 @@ function resizeWindow(){
                     "time" : tr
     }
     windowsize_list.push(windowsize);
-    console.log('"windowsize"   ' , windwsize);
+    console.log('"windowsize"   ' , windowsize);
 }
 window.onresize = resizeWindow;
 
