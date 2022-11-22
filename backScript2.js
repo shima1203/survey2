@@ -57,7 +57,6 @@ var screen_x = screen.availWidth;
 var screen_y = screen.availHeight;
 var windowsize_list = [];
 windowsize_list.push({"x" : window_x, "y" : window_y, "time" : 0})
-console.log('"windowsize"   ' , windowsize_list);
 function resizeWindow(){
     window_x = window.innerWidth;
     window_y = window.innerHeight;
@@ -79,13 +78,17 @@ window.onresize = resizeWindow;
 //送信
 function modifysubmit(event){
     const coordinates_send = document.createElement('input');
+    const windowsize_send = document.createElement('input');
 
     coordinates_send.name = "coordinates";
+    windowsize_send.name = "windowsize";
 
     coordinates_send.type = "hidden";
+    windowsize_send.type = "hidden";
 
     coordinates_send.value = JSON.stringify(coordinates);
-
+    windowsize_send.value =  JSON.stringify(windowsize_list);
 
     event.target.appendChild(coordinates_send);
+    event.target.appendChild(windowsize_send);
 }
