@@ -3,7 +3,6 @@ session_start();
 require('dbconnect.php');
 $questionnaire_id = 1;
 
-echo "hello";
 //ユーザーエージェントの判定
 $user_device = '';
 // HTTP リクエストヘッダーが持っているユーザーエージェントの文字列を取得
