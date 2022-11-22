@@ -34,7 +34,7 @@ function MouseMoveFunc(e){
                     "time" : tr};
 
     coordinates.push(coordinate);
-    console.log(coordinate);
+    console.log('"coordinate"   ', coordinate);
 }
 
 
@@ -54,10 +54,22 @@ if(document.addEventListener){
 var window_x, window_y;
 var screen_x = screen.availWidth;
 var screen_y = screen.availHeight;
+var windowsize_list = [];
 function resizeWindow(){
     window_x = window.innerWidth;
     window_y = window.innerHeight;
-    console.log(window_x, window_y);
+
+    //時間の計測
+    var t = performance.now();
+    var tr = t - startTime;
+    tr = parseInt(tr);
+
+    var windowsize={"x" : window_x,
+                    "y" : window_y,
+                    "time" : tr
+    }
+    windowsize_list.push(windowsize);
+    console.log('"windowsize"   ' , windwsize);
 }
 window.onresize = resizeWindow;
 
