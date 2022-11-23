@@ -31,11 +31,11 @@ function ScrollFunc(){
 // イベントのリッスンを開始する
 if(document.addEventListener){
     // マウスを移動するたびに実行されるイベント
-    document.addEventListener("scroll" , ScrollFunk);
+    document.addEventListener("scroll" , ScrollFunc);
 // アタッチイベントに対応している
 }else if(document.attachEvent){
     // マウスを移動するたびに実行されるイベント
-    document.attachEvent("onscroll" , ScrollFunk);
+    document.attachEvent("onscroll" , ScrollFunc);
 }
 
 
