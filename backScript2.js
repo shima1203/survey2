@@ -7,6 +7,37 @@ function DocumentGetScrollPosition(document_obj){
         y:document_obj.body.scrollTop  || document_obj.documentElement.scrollTop
     };
 }
+var scroll_list = [];
+function ScrollFunc(){
+    // スクロール位置を取得
+    var scroll_pos = DocumentGetScrollPosition(document);
+
+    // スクロール位置を加算して、グローバル座標系に変換する
+    scroll_x = scroll_pos.x;
+    scroll_y += scroll_pos.y;
+
+    //時間の計測
+    var t = performance.now();
+    var tr = t - startTime;
+    tr = parseInt(tr);
+
+    var scroll={"x" : scroll_x, 
+                "y" : scroll_y,
+                "time" : tr};
+
+    scroll_list.push(scroll);
+    console.log('"scroll"   ', scroll);
+}
+// イベントのリッスンを開始する
+if(document.addEventListener){
+    // マウスを移動するたびに実行されるイベント
+    document.addEventListener("scroll" , MouseMoveFunc);
+// アタッチイベントに対応している
+}else if(document.attachEvent){
+    // マウスを移動するたびに実行されるイベント
+    document.attachEvent("onscroll" , MouseMoveFunc);
+}
+
 
 var distance = 0;
 var coordinates = [];
@@ -36,8 +67,6 @@ function MouseMoveFunc(e){
     coordinates.push(coordinate);
     console.log('"coordinate"   ', coordinate);
 }
-
-
 // イベントのリッスンを開始する
 if(document.addEventListener){
     // マウスを移動するたびに実行されるイベント
