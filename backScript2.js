@@ -13,8 +13,8 @@ function ScrollFunc(){
     var scroll_pos = DocumentGetScrollPosition(document);
 
     // スクロール位置を加算して、グローバル座標系に変換する
-    scroll_x = scroll_pos.x;
-    scroll_y += scroll_pos.y;
+    var scroll_x = scroll_pos.x;
+    var scroll_y = scroll_pos.y;
 
     //時間の計測
     var t = performance.now();
