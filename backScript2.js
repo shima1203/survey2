@@ -114,7 +114,6 @@ for (let target of radio_btns) {
 	target.addEventListener("change", () => {
         console.log('${target.value} ${target.name}');
         console.log("a");
-		document.querySelector(`#output`).innerHTML = `${target.value} : ${target.checked}`;
 	});
 }
 
