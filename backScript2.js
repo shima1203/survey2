@@ -105,10 +105,23 @@ function resizeWindow(){
 window.onresize = resizeWindow;
 
 
-//選択肢の変更
-//バックグラウンド移動
-//画面外への移動
-//スクロール位置
+//バックグラウンド移動(時間)
+//画面外への移動(出た時間と戻ってきた時間)
+//選択肢の変更(ラジオボタン)   (質問ごとにやるならquerySelectorをnullになるまでforで回す)
+let radio_btns = document.querySelectorAll(`input[type='radio']`);
+
+for (let target of radio_btns) {
+	target.addEventListener(`change`, () => {
+        console.log(`${target.value} ${target.name}`);
+        console.log("a");
+		document.querySelector(`#output`).innerHTML = `${target.value} : ${target.checked}`;
+	});
+}
+
+
+
+//選択肢の変更(チェックボックス)
+
 //タイピング
 
 
