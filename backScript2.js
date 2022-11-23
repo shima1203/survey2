@@ -112,7 +112,7 @@ let radio_btns = document.querySelectorAll(`input[type='radio']`);
 
 for (let target of radio_btns) {
 	target.addEventListener(`change`, function () {
-        console.log(`${target.value} : ${target.checked}`);
+        console.log(target.value,target.checked);
 	});
 }
 
