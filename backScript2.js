@@ -1,6 +1,6 @@
 const startTime = performance.now();   //計測開始
 
-// スクロール位置を取得する関数
+// スクロール位置
 function DocumentGetScrollPosition(document_obj){
     return{
         x:document_obj.body.scrollLeft || document_obj.documentElement.scrollLeft,
@@ -10,7 +10,7 @@ function DocumentGetScrollPosition(document_obj){
 
 var distance = 0;
 var coordinates = [];
-// マウスを移動するたびに実行される関数
+// マウス移動
 function MouseMoveFunc(e){
     // クライアント座標系を基点としたマウスカーソルの座標を取得
     var mouse_x = e.clientX;
@@ -50,7 +50,7 @@ if(document.addEventListener){
 //setInterval(MouseMoveFunc, 100);    <-なぜか動かない
 
 
-//ウィンドウサイズの変更時に発火するイベント
+//ウィンドウサイズ変更
 var window_x = window.innerWidth;
 var window_y = window.innerHeight;
 var screen_x = screen.availWidth;
@@ -74,6 +74,17 @@ function resizeWindow(){
     console.log('"windowsize"   ' , windowsize);
 }
 window.onresize = resizeWindow;
+
+
+//選択肢の変更
+//バックグラウンド移動
+//画面外への移動
+//スクロール位置
+//タイピング
+
+
+
+
 
 //送信
 function modifysubmit(event){
