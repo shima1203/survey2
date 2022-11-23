@@ -115,6 +115,9 @@ for (let target of radio_btns) {
         console.log('${target.value} ${target.name}');
         console.log("a");
 	});
+    if(target.checked){
+        console.log('${target.value} ${target.name}');
+    }
 }
 
 
