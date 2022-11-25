@@ -167,9 +167,22 @@ window.addEventListener('load', function() {
             tr = parseInt(tr);
 
             var check_textbox= {"question_id" : target.name,
+                                "action" : "focus",
                                 "time" : tr
             };
-            console.log("checked   ", check_textbox, " flag:", target.checked);
+            console.log("focus   ", check_textbox, " flag:", target.checked);
+        });
+        target.addEventListener(`blur`, function () {
+            //時間の計測
+            var t = performance.now();
+            var tr = t - startTime;
+            tr = parseInt(tr);
+
+            var check_textbox= {"question_id" : target.name,
+                                "action" : "blur",
+                                "time" : tr
+            };
+            console.log("blur   ", check_textbox, " flag:", target.checked);
         });
     }
 })
