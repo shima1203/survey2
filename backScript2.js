@@ -108,15 +108,16 @@ window.onresize = resizeWindow;
 //バックグラウンド移動(時間)
 //画面外への移動(出た時間と戻ってきた時間)
 //選択肢の変更(ラジオボタン)   (質問ごとにやるならquerySelectorをnullになるまでforで回す)
-let radio_btns = document.querySelectorAll(`input[type='radio']`);
-console.log(radio_btns);
+window.onload = function(){
+    let radio_btns = document.querySelectorAll(`input[type='radio']`);
+    console.log(radio_btns);
 
-for (let target of radio_btns) {
-	target.addEventListener(`change`, function () {
-        console.log(target.value,target.checked);
-	});
+    for (let target of radio_btns) {
+        target.addEventListener(`change`, function () {
+            console.log(target.value,target.checked);
+        });
+    }
 }
-
 
 
 //選択肢の変更(チェックボックス)
