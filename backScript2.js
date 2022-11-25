@@ -118,8 +118,12 @@ window.onload = function(){
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var check_radio;
-            console.log("value:", target.value, " type:", target.type, " id:", target.name, " answer_value:", target.id, " flag:", target.checked);
+            var check_radio={"question_id" : target.name,
+                            "answer" : target.value,
+                            "answer_value" : target.id,
+                            "time" : tr
+            };
+            console.log(check_radio, " flag:", target.checked);
         });
     }
 }
