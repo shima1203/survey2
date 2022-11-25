@@ -110,7 +110,6 @@ window.onresize = resizeWindow;
 //選択肢の変更(ラジオボタン)   (質問ごとにやるならquerySelectorをnullになるまでforで回す)
 window.onload = function(){
     let radio_btns = document.querySelectorAll(`input[type='radio']`);
-    console.log(radio_btns);
 
     for (let target of radio_btns) {
         target.addEventListener(`change`, function () {
