@@ -123,7 +123,7 @@ window.onload = function(){
                             "answer_value" : target.id,
                             "time" : tr
             };
-            console.log(check_radio, " flag:", target.checked);
+            console.log("checked", check_radio, " flag:", target.checked);
         });
     }
 }
