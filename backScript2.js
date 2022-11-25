@@ -154,24 +154,6 @@ window.onload = function(){
 }
 
 
-//選択(テキストボックス)
-window.onload = function(){
-    let text_boxes = document.querySelectorAll(`input[type='text']`);
-
-    for (let target of text_boxes) {
-        target.addEventListener(`change`, function () {
-            //時間の計測
-            var t = performance.now();
-            var tr = t - startTime;
-            tr = parseInt(tr);
-
-            var check_textbox={"question_id" : target.name,
-                                "time" : tr
-            };
-            console.log("checked   ", check_textbox, " flag:", target.checked);
-        });
-    }
-}
 
 //タイピング
 
