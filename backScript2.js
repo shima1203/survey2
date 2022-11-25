@@ -170,7 +170,7 @@ window.addEventListener('load', function() {
             var check_textbox= {"question_id" : target.name,
                                 "time" : tr
             };
-            console.log("typed   ", check_textbox, " flag:", target.checked);
+            console.log("checked   ", check_textbox, " flag:", target.checked);
         });
     }
 })
