@@ -107,6 +107,9 @@ window.onresize = resizeWindow;
 
 //バックグラウンド移動(時間)
 //画面外への移動(出た時間と戻ってきた時間)
+
+
+
 //選択肢の変更(ラジオボタン)   (質問ごとにやるならquerySelectorをnullになるまでforで回す)
 window.onload = function(){
     let radio_btns = document.querySelectorAll(`input[type='radio']`);
@@ -130,7 +133,28 @@ window.onload = function(){
 
 
 //選択肢の変更(チェックボックス)
+window.onload = function(){
+    let check_boxes = document.querySelectorAll(`input[type='checkbox']`);
 
+    for (let target of check_boxes) {
+        target.addEventListener(`change`, function () {
+            //時間の計測
+            var t = performance.now();
+            var tr = t - startTime;
+            tr = parseInt(tr);
+
+            var check_checkbox={"question_id" : target.name,
+                            "answer" : target.value,
+                            "answer_value" : target.id,
+                            "time" : tr
+            };
+            console.log("checked   ", check_checkbox, " flag:", target.checked);
+        });
+    }
+}
+
+
+//選択(テキストボックス)
 //タイピング
 
 
