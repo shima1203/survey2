@@ -98,7 +98,7 @@ function resizeWindow(){
     var windowsize={"x" : window_x,
                     "y" : window_y,
                     "time" : tr
-    }
+    };
     windowsize_list.push(windowsize);
     console.log('"windowsize"   ' , windowsize);
 }
@@ -113,6 +113,12 @@ window.onload = function(){
 
     for (let target of radio_btns) {
         target.addEventListener(`change`, function () {
+            //時間の計測
+            var t = performance.now();
+            var tr = t - startTime;
+            tr = parseInt(tr);
+
+            var check_radio;
             console.log("value:", target.value, " type:", target.type, " id:", target.name, " answer_value:", target.id, " flag:", target.checked);
         });
     }
