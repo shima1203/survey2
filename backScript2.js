@@ -110,7 +110,7 @@ window.onresize = resizeWindow;
 
 
 
-//選択肢の変更(ラジオボタン)   (質問ごとにやるならquerySelectorをnullになるまでforで回す)
+//選択(ラジオボタン)   (質問ごとにやるならquerySelectorをnullになるまでforで回す)
 window.onload = function(){
     let radio_btns = document.querySelectorAll(`input[type='radio']`);
 
@@ -132,7 +132,7 @@ window.onload = function(){
 }
 
 
-//選択肢の変更(チェックボックス)
+//選択(チェックボックス)
 window.onload = function(){
     let check_boxes = document.querySelectorAll(`input[type='checkbox']`);
 
@@ -144,9 +144,9 @@ window.onload = function(){
             tr = parseInt(tr);
 
             var check_checkbox={"question_id" : target.name,
-                            "answer" : target.value,
-                            "answer_value" : target.id,
-                            "time" : tr
+                                "answer" : target.value,
+                                "answer_value" : target.id,
+                                "time" : tr
             };
             console.log("checked   ", check_checkbox, " flag:", target.checked);
         });
@@ -155,6 +155,24 @@ window.onload = function(){
 
 
 //選択(テキストボックス)
+window.onload = function(){
+    let text_boxes = document.querySelectorAll(`input[type='text']`);
+
+    for (let target of text_boxes) {
+        target.addEventListener(`change`, function () {
+            //時間の計測
+            var t = performance.now();
+            var tr = t - startTime;
+            tr = parseInt(tr);
+
+            var check_textbox={"question_id" : target.name,
+                                "time" : tr
+            };
+            console.log("checked   ", check_textbox, " flag:", target.checked);
+        });
+    }
+}
+
 //タイピング
 
 
