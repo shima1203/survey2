@@ -154,13 +154,11 @@ window.addEventListener('load', function() {
 })
 
 
-//選択(テキストボックス)
+//選択(テキストボックス)  "要改良！(onBlur属性をつけようか？)"
 window.addEventListener('load', function() {
     let text_boxes = document.querySelectorAll(`input[type='text']`);
-    console.log(text_boxes[0].name);
 
     for (let target of text_boxes) {
-        console.log(target);
         target.addEventListener(`change`, function () {
             //時間の計測
             var t = performance.now();
@@ -174,6 +172,7 @@ window.addEventListener('load', function() {
         });
     }
 })
+
 
 //タイピング
 window.addEventListener('load', function() {
