@@ -161,7 +161,7 @@ window.addEventListener('load', function() {
 
     for (let target of text_boxes) {
         console.log(target);
-        target.addEventListener(`change`, function () {
+        target.addEventListener(`input`, function () {
             //時間の計測
             var t = performance.now();
             var tr = t - startTime;
