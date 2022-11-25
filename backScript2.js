@@ -111,7 +111,7 @@ window.onresize = resizeWindow;
 
 
 //選択(ラジオボタン)   (質問ごとにやるならquerySelectorをnullになるまでforで回す)
-window.onload = function(){
+window.addEventListener('load', function() {
     let radio_btns = document.querySelectorAll(`input[type='radio']`);
 
     for (let target of radio_btns) {
@@ -129,11 +129,11 @@ window.onload = function(){
             console.log("checked   ", check_radio, " flag:", target.checked);
         });
     }
-}
+})
 
 
 //選択(チェックボックス)
-window.onload = function(){
+window.addEventListener('load', function() {
     let check_boxes = document.querySelectorAll(`input[type='checkbox']`);
 
     for (let target of check_boxes) {
@@ -151,11 +151,11 @@ window.onload = function(){
             console.log("checked   ", check_checkbox, " flag:", target.checked);
         });
     }
-}
+})
 
 
 //選択(テキストボックス)
-window.onload = function(){
+window.addEventListener('load', function() {
     let text_boxes = document.querySelectorAll(`input[type='text']`);
 
     for (let target of text_boxes) {
@@ -171,7 +171,7 @@ window.onload = function(){
             console.log("checked   ", check_textbox, " flag:", target.checked);
         });
     }
-}
+})
 
 //タイピング
 
