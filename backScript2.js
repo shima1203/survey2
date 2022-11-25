@@ -157,7 +157,7 @@ window.addEventListener('load', function() {
 //選択(テキストボックス)
 window.addEventListener('load', function() {
     let text_boxes = document.querySelectorAll(`input[type='text']`);
-    console.log(text_boxes);
+    console.log(text_boxes[0].name);
 
     for (let target of text_boxes) {
         target.addEventListener(`change`, function () {
