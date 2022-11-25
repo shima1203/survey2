@@ -113,7 +113,7 @@ window.onload = function(){
 
     for (let target of radio_btns) {
         target.addEventListener(`change`, function () {
-            console.log("value : ", target.value, "type : ", target.type, "id : ", target.name, "answer_value : ", target.id, "flag : ", target.checked);
+            console.log("value:", target.value, " type:", target.type, " id:", target.name, " answer_value:", target.id, " flag:", target.checked);
         });
     }
 }
