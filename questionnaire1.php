@@ -132,12 +132,6 @@ if($user_device == 'smartphone' || $user_device == 'phone'){
                   <?php $q_number++;
                 } ?>
               </div>
-              <div class="form-group text-left">
-                <li> <label class="control-label6">当アンケートへのご意見をお書きください</label></li>
-                <td style="position:relative">
-                  <input type="text" style="width:80%; box-sizing:border-box">
-                </td>
-              </div>
               
 
               <?php if($_GET['action'] == 'rewrite'){
