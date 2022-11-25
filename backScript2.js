@@ -104,13 +104,14 @@ function resizeWindow(){
 }
 window.onresize = resizeWindow;
 
-
+//クリック
 //バックグラウンド移動(時間)
 //画面外への移動(出た時間と戻ってきた時間)
+//選択肢の範囲にカーソルがとどまっている時間
 
 
 
-//選択(ラジオボタン)   (質問ごとにやるならquerySelectorをnullになるまでforで回す)
+//選択(ラジオボタン)   *質問ごとにやるならquerySelectorをnullになるまでforで回す
 window.addEventListener('load', function() {
     let radio_btns = document.querySelectorAll(`input[type='radio']`);
 
@@ -159,7 +160,7 @@ window.addEventListener('load', function() {
     let text_boxes = document.querySelectorAll(`input[type='text']`);
 
     for (let target of text_boxes) {
-        target.addEventListener(`change`, function () {
+        target.addEventListener(`focus`, function () {
             //時間の計測
             var t = performance.now();
             var tr = t - startTime;
