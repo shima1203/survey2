@@ -294,7 +294,20 @@ window.addEventListener('load', function() {
     let questions = document.querySelectorAll(`li`);
     let items = document.querySelectorAll(`input`);
 
-    for (let target of text_boxes) {
+    for (let target of questions) {
+        target.addEventListener(`input`, function () {
+            //時間の計測
+            var t = performance.now();
+            var tr = t - startTime;
+            tr = parseInt(tr);
+
+            var type = {"question_id" : target.name,
+                        "time" : tr
+            };
+            console.log("typed   ", type, " flag:", target.checked);
+        });
+    }
+    for (let target of items) {
         target.addEventListener(`input`, function () {
             //時間の計測
             var t = performance.now();
