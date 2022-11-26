@@ -184,15 +184,14 @@ if(window.addEventListener){
         background_action ={"action" : "mouse_leave",
                             "time" : tr
         };
-        console.log(background_action);
     })
     document.addEventListener("mouseenter", ()=>{
         background_action ={"action" : "mouse_enter",
                             "time" : tr
         };
-        console.log(background_action);
     })
     background_action_list.push(background_action);
+    console.log(background_action_list);
     
 }
 
