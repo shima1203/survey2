@@ -145,11 +145,15 @@ window.onresize = resizeWindow;
 
 //バックグラウンド移動(時間)
 var background_action_list = [];
-function backgroundAction(background_action){
+function backgroundAction(action){
     //時間の計測
     var t = performance.now();
     var tr = t - startTime;
     tr = parseInt(tr);
+
+    var background_action ={"action" : action,
+                            "time" : tr
+    };
 
     background_action_list.push(background_action);
     console.log(background_action);
@@ -158,43 +162,31 @@ if(window.addEventListener){
     //ページが隠れたか
     document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'visible') {
-            var background_action ={"action" : "page_visible",
-                                "time" : tr
-            };
-            backgroundAction(background_action);
+            var action = "page_visible";
+            backgroundAction(action);
         }
         if (document.visibilityState === 'hidden') {
-            var background_action ={"action" : "page_hidden",
-                                "time" : tr
-            };
-            backgroundAction(background_action);
+            var action = "page_hidden";
+            backgroundAction(action);
         }
     })
     //ページの外にフォーカスが移動したか
     window.addEventListener("blur", () => {
-        var background_action ={"action" : "page_blur",
-                            "time" : tr
-        };
-        backgroundAction(background_action);
+        var action = "page_blur";
+        backgroundAction(action);
     });
     window.addEventListener("focus", () => {
-        var background_action ={"action" : "page_focus",
-                            "time" : tr
-        };
-        backgroundAction(background_action);
+        var action = "page_focus";
+        backgroundAction(action);
     });
     //画面外へ移動したか
     document.addEventListener("mouseleave", ()=>{
-        var background_action ={"action" : "mouse_leave",
-                            "time" : tr
-        };
-        backgroundAction(background_action);
+        var action = "mouse_leave";
+        backgroundAction(action);
     })
     document.addEventListener("mouseenter", ()=>{
-        var background_action ={"action" : "mouse_enter",
-                            "time" : tr
-        };
-        backgroundAction(background_action);
+        var action = "mouse_enter";
+        backgroundAction(action);
     })    
 }
 
