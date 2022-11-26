@@ -152,6 +152,7 @@ if(window.addEventListener){
     tr = parseInt(tr);
 
     var background_action;
+    console.log("background");
     //ページが隠れたか
     document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'visible') {
