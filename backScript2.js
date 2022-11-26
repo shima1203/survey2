@@ -165,7 +165,7 @@ window.addEventListener("focus", () => {
 document.addEventListener("mouseleave", ()=>{
     console.log("mouseleave");
 })
-window.addEventListener("mouseenter", ()=>{
+document.addEventListener("mouseenter", ()=>{
     console.log("mouseenter");
 })
 
