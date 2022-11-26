@@ -40,7 +40,7 @@ if(document.addEventListener){
 
 
 var distance = 0;
-var coordinates = [];
+var coordinates_list = [];
 // マウス移動
 function MouseMoveFunc(e){
     // クライアント座標系を基点としたマウスカーソルの座標を取得
@@ -64,7 +64,7 @@ function MouseMoveFunc(e){
                     "y" : mouse_y,
                     "time" : tr};
 
-    coordinates.push(coordinate);
+    coordinates_list.push(coordinate);
     console.log('"coordinate"   ', coordinate);
 }
 // イベントのリッスンを開始する
@@ -77,6 +77,44 @@ if(document.addEventListener){
     document.attachEvent("onmousemove" , MouseMoveFunc);
 }
 //setInterval(MouseMoveFunc, 100);    <-なぜか動かない
+
+
+//クリック
+var click_list = [];
+function MouseClickFunc(e){
+    // クライアント座標系を基点としたマウスカーソルの座標を取得
+    var click_x = e.clientX;
+    var click_y = e.clientY;
+
+    // スクロール位置を取得
+    var scroll_pos = DocumentGetScrollPosition(document);
+
+    // スクロール位置を加算して、グローバル座標系に変換する
+    click_x += scroll_pos.x;
+    click_y += scroll_pos.y;
+
+    //時間の計測
+    var t = performance.now();
+    var tr = t - startTime;
+    tr = parseInt(tr);
+
+    var click ={"x" : click_x, 
+                "y" : click_y,
+                "time" : tr
+            };
+
+    click_list.push(click);
+    console.log('"click"   ', click);
+}
+// イベントのリッスンを開始する
+if(document.addEventListener){
+    // マウスを移動するたびに実行されるイベント
+    document.addEventListener("click" , MouseClickFunc);
+// アタッチイベントに対応している
+}else if(document.attachEvent){
+    // マウスを移動するたびに実行されるイベント
+    document.attachEvent("onclick" , MouseclickFunc);
+}
 
 
 //ウィンドウサイズ変更
@@ -104,10 +142,11 @@ function resizeWindow(){
 }
 window.onresize = resizeWindow;
 
-//クリック
+
 //バックグラウンド移動(時間)
 //画面外への移動(出た時間と戻ってきた時間)
 //選択肢の範囲にカーソルがとどまっている時間(onMouseOverイベント)
+//使用デバイス(トラックボール・マウスパッドなど)
 
 
 
@@ -221,7 +260,7 @@ function modifysubmit(event){
     coordinates_send.type = "hidden";
     windowsize_send.type = "hidden";
 
-    coordinates_send.value = JSON.stringify(coordinates);
+    coordinates_send.value = JSON.stringify(coordinates_list);
     windowsize_send.value =  JSON.stringify(windowsize_list);
 
     event.target.appendChild(coordinates_send);
