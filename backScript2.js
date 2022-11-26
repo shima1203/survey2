@@ -188,7 +188,6 @@ if(window.addEventListener){
                             "time" : tr
         };
     })
-    background_action_list.push(background_action);
     console.log(background_action);
 }
 
