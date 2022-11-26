@@ -144,31 +144,51 @@ window.onresize = resizeWindow;
 
 
 //バックグラウンド移動(時間)
-var background_list = [];
+var background_action_list = [];
 if(window.addEventListener){
+    //時間の計測
+    var t = performance.now();
+    var tr = t - startTime;
+    tr = parseInt(tr);
+
+    var background_action;
     //ページが隠れたか
     document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'visible') {
-            console.log("page visible");
+            background_action ={"action" : "page_visible",
+                                "time" : tr
+            };
         }
         if (document.visibilityState === 'hidden') {
-            console.log("page hidden");
+            background_action ={"action" : "page_hidden",
+                                "time" : tr
+            };
         }
     })
     //ページの外にフォーカスが移動したか
     window.addEventListener("blur", () => {
-        console.log("page blur");
+        background_action ={"action" : "page_blur",
+                            "time" : tr
+        };
     });
     window.addEventListener("focus", () => {
-        console.log("page focus");
+        background_action ={"action" : "page_focus",
+                            "time" : tr
+        };
     });
     //画面外へ移動したか
     document.addEventListener("mouseleave", ()=>{
-        console.log("mouseleave");
+        background_action ={"action" : "mouse_leave",
+                            "time" : tr
+        };
     })
     document.addEventListener("mouseenter", ()=>{
-        console.log("mouseenter");
+        background_action ={"action" : "mouse_enter",
+                            "time" : tr
+        };
     })
+    background_action_list.push(background_action);
+    console.log(background_action);
 }
 
 
