@@ -143,7 +143,7 @@ function resizeWindow(){
 window.onresize = resizeWindow;
 
 
-//バックグラウンド移動(時間)
+//バックグラウンド移動
 var background_action_list = [];
 function backgroundAction(action){
     //時間の計測
@@ -189,12 +189,6 @@ if(window.addEventListener){
         backgroundAction(action);
     })    
 }
-
-
-
-
-//選択肢の範囲にカーソルがとどまっている時間(onMouseOverイベント)
-
 
 
 //選択(ラジオボタン)   *質問ごとにやるならquerySelectorをnullになるまでforで回す
@@ -278,6 +272,27 @@ window.addEventListener('load', function() {
 //タイピング
 window.addEventListener('load', function() {
     let text_boxes = document.querySelectorAll(`input[type='text']`);
+
+    for (let target of text_boxes) {
+        target.addEventListener(`input`, function () {
+            //時間の計測
+            var t = performance.now();
+            var tr = t - startTime;
+            tr = parseInt(tr);
+
+            var type = {"question_id" : target.name,
+                        "time" : tr
+            };
+            console.log("typed   ", type, " flag:", target.checked);
+        });
+    }
+})
+
+
+//選択肢の範囲にカーソルがとどまっている時間(onMouseOverイベント)
+window.addEventListener('load', function() {
+    let questions = document.querySelectorAll(`li`);
+    let items = document.querySelectorAll(`input`);
 
     for (let target of text_boxes) {
         target.addEventListener(`input`, function () {
