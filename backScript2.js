@@ -162,10 +162,10 @@ window.addEventListener("focus", () => {
     console.log("page focus");
 });
 //画面外へ移動したか
-window.addEventListener("mouseleave", ()=>{
+window.addEventListener("mouseout", ()=>{
     console.log("mouseleave");
 })
-window.addEventListener("mouseenter", ()=>{
+window.addEventListener("mouseover", ()=>{
     console.log("mouseenter");
 })
 
