@@ -107,7 +107,7 @@ window.onresize = resizeWindow;
 //クリック
 //バックグラウンド移動(時間)
 //画面外への移動(出た時間と戻ってきた時間)
-//選択肢の範囲にカーソルがとどまっている時間
+//選択肢の範囲にカーソルがとどまっている時間(onMouseOverイベント)
 
 
 
@@ -155,7 +155,7 @@ window.addEventListener('load', function() {
 })
 
 
-//選択(テキストボックス)  "要改良！(onBlur属性をつけようか？)"
+//選択(テキストボックス)
 window.addEventListener('load', function() {
     let text_boxes = document.querySelectorAll(`input[type='text']`);
 
