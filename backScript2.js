@@ -148,22 +148,30 @@ var background_list = [];
 //ページが隠れたか
 document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') {
-        console.log("コンテンツが表示された");
+        console.log("page visible");
     }
     if (document.visibilityState === 'hidden') {
-        console.log("コンテンツがバックグラウンドになった");
+        console.log("page hidden");
     }
 })
 //ページの外にフォーカスが移動したか
 window.addEventListener("blur", () => {
-    console.log("ページからフォーカスが外れた");
+    console.log("page blur");
 });
 window.addEventListener("focus", () => {
-    console.log("ページからフォーカスが外れた");
+    console.log("page focus");
 });
+//画面外へ移動したか
+window.addEventListener("mouseleave", ()=>{
+    console.log("mouseleave");
+})
+window.addEventListener("mouseenter", ()=>{
+    console.log("mouseenter");
+})
 
 
-//画面外への移動(出た時間と戻ってきた時間)
+
+
 //選択肢の範囲にカーソルがとどまっている時間(onMouseOverイベント)
 
 
