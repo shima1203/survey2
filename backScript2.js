@@ -113,7 +113,7 @@ if(document.addEventListener){
 // アタッチイベントに対応している
 }else if(document.attachEvent){
     // マウスを移動するたびに実行されるイベント
-    document.attachEvent("onclick" , MouseclickFunc);
+    document.attachEvent("onclick" , MouseClickFunc);
 }
 
 
@@ -144,6 +144,20 @@ window.onresize = resizeWindow;
 
 
 //バックグラウンド移動(時間)
+var background_list = [];
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+        console.log("コンテンツが表示された");
+    }
+    if (document.visibilityState === 'hidden') {
+        console.log("コンテンツがバックグラウンドになった");
+    }
+})
+window.addEventListener("blur", () => {
+    console.log("ページからフォーカスが外れた");
+});
+
+
 //画面外への移動(出た時間と戻ってきた時間)
 //選択肢の範囲にカーソルがとどまっている時間(onMouseOverイベント)
 //使用デバイス(トラックボール・マウスパッドなど)
@@ -151,6 +165,7 @@ window.onresize = resizeWindow;
 
 
 //選択(ラジオボタン)   *質問ごとにやるならquerySelectorをnullになるまでforで回す
+var check_list = [];            //選択は統一してやろうか？
 window.addEventListener('load', function() {
     let radio_btns = document.querySelectorAll(`input[type='radio']`);
 
