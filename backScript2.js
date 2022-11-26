@@ -151,7 +151,9 @@ if(window.addEventListener){
     var tr = t - startTime;
     tr = parseInt(tr);
 
-    var background_action;
+    var background_action = {"action" : "page_visible",
+                            "time" : tr
+                        };
     console.log("background");
     //ページが隠れたか
     document.addEventListener('visibilitychange', () => {
@@ -188,6 +190,7 @@ if(window.addEventListener){
                             "time" : tr
         };
     })
+    background_action_list.push(background_action);
     console.log(background_action);
 }
 
