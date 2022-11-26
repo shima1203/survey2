@@ -145,29 +145,31 @@ window.onresize = resizeWindow;
 
 //バックグラウンド移動(時間)
 var background_list = [];
-//ページが隠れたか
-document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') {
-        console.log("page visible");
-    }
-    if (document.visibilityState === 'hidden') {
-        console.log("page hidden");
-    }
-})
-//ページの外にフォーカスが移動したか
-window.addEventListener("blur", () => {
-    console.log("page blur");
-});
-window.addEventListener("focus", () => {
-    console.log("page focus");
-});
-//画面外へ移動したか
-document.addEventListener("mouseleave", ()=>{
-    console.log("mouseleave");
-})
-document.addEventListener("mouseenter", ()=>{
-    console.log("mouseenter");
-})
+if(window.addEventListener){
+    //ページが隠れたか
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+            console.log("page visible");
+        }
+        if (document.visibilityState === 'hidden') {
+            console.log("page hidden");
+        }
+    })
+    //ページの外にフォーカスが移動したか
+    window.addEventListener("blur", () => {
+        console.log("page blur");
+    });
+    window.addEventListener("focus", () => {
+        console.log("page focus");
+    });
+    //画面外へ移動したか
+    document.addEventListener("mouseleave", ()=>{
+        console.log("mouseleave");
+    })
+    document.addEventListener("mouseenter", ()=>{
+        console.log("mouseenter");
+    })
+}
 
 
 
