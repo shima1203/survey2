@@ -310,6 +310,19 @@ window.addEventListener('load', function() {
             };
             console.log("enter   ", enter);
         });
+        target.addEventListener(`mouseleave`, function () {
+            //時間の計測
+            var t = performance.now();
+            var tr = t - startTime;
+            tr = parseInt(tr);
+
+            var enter = {"type" : "question",
+                        "action" : "leave",
+                        "question_id" : target.name,
+                        "time" : tr
+            };
+            console.log("enter   ", enter);
+        });
     }
     for (let target of items) {
         target.addEventListener(`mouseenter`, function () {
