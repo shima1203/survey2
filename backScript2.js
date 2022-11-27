@@ -333,7 +333,7 @@ window.addEventListener('load', function() {
 
             var enter = {"type" : "item",
                         "action" : "enter",
-                        "question_id" : target.id,
+                        "question_id" : target.name,
                         "time" : tr
             };
             console.log("enter   ", enter);
@@ -346,7 +346,7 @@ window.addEventListener('load', function() {
 
             var leave_question={"type" : "item",
                                 "action" : "leave",
-                                "question_id" : target.id,
+                                "question_id" : target.name,
                                 "time" : tr
             };
             console.log("leave   ", leave_question);
