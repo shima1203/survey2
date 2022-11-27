@@ -205,7 +205,8 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var check_radio={"question_id" : target.name,
+            var check_radio={"qtype" : "radio",
+                            "question_id" : target.name,
                             "answer" : target.value,
                             "answer_value" : target.id,
                             "time" : tr
@@ -227,7 +228,8 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var check_checkbox={"question_id" : target.name,
+            var check_checkbox={"qtype" : check_boxes,
+                                "question_id" : target.name,
                                 "answer" : target.value,
                                 "answer_value" : target.id,
                                 "time" : tr
@@ -249,7 +251,8 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var check_textbox= {"question_id" : target.name,
+            var check_textbox= {"qtype" : "text",
+                                "question_id" : target.name,
                                 "action" : "focus",
                                 "time" : tr
             };
@@ -261,7 +264,8 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var check_textbox= {"question_id" : target.name,
+            var check_textbox= {"qtype" : "text",
+                                "question_id" : target.name,
                                 "action" : "blur",
                                 "time" : tr
             };
