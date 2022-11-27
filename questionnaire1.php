@@ -150,4 +150,5 @@ if($user_device == 'smartphone' || $user_device == 'phone'){
   </body>
 
   <!-- ここまでアンケート -->
+  a
 </html>
