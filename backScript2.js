@@ -333,7 +333,7 @@ window.addEventListener('load', function() {
 
             var enter = {"type" : "item",
                         "action" : "enter",
-                        "question_id" : target.name,
+                        "question_id" : target.id,
                         "time" : tr
             };
             console.log("enter   ", enter);
