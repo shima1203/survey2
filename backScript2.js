@@ -303,12 +303,12 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var type = {"type" : "question",
+            var enter = {"type" : "question",
                         "action" : "enter",
                         "question_id" : target.name,
                         "time" : tr
             };
-            console.log("enter   ", type, " flag:", target.checked);
+            console.log("enter   ", enter, " flag:", target.checked);
         });
     }
     for (let target of items) {
@@ -318,12 +318,12 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var type = {"type" : "item",
+            var enter = {"type" : "item",
                         "action" : "enter",
                         "question_id" : target.name,
                         "time" : tr
             };
-            console.log("enter   ", type, " flag:", target.checked);
+            console.log("enter   ", enter, " flag:", target.checked);
         });
     }
 })
