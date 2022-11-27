@@ -295,13 +295,14 @@ window.addEventListener('load', function() {
     let items = document.querySelectorAll(`input`);
 
     for (let target of questions) {
-        target.addEventListener(`input`, function () {
+        target.addEventListener(`mouseleave`, function () {
             //時間の計測
             var t = performance.now();
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var type = {"question_id" : target.name,
+            var type = {"type" : "question",
+                        "question_id" : target.name,
                         "time" : tr
             };
             console.log("typed   ", type, " flag:", target.checked);
