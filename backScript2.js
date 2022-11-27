@@ -303,12 +303,12 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var enter = {"type" : "question",
-                        "action" : "enter",
-                        "question_id" : target.name,
-                        "time" : tr
+            var enter_question={"type" : "question",
+                                "action" : "enter",
+                                "question_id" : target.name,
+                                "time" : tr
             };
-            console.log("enter   ", enter);
+            console.log("enter   ", enter_question);
         });
         target.addEventListener(`mouseleave`, function () {
             //時間の計測
@@ -316,12 +316,12 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var enter = {"type" : "question",
-                        "action" : "leave",
-                        "question_id" : target.name,
-                        "time" : tr
+            var leave_question={"type" : "question",
+                                "action" : "leave",
+                                "question_id" : target.name,
+                                "time" : tr
             };
-            console.log("leave   ", enter);
+            console.log("leave   ", leave_question);
         });
     }
     for (let target of items) {
