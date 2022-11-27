@@ -308,7 +308,7 @@ window.addEventListener('load', function() {
                         "question_id" : target.name,
                         "time" : tr
             };
-            console.log("enter   ", enter, " flag:", target.checked);
+            console.log("enter   ", enter);
         });
     }
     for (let target of items) {
@@ -323,7 +323,7 @@ window.addEventListener('load', function() {
                         "question_id" : target.name,
                         "time" : tr
             };
-            console.log("enter   ", enter, " flag:", target.checked);
+            console.log("enter   ", enter);
         });
     }
 })
