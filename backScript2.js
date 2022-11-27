@@ -291,7 +291,7 @@ window.addEventListener('load', function() {
 })
 
 
-//選択肢の範囲にカーソルがとどまっている時間(onMouseOverイベント)
+//選択肢の範囲にカーソルがとどまっている時間
 window.addEventListener('load', function() {
     let questions = document.querySelectorAll(`li`);
     let items = document.querySelectorAll(`input`);
@@ -321,7 +321,7 @@ window.addEventListener('load', function() {
                         "question_id" : target.name,
                         "time" : tr
             };
-            console.log("enter   ", enter);
+            console.log("leave   ", enter);
         });
     }
     for (let target of items) {
