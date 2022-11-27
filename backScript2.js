@@ -294,7 +294,7 @@ window.addEventListener('load', function() {
 //選択肢の範囲にカーソルがとどまっている時間
 window.addEventListener('load', function() {
     let questions = document.querySelectorAll(`li`);
-    let items = document.querySelectorAll(`input`);
+    let items = document.querySelectorAll(`label`);
 
     for (let target of questions) {
         target.addEventListener(`mouseenter`, function () {
