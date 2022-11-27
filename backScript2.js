@@ -305,7 +305,7 @@ window.addEventListener('load', function() {
 
             var enter_question={"type" : "question",
                                 "action" : "enter",
-                                "question_id" : target.name,
+                                "question_id" : target.id,
                                 "time" : tr
             };
             console.log("enter   ", enter_question);
@@ -318,7 +318,7 @@ window.addEventListener('load', function() {
 
             var leave_question={"type" : "question",
                                 "action" : "leave",
-                                "question_id" : target.name,
+                                "question_id" : target.id,
                                 "time" : tr
             };
             console.log("leave   ", leave_question);
