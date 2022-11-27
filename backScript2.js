@@ -297,30 +297,33 @@ window.addEventListener('load', function() {
     let items = document.querySelectorAll(`input`);
 
     for (let target of questions) {
-        target.addEventListener(`mouseleave`, function () {
+        target.addEventListener(`mouseenter`, function () {
             //時間の計測
             var t = performance.now();
             var tr = t - startTime;
             tr = parseInt(tr);
 
             var type = {"type" : "question",
+                        "action" : "enter",
                         "question_id" : target.name,
                         "time" : tr
             };
-            console.log("typed   ", type, " flag:", target.checked);
+            console.log("enter   ", type, " flag:", target.checked);
         });
     }
     for (let target of items) {
-        target.addEventListener(`input`, function () {
+        target.addEventListener(`mouseenter`, function () {
             //時間の計測
             var t = performance.now();
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var type = {"question_id" : target.name,
+            var type = {"type" : "item",
+                        "action" : "enter",
+                        "question_id" : target.name,
                         "time" : tr
             };
-            console.log("typed   ", type, " flag:", target.checked);
+            console.log("enter   ", type, " flag:", target.checked);
         });
     }
 })
