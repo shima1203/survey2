@@ -1,5 +1,7 @@
 const startTime = performance.now();   //計測開始
 
+var total = [];
+
 // スクロール位置
 function DocumentGetScrollPosition(document_obj){
     return{
