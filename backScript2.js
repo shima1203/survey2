@@ -131,7 +131,7 @@ var window_y = window.innerHeight;
 var screen_x = screen.availWidth;
 var screen_y = screen.availHeight;
 var windowsize_list = [];
-windowsize_list.push({"x" : window_x, "y" : window_y, "time" : 0})
+windowsize_list.push({"event" : "resizewindow", "x" : window_x, "y" : window_y, "time" : 0})
 function resizeWindow(){
     window_x = window.innerWidth;
     window_y = window.innerHeight;
