@@ -50,8 +50,8 @@ if (!empty($_POST)){
     }
 
     //DBにINSERT
-    $message1=$db->prepare('INSERT INTO Answers SET answer_id=?, questionnaire_id=?, question_id=?, answer=?, created_at=NOW()');
-    $message1->execute(array($answer_id, $questionnaire_id, $question['question_id'], $answer));
+    // $message1=$db->prepare('INSERT INTO Answers SET answer_id=?, questionnaire_id=?, question_id=?, answer=?, created_at=NOW()');
+    // $message1->execute(array($answer_id, $questionnaire_id, $question['question_id'], $answer));
 
     $message2=$db->prepare('INSERT INTO AnswerData SET answer_id=?, questionnaire_id=?, scroll=?, coordinates=?, click=?, windowsize=?, background=?, checking=?, type=?, enter_leave=?, total=?, created_at=NOW()');
     $message1->execute(array($answer_id, $questionnaire_id, $_POST["scroll"], $_POST["coordinates"], $_POST["click"], $_POST["background"], $_POST["check"], $_POST["type"], $_POST["enter_leave"], $_POST["total"]));
