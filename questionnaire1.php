@@ -56,8 +56,7 @@ if (!empty($_POST)){
 
   }    
   $message2=$db->prepare('INSERT INTO AnswerData SET answer_id=?, questionnaire_id=?, scroll=?, coordinates=?, click=?, windowsize=?, background=?, checking=?, type=?, enter_leave=?, total=?, created_at=NOW()');
-  //$message2->execute(array($answer_id, $questionnaire_id, $_POST["scroll"], $_POST["coordinates"], $_POST["click"], $_POST["background"], $_POST["check"], $_POST["type"], $_POST["enter_leave"], $_POST["total"]));
-  $message2->execute(array($answer_id, $questionnaire_id, "a", "a", "a", "a", "a", "a", "a", "a", "a"));
+  $message2->execute(array($answer_id, $questionnaire_id, $_POST["scroll"], $_POST["coordinates"], $_POST["click"], $_POST["background"], $_POST["check"], $_POST["type"], $_POST["enter_leave"], $_POST["total"]));
   var_dump($_POST["coordinates"]);
   //header('Location: /survey/questionnaire_confirmation.php');
   exit();
