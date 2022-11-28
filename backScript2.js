@@ -23,12 +23,14 @@ function ScrollFunc(){
     var tr = t - startTime;
     tr = parseInt(tr);
 
-    var scroll={"x" : scroll_x, 
+    var scroll={"event" : "scroll",
+                "x" : scroll_x, 
                 "y" : scroll_y,
                 "time" : tr};
 
     scroll_list.push(scroll);
-    console.log('"scroll"   ', scroll);
+    total.push(scroll);
+    console.log(scroll);
 }
 // イベントのリッスンを開始する
 if(document.addEventListener){
@@ -62,12 +64,14 @@ function MouseMoveFunc(e){
     var tr = t - startTime;
     tr = parseInt(tr);
 
-    var coordinate={"x" : mouse_x, 
+    var coordinate={"event" : "mousemove",
+                    "x" : mouse_x, 
                     "y" : mouse_y,
                     "time" : tr};
 
     coordinates_list.push(coordinate);
-    console.log('"coordinate"   ', coordinate);
+    total.push(coordinate);
+    console.log(coordinate);
 }
 // イベントのリッスンを開始する
 if(document.addEventListener){
@@ -100,12 +104,14 @@ function MouseClickFunc(e){
     var tr = t - startTime;
     tr = parseInt(tr);
 
-    var click ={"x" : click_x, 
+    var click ={"event" : "click",
+                "x" : click_x, 
                 "y" : click_y,
                 "time" : tr
             };
 
     click_list.push(click);
+    total.push(click);
     console.log('"click"   ', click);
 }
 // イベントのリッスンを開始する
@@ -135,11 +141,13 @@ function resizeWindow(){
     var tr = t - startTime;
     tr = parseInt(tr);
 
-    var windowsize={"x" : window_x,
+    var windowsize={"event" : "resizewindow",
+                    "x" : window_x,
                     "y" : window_y,
                     "time" : tr
     };
     windowsize_list.push(windowsize);
+    total.push(windowsize);
     console.log('"windowsize"   ' , windowsize);
 }
 window.onresize = resizeWindow;
@@ -153,11 +161,13 @@ function backgroundAction(action){
     var tr = t - startTime;
     tr = parseInt(tr);
 
-    var background_action ={"action" : action,
+    var background_action ={"event" : "movebackground",
+                            "action" : action,
                             "time" : tr
     };
 
     background_action_list.push(background_action);
+    total.push(background_action);
     console.log(background_action);
 }
 if(window.addEventListener){
@@ -205,12 +215,15 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var check_radio={"qtype" : "radio",
+            var check_radio={"event" : "check",
+                            "qtype" : "radio",
                             "question_id" : target.name,
                             "answer" : target.value,
                             "answer_value" : target.id,
                             "time" : tr
             };
+            check_list.push(check_radio);
+            total.push(check_radio);
             console.log("checked   ", check_radio, " flag:", target.checked);
         });
     }
@@ -228,12 +241,15 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var check_checkbox={"qtype" : check_boxes,
+            var check_checkbox={"event" : "check",
+                                "qtype" : "check_box",
                                 "question_id" : target.name,
                                 "answer" : target.value,
                                 "answer_value" : target.id,
                                 "time" : tr
             };
+            check_list.push(check_checkbox);
+            total.push(check_checkbox);
             console.log("checked   ", check_checkbox, " flag:", target.checked);
         });
     }
@@ -251,11 +267,14 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var check_textbox= {"qtype" : "text",
+            var check_textbox= {"event" : "check",
+                                "qtype" : "text",
                                 "question_id" : target.name,
                                 "action" : "focus",
                                 "time" : tr
             };
+            check_list.push(check_textbox);
+            total.push(check_textbox);
             console.log("focus   ", check_textbox, " flag:", target.checked);
         });
         target.addEventListener(`blur`, function () {
@@ -264,11 +283,14 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var check_textbox= {"qtype" : "text",
+            var check_textbox= {"event" : "check",
+                                "qtype" : "text",
                                 "question_id" : target.name,
                                 "action" : "blur",
                                 "time" : tr
             };
+            check_list.push(check_textbox);
+            total.push(check_textbox);
             console.log("blur   ", check_textbox, " flag:", target.checked);
         });
     }
@@ -276,6 +298,7 @@ window.addEventListener('load', function() {
 
 
 //タイピング
+var type_list = [];
 window.addEventListener('load', function() {
     let text_boxes = document.querySelectorAll(`input[type='text']`);
 
@@ -286,9 +309,12 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var type = {"question_id" : target.name,
+            var type = {"event" : "type",
+                        "question_id" : target.name,
                         "time" : tr
             };
+            type_list.push(type);
+            total.push(type);
             console.log("typed   ", type, " flag:", target.checked);
         });
     }
@@ -296,6 +322,7 @@ window.addEventListener('load', function() {
 
 
 //選択肢の範囲にカーソルがとどまっている時間
+var enter_leave_list = [];
 window.addEventListener('load', function() {
     let questions = document.querySelectorAll(`li`);
     let items = document.querySelectorAll(`label`);
@@ -307,11 +334,14 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var enter_question={"type" : "question",
+            var enter_question={"event" : "enter_leave",
+                                "type" : "question",
                                 "action" : "enter",
                                 "question_id" : target.id,
                                 "time" : tr
             };
+            enter_leave_list.push(enter_question);
+            total.push(enter_question);
             console.log("enter   ", enter_question);
         });
         target.addEventListener(`mouseleave`, function () {
@@ -320,11 +350,14 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var leave_question={"type" : "question",
+            var leave_question={"event" : "enter_leave",
+                                "type" : "question",
                                 "action" : "leave",
                                 "question_id" : target.id,
                                 "time" : tr
             };
+            enter_leave_list.push(leave_question);
+            total.push(leave_question);
             console.log("leave   ", leave_question);
         });
     }
@@ -335,11 +368,14 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var enter_item={"type" : "item",
+            var enter_item={"event" : "enter_leave",
+                            "type" : "item",
                             "action" : "enter",
                             "question_id" : target.name,
                             "time" : tr
             };
+            enter_leave_list.push(enter_item);
+            total.push(enter_item);
             console.log("enter   ", enter_item);
         });
         target.addEventListener(`mouseleave`, function () {
@@ -348,11 +384,14 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var leave_item={"type" : "item",
+            var leave_item={"event" : "enter_leave",
+                            "type" : "item",
                             "action" : "leave",
                             "question_id" : target.name,
                             "time" : tr
             };
+            enter_leave_list.push(leave_item);
+            total.push(leave_item);
             console.log("leave   ", leave_item);
         });
     }
@@ -366,18 +405,55 @@ window.addEventListener('load', function() {
 
 //送信
 function modifysubmit(event){
+    const scroll_send = document.createElement('input');
     const coordinates_send = document.createElement('input');
+    const click_send = document.createElement('input');
     const windowsize_send = document.createElement('input');
+    const background_send = document.createElement('input');
+    const check_send = document.createElement('input');
+    const type_send = document.createElement('input');
+    const enter_leave_send = document.createElement('input');
+    const total_send = document.createElement('input');
+    
 
+    scroll_send.name = "scroll";
     coordinates_send.name = "coordinates";
+    click_send.name = "click";
     windowsize_send.name = "windowsize";
+    background_send.name = "background";
+    check_send.name = "check";
+    type_send.name = "type";
+    enter_leave_send.name = "enter_leave";
+    total_send.name = "total";
 
+    scroll_send.type = "hidden";
     coordinates_send.type = "hidden";
+    click_send.type = "hidden";
     windowsize_send.type = "hidden";
+    background_send.type = "hidden";
+    check_send.type = "hidden";
+    type_send.type = "hidden";
+    enter_leave_send.type = "hidden";
+    total_send.type = "hidden";
 
+    scroll_send.value = JSON.stringify(scroll_list);
     coordinates_send.value = JSON.stringify(coordinates_list);
+    click_send.value = JSON.stringify(click_list);
     windowsize_send.value =  JSON.stringify(windowsize_list);
+    background_send.value = JSON.stringify(background_action_list);
+    check_send.value = JSON.stringify(check_list);
+    type_send.value = JSON.stringify(type_list);
+    enter_leave_send.value = JSON.stringify(enter_leave_list);
+    total_send.value = JSON.stringify(total);
 
+
+    event.target.appendChild(scroll_send);
     event.target.appendChild(coordinates_send);
+    event.target.appendChild(click_send);
     event.target.appendChild(windowsize_send);
+    event.target.appendChild(background_send);
+    event.target.appendChild(check_send);
+    event.target.appendChild(type_send);
+    event.target.appendChild(enter_leave_send);
+    event.target.appendChild(total_send);
 }
