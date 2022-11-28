@@ -335,12 +335,12 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var enter = {"type" : "item",
+            var enter_item = {"type" : "item",
                         "action" : "enter",
                         "question_id" : target.name,
                         "time" : tr
             };
-            console.log("enter   ", enter);
+            console.log("enter   ", enter_item);
         });
         target.addEventListener(`mouseleave`, function () {
             //時間の計測
@@ -348,12 +348,12 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var leave_question={"type" : "item",
+            var leave_item={"type" : "item",
                                 "action" : "leave",
                                 "question_id" : target.name,
                                 "time" : tr
             };
-            console.log("leave   ", leave_question);
+            console.log("leave   ", leave_item);
         });
     }
 })
