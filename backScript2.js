@@ -335,10 +335,10 @@ window.addEventListener('load', function() {
             var tr = t - startTime;
             tr = parseInt(tr);
 
-            var enter_item = {"type" : "item",
-                        "action" : "enter",
-                        "question_id" : target.name,
-                        "time" : tr
+            var enter_item={"type" : "item",
+                            "action" : "enter",
+                            "question_id" : target.name,
+                            "time" : tr
             };
             console.log("enter   ", enter_item);
         });
@@ -349,9 +349,9 @@ window.addEventListener('load', function() {
             tr = parseInt(tr);
 
             var leave_item={"type" : "item",
-                                "action" : "leave",
-                                "question_id" : target.name,
-                                "time" : tr
+                            "action" : "leave",
+                            "question_id" : target.name,
+                            "time" : tr
             };
             console.log("leave   ", leave_item);
         });
