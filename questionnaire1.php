@@ -118,20 +118,22 @@ if($user_device == 'smartphone' || $user_device == 'phone'){
                 <?php $q_number = 1;
                 foreach($questions as $question){ ?>
                   <li style="word-break : break-all;" id=<?php echo'"'. $question['question_id'].'"' ?>><?php echo $question['title'] ?></li></br>
-                  <?php if($question["qtype"] == "radio"){?>
-                    <a><?php $items = explode(",", $question['items']); 
-                    foreach($items as $item => $i){
-                      echo '<label for="' . $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="' . $items[$item] . '">' . $i . '</label>' . "<br />";
-                    }
-                  ?>
-                  </a>
-                  <?php }elseif($question["qtype"] == "text"){?>
-                    <div class="form-group text-left">
-                      <td style="position:relative">
-                        <label style="width:80%; box-sizing:border-box"><input type="text" style="width:80%; box-sizing:border-box" name= <?php echo '"' . $question['question_id'] . '"'?>></label>
-                      </td>
-                    </div>
-                  <?php }?>
+                  <div id="items">
+                    <?php if($question["qtype"] == "radio"){?>
+                      <a><?php $items = explode(",", $question['items']); 
+                      foreach($items as $item => $i){
+                        echo '<label for="' . $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="' . $items[$item] . '">' . $i . '</label>' . "<br />";
+                      }
+                    ?>
+                    </a>
+                    <?php }elseif($question["qtype"] == "text"){?>
+                      <div class="form-group text-left">
+                        <td style="position:relative">
+                          <label style="width:80%; box-sizing:border-box"><input type="text" style="width:80%; box-sizing:border-box" name= <?php echo '"' . $question['question_id'] . '"'?>></label>
+                        </td>
+                      </div>
+                    <?php }?>
+                  </div>
                   <br><br><br>
                   <?php $q_number++;
                 } ?>
