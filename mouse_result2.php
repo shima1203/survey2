@@ -33,10 +33,14 @@ if($_SESSION['user_id'] != 1){
 $questionnaire_id = 1;
 $answer_id = $_GET["answer_id"];
 
-//回答情報
+//回答
 $answers_pre=$db->prepare('SELECT * FROM Answers WHERE answer_id=?');
 $answers_pre->execute(array($answer_id));
 $answers=$answers_pre->fetchAll();
+//回答データ
+$answerdata_pre=$db->prepare('SELECT * FROM AnswerData WHERE answer_id=?');
+$answerdata_pre->execute(array($answer_id));
+$answerdata=$answers_pre->fetch();
 //アンケート情報
 $questionnaires=$db->prepare('SELECT * FROM Questionnaires WHERE questionnaire_id=?');
 $questionnaires->execute(array($questionnaire_id));
@@ -93,7 +97,7 @@ $questions=$questions_pre->fetchAll();
 
     <!-- 座標をjavascriptに渡す -->
     <?php
-        $coordinates=$answers[0]["coordinates"];
+        $coordinates=$answerdata["coordinates"];
     ?>
     
     <script type="text/javascript">
