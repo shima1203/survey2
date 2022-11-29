@@ -40,7 +40,7 @@ $answers=$answers_pre->fetchAll();
 //回答データ
 $answerdata_pre=$db->prepare('SELECT * FROM AnswerData WHERE answer_id=?');
 $answerdata_pre->execute(array($answer_id));
-$answerdata=$answers_pre->fetch();
+$answerdata=$answerdata_pre->fetch();
 //アンケート情報
 $questionnaires=$db->prepare('SELECT * FROM Questionnaires WHERE questionnaire_id=?');
 $questionnaires->execute(array($questionnaire_id));
