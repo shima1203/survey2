@@ -113,7 +113,7 @@ $questions=$questions_pre->fetchAll();
   <!-- ここからアンケート -->
 
   <body class="text-center box1" >
-    <div class="card mx-auto"style="width: 40%;top:150px">
+    <div class="card mx-auto"style="width: 750px;top:150px">
       <div class="card-header" style="background-color: rgba(120,170,140);font-size:20px">
         <h1 class="text-white bg-ddd h-30">しましまアンケート</h1>
       </div>
@@ -124,31 +124,26 @@ $questions=$questions_pre->fetchAll();
               <div class="form-group text-left">
                 <?php $q_number = 1;
                 foreach($questions as $question){ ?>
-                  <li style="font-size:14pt"><b><?php echo "Q" . $q_number; ?></b></li>
-                  <label class="control-label" style="font-size:14pt"><?php echo $question['title'] ?></label></br>
-                  <?php if($question["qtype"] == "radio"){?>
-                    <a><?php $items = explode(",", $question['items']); 
-                    foreach($items as $item => $i){
-                      echo '<label for="' . $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="' . $items[$item] . '">' . $i . '</label>' . "<br />";
-                    }
-                  ?>
-                  </a>
-                  <?php }elseif($question["qtype"] == "text"){?>
-                    <div class="form-group text-left">
-                      <td style="position:relative">
-                        <input type="text" style="width:80%; box-sizing:border-box" name= <?php echo '"' . $question['question_id'] . '"'?>>
-                      </td>
-                    </div>
-                  <?php }?>
-                  <br />
+                  <li style="word-break : break-all;" id=<?php echo'"'. $question['question_id'].'"' ?>><?php echo $question['title'] ?></li></br>
+                  <div class="items">
+                    <?php if($question["qtype"] == "radio"){?>
+                      <a><?php $items = explode(",", $question['items']); 
+                      foreach($items as $item => $i){
+                        echo '<label for="' . $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="' . $items[$item] . '">' . $i . '</label>' . "<br />";
+                      }
+                    ?>
+                    </a>
+                    <?php }elseif($question["qtype"] == "text"){?>
+                      <div class="form-group text-left">
+                        <td style="position:relative">
+                          <label style="width:80%; box-sizing:border-box"><input type="text" style="width:80%; box-sizing:border-box" name= <?php echo '"' . $question['question_id'] . '"'?>></label>
+                        </td>
+                      </div>
+                    <?php }?>
+                  </div>
+                  <br><br><br>
                   <?php $q_number++;
                 } ?>
-              </div>
-              <div class="form-group text-left">
-                <li> <label class="control-label6">当アンケートへのご意見をお書きください</label></li>
-                <td style="position:relative">
-                  <input type="text" style="width:80%; box-sizing:border-box">
-                </td>
               </div>
               
 
@@ -162,7 +157,7 @@ $questions=$questions_pre->fetchAll();
       </div>
       <div style = "width:600px;height:200px;"></div>
       <div style = "text-align:center;">※アンケート回答中の動作等をデータとして収集させていただきます。ご了承ください。</div>
-      <div style = "width:600px;height:3000px;"></div>
+      <div style = "width:600px;height:50px;"></div>
       
     </div>  
   </body>
