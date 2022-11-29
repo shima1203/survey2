@@ -118,7 +118,7 @@ if($user_device == 'smartphone' || $user_device == 'phone'){
                 <?php $q_number = 1;
                 foreach($questions as $question){ ?>
                   <li style="word-break : break-all;" id=<?php echo'"'. $question['question_id'].'"' ?>><?php echo $question['title'] ?></li></br>
-                  <div id="items">
+                  <div class="items">
                     <?php if($question["qtype"] == "radio"){?>
                       <a><?php $items = explode(",", $question['items']); 
                       foreach($items as $item => $i){

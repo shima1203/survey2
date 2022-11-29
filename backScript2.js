@@ -325,7 +325,7 @@ window.addEventListener('load', function() {
 var enter_leave_list = [];
 window.addEventListener('load', function() {
     let questions = document.querySelectorAll(`li`);
-    let items = document.getElementById(`items`);
+    let items = document.querySelectorAll(`.items`);
 
     for (let target of questions) {
         target.addEventListener(`mouseenter`, function () {
