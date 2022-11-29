@@ -98,10 +98,13 @@ $questions=$questions_pre->fetchAll();
     <!-- 座標をjavascriptに渡す -->
     <?php
         $coordinates=$answerdata["coordinates"];
+        $click=$answerdata["click"];
     ?>
     
     <script type="text/javascript">
-        var coordinates=JSON.parse('<?php echo $coordinates; ?>');//jsonをparseしてJavaScriptの変数に代入
+        //jsonをparseしてJavaScriptの変数に代入
+        var coordinates=JSON.parse('<?php echo $coordinates; ?>');
+        var click=JSON.parse('<?php echo $click; ?>');
     </script>
 
     <!-- 外部ファイル読込 -->
