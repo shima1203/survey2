@@ -21,7 +21,6 @@ function resize(windowsize){
     var window_x = windowsize[k]["x"];
     var window_y = windowsize[k]["y"];
     var window_time = windowsize[k]["time"];
-    window.resizeTo(window_x, window_y);
     setTimeout(resize_window , window_time, window_x, window_y);
   }
 }
@@ -35,6 +34,7 @@ function drawLine(x,y,context){
 
 function resize_window(window_x, window_y){
   console.log(window_x, window_y);
+  window.resizeTo(window_x, window_y);
 }
 
 
