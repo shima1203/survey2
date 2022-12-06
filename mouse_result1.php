@@ -6,7 +6,7 @@ require('dbconnect.php');
 $user1 = array();
 $user2 = array();
 array_push($user1, ["0","ubuntu"],["1","shima"]);
-array_push($user2, ["0","ubuntu"],["1","shima"],["2","yamanaka"],["8","Rena0301"],["17","ponta"]);
+array_push($user2, ["8","Rena0301"],["17","ponta"]);
 
 //ログイン状態をチェック
 if (isset($_SESSION['user_id']) && ($_SESSION['time'] + 3600 > time())) {
