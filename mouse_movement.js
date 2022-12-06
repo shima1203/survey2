@@ -21,7 +21,7 @@ function resize(windowsize){
     var window_x = windowsize[k]["x"];
     var window_y = windowsize[k]["y"];
     var window_time = windowsize[k]["time"];
-    setTimeout(window.resizeTo , window_time, window_x, window_y)
+    setTimeout(window.resizeTo , window_time, window_x, window_y);
   }
 }
 
