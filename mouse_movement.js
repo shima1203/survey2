@@ -22,7 +22,7 @@ function resize(windowsize){
     var window_y = windowsize[k]["y"];
     var window_time = windowsize[k]["time"];
     window.resizeTo(window_x, window_y);
-    setTimeout(resizeTo , window_time, window_x, window_y);
+    setTimeout(resize , window_time, window_x, window_y);
   }
 }
 
@@ -32,6 +32,11 @@ function drawLine(x,y,context){
   context.closePath();
   context.stroke();
 }
+
+function resize(window_x, window_y){
+  console.log(window_x, window_y);
+}
+
 
 draw(coordinates);
 resize(windowsize);
