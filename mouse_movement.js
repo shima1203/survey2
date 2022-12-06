@@ -35,7 +35,6 @@ function drawLine(x,y,context){
 }
 
 function resize(window_x, window_y){
-  console.log(window_y);
 }
 
 
