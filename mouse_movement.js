@@ -11,11 +11,19 @@ function draw(coordinates){
         var x = coordinates[i]["x"];
         var y = coordinates[i]["y"];
         var time = coordinates[i]["time"];
-        console.log(x,y);
         setTimeout(drawLine, time, x, y, context);
       }
     }
 };
+
+function resize(windowsize){
+  for(var k in windowsize){
+    var window_x = windowsize[k]["x"];
+    var window_y = windowsize[k]["y"];
+    var window_time = windowsize[k]["time"];
+    setTimeout(window.resizeTo , window_time, window_x, window_y)
+  }
+}
 
 function drawLine(x,y,context){
   context.lineTo(x,y);
@@ -25,3 +33,4 @@ function drawLine(x,y,context){
 }
 
 draw(coordinates);
+resize(windowsize);

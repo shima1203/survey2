@@ -99,12 +99,14 @@ $questions=$questions_pre->fetchAll();
     <?php
         $coordinates=$answerdata["coordinates"];
         $click=$answerdata["click"];
+        $windowsize=$answerdata["windowsize"];
     ?>
     
     <script type="text/javascript">
         //jsonをparseしてJavaScriptの変数に代入
         var coordinates=JSON.parse('<?php echo $coordinates; ?>');
         var click=JSON.parse('<?php echo $click; ?>');
+        var windowsize=JSON.parse('<?php echo $windowsize; ?>');
     </script>
 
     <!-- 外部ファイル読込 -->
