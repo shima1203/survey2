@@ -16,13 +16,13 @@ function draw(coordinates){
     }
 };
 
-function resize(windowsize){
+function resize(windowsize){console.log(windowsize);
   for(var k in windowsize){
     var window_x = windowsize[k]["x"];
     var window_y = windowsize[k]["y"];
     var window_time = windowsize[k]["time"];
     window.resizeTo(window_x, window_y);
-    console.log(windowsize);
+    
     setTimeout(resize , window_time, window_x, window_y);
   }
 }
