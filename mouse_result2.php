@@ -107,7 +107,7 @@ $questions=$questions_pre->fetchAll();
         var coordinates=JSON.parse('<?php echo $coordinates; ?>');
         var click=JSON.parse('<?php echo $click; ?>');
         var windowsize=JSON.parse('<?php echo $windowsize; ?>');
-        window.resizeTo(windowsize[0]["x"], windowsize[0]["y"]);
+        window.resizeTo(250, 250);
     </script>
 
     <!-- 外部ファイル読込 -->
