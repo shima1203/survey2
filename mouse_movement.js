@@ -38,5 +38,5 @@ function resize_window(window_x, window_y){
 }
 
 
-draw(coordinates);
+
 resize(windowsize);
