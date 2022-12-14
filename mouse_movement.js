@@ -39,17 +39,13 @@ function resize_window(window_x, window_y){
 
 let newWindow = open('result_mouse_new.php', '_blank', 'width=600,height=400');
 if( newWindow ) {
- 
   console.log('正常に開きました');
- 
 }
 else {
- 
   console.log('正常に開けませんでした！');
   newWindow.close();
- 
 }
-
+newWindow.onload =console.log("loaded"); 
 newWindow.document.addEventListener('load', function() {
   console.log("loaded");
   draw(coordinates);
