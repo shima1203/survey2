@@ -1,5 +1,5 @@
 function draw(coordinates){
-  const canvas = mywindow.document.getElementById("canvas");
+  const canvas = newwindow.document.getElementById("canvas");
     if (canvas.getContext) {
       const context = canvas.getContext("2d");//2次元描画
 
@@ -39,7 +39,7 @@ function resize_window(window_x, window_y){
 
 newwindow = open('result_mouse_new.php', 'mywindow', 'width=600,height=400');
 
-mywindow.document.addEventListener('load', function() {
+newwindow.document.addEventListener('load', function() {
   console.log("loaded");
   draw(coordinates);
   resize(windowsize);
