@@ -40,3 +40,9 @@ function resize_window(window_x, window_y){
 
 // draw(coordinates);
 resize(windowsize);
+
+
+
+
+
+myWindow = open( "questionnaire1.php", null, "width=200,height=200" ) ;
