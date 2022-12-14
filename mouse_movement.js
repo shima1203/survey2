@@ -38,7 +38,8 @@ function resize_window(window_x, window_y){
 }
 
 newwindow = open('result_mouse_new.php', '_blank', 'width=600,height=400');
-document.addEventListener('DOMContentLoaded', function() {
+
+newwindow.document.addEventListener('DOMContentLoaded', function() {
 draw(coordinates);
 resize(windowsize);
 });
