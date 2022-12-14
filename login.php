@@ -22,7 +22,7 @@ if(!empty($_POST)) {
             }elseif($_GET['action'] == 'mouse_result2'){
                 header('Location: /survey/mouse_result2.php');
                 exit();
-            }}elseif($_GET['action'] == 'result_mouse'){
+            }elseif($_GET['action'] == 'result_mouse'){
                 header('Location: /survey/mresult_mouse.php');
                 exit();
             }elseif($_GET['action'] == 'mouse_result3'){
