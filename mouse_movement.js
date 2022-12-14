@@ -34,7 +34,7 @@ function drawLine(x,y,context){
 
 function resize_window(window_x, window_y){
   console.log(window_x, window_y);
-  window.resizeTo(window_x, window_y);
+  newwindow.resizeTo(window_x, window_y);
 }
 
 let newwindow = open('result_mouse_new.php', '_blank', 'width=600,height=400');
