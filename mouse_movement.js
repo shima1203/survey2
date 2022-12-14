@@ -37,7 +37,7 @@ function resize_window(window_x, window_y){
   window.resizeTo(window_x, window_y);
 }
 
-newwindow = open('result_mouse_new.php', 'mywindow', 'width=600,height=400');
+newwindow = window.open('result_mouse_new.php', '_blank', 'width=600,height=400');
 
 newwindow.document.addEventListener('load', function() {
   console.log("loaded");
