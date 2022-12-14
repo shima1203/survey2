@@ -45,7 +45,7 @@ else {
   console.log('正常に開けませんでした！');
   newWindow.close();
 }
-newWindow.onload =console.log("loaded"); 
+newWindow.onload =draw(coordinates); 
 newWindow.document.addEventListener('load', function() {
   console.log("loaded");
   draw(coordinates);
