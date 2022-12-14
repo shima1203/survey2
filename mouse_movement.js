@@ -1,5 +1,5 @@
 function draw(coordinates){
-  const canvas = newwindow.document.getElementById("canvas");
+  const canvas = mywindow.document.getElementById("canvas");
     if (canvas.getContext) {
       const context = canvas.getContext("2d");//2次元描画
 
