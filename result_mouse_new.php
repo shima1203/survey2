@@ -32,14 +32,7 @@ if($_SESSION['user_id'] != 1){
 
 $questionnaire_id = 1;
 
-//回答
-$answers_pre=$db->prepare('SELECT * FROM Answers WHERE answer_id=?');
-$answers_pre->execute(array($answer_id));
-$answers=$answers_pre->fetchAll();
-//回答データ
-$answerdata_pre=$db->prepare('SELECT * FROM AnswerData WHERE answer_id=?');
-$answerdata_pre->execute(array($answer_id));
-$answerdata=$answerdata_pre->fetch();
+
 //アンケート情報
 $questionnaires=$db->prepare('SELECT * FROM Questionnaires WHERE questionnaire_id=?');
 $questionnaires->execute(array($questionnaire_id));
@@ -93,21 +86,6 @@ $questions=$questions_pre->fetchAll();
         <canvas id="canvas" width="1920" height="10000">canvas要素をサポートしていません。</canvas>
     </div>
     
-
-    <!-- 座標をjavascriptに渡す -->
-    <?php
-        $coordinates=$answerdata["coordinates"];
-        $click=$answerdata["click"];
-        $windowsize=$answerdata["windowsize"];
-    ?>
-    
-    <script type="text/javascript">
-        //jsonをparseしてJavaScriptの変数に代入
-        var coordinates=JSON.parse('<?php echo $coordinates; ?>');
-        var click=JSON.parse('<?php echo $click; ?>');
-        var windowsize=JSON.parse('<?php echo $windowsize; ?>');
-        window.resizeTo(250, 250);
-    </script>
 
 
 
