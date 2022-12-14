@@ -1,5 +1,5 @@
 function draw(coordinates){
-  const canvas = newwindow.document.getElementById("canvas");
+  const canvas = window.document.getElementById("canvas");
     if (canvas.getContext) {
       const context = canvas.getContext("2d");//2次元描画
 
@@ -37,7 +37,7 @@ function resize_window(window_x, window_y){
   window.resizeTo(window_x, window_y);
 }
 
-newwindow = open('result_mouse_new.php', 'mywindow', 'width=600,height=400');
+newwindow = open('result_mouse_new.php', '_blank', 'width=600,height=400');
 
 newwindow.document.addEventListener('DOMContentLoaded', function() {
   draw(coordinates);
