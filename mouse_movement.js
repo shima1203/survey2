@@ -45,7 +45,7 @@ else {
   console.log('正常に開けませんでした！');
   newWindow.close();
 }
-newWindow.onload =draw(coordinates); 
+newWindow.onload =resize(windowsize);
 newWindow.document.addEventListener('load', function() {
   console.log("loaded");
   draw(coordinates);
