@@ -1,5 +1,5 @@
 function draw(coordinates){
-  const canvas = newwindow.document.getElementById("canvas");
+  const canvas = newWindow.document.getElementById("canvas");
     if (canvas.getContext) {
       const context = canvas.getContext("2d");//2次元描画
 
@@ -34,12 +34,23 @@ function drawLine(x,y,context){
 
 function resize_window(window_x, window_y){
   console.log(window_x, window_y);
-  newwindow.resizeTo(window_x, window_y);
+  newWindow.resizeTo(window_x, window_y);
 }
 
-let newwindow = open('result_mouse_new.php', '_blank', 'width=600,height=400');
+let newWindow = open('result_mouse_new.php', '_blank', 'width=600,height=400');
+if( newWindow ) {
+ 
+  console.log('正常に開きました');
+ 
+}
+else {
+ 
+  console.log('正常に開けませんでした！');
+  newWindow.close();
+ 
+}
 
-newwindow.document.addEventListener('load', function() {
+newWindow.document.addEventListener('load', function() {
   console.log("loaded");
   draw(coordinates);
   resize(windowsize);
