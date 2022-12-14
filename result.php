@@ -126,21 +126,12 @@ if($questionnaire_id == 2 && $ex2 == 0){
 
                 echo "<td>" . $answer['base_data']['created_at'] . "</td>";
                 
-                echo '<td align="center">', '<button onclick="location.href=\'/survey/result_mouse.php?answer_id=' . $answer['base_data']['answer_id'] . '\'" id="windowOpen">click here</button>'. "</td>";
+                echo '<td align="center">', '<button onclick="location.href=\'/survey/result_mouse.php?answer_id=' . $answer['base_data']['answer_id'] . '\'">click here</button>'. "</td>";
                 
                 echo "</tr>";
             }
             ?>
         </table>
         <a href="logout.php" style="position:absolute; top:0; right:0;">logout</a>
-
-        <script>
-            let newwindow;
-            let windowOpen = document.getElementById('windowOpen');
-
-            windowOpen.addEventListener('click', function(){
-                newwindow = open('result_mouse.html', 'mywindow', 'width=600,height=400');
-            });
-        </script>
     </body>
 </html>
