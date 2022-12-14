@@ -109,9 +109,6 @@ $questions=$questions_pre->fetchAll();
         window.resizeTo(250, 250);
     </script>
 
-    <!-- 外部ファイル読込 -->
-    <script type="text/javascript" src="/survey/mouse_movement.js"></script>
-
 
 
 
