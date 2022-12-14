@@ -18,7 +18,7 @@ if (isset($_SESSION['user_id']) && ($_SESSION['time'] + 3600 > time())) {
     $members->execute(array($_SESSION['user_id']));
     $member=$members->fetch();
 } else {
-    header('Location: login.php/?action=mouse_result1');
+    header('Location: login.php/?action=result');
     exit();
 }
 

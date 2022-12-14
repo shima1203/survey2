@@ -16,6 +16,9 @@ if(!empty($_POST)) {
             if($_GET['action'] == 'mouse_result1'){
                 header('Location: /survey/mouse_result1.php');
                 exit();
+            }elseif($_GET['action'] == 'result'){
+                header('Location: /survey/result.php');
+                exit();
             }elseif($_GET['action'] == 'mouse_result2'){
                 header('Location: /survey/mouse_result2.php');
                 exit();
