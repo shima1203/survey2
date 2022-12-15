@@ -53,7 +53,7 @@ function drawRec(x,y,context){
   context.fill();
 }
 
-function resize_window(window_x, window_y,window){
+function resize_window(window_x, window_y, window){
   console.log(window_x, window_y);
   window.resizeTo(window_x, window_y);
 }
@@ -76,12 +76,6 @@ newWindow.addEventListener('load', function() {
   draw_coordinates(coordinates,canvas_new);
   draw_click(click,canvas_new);
   resize(windowsize,newWindow);
-});
-window.addEventListener('load', function() {
-  console.log("loaded");
-  draw_coordinates(coordinates,canvas);
-  draw_click(click,canvas);
-  resize(windowsize,window);
 });
 
 
