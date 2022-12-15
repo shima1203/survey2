@@ -146,7 +146,7 @@ if($questionnaire_id == 2 && $ex2 == 0){
                     echo "<td>" . $answer['base_data']['created_at'] . "</td>";
                     
                     echo '<td align="center">', '<button onclick="location.href=\'/survey/mouse_result2.php?answer_id=' . $answer['base_data']['answer_id'] . '\'">click here</button>'. "</td>";
-                    
+                    echo '<td align="center">', '<button onclick="location.href=\'/survey/result.php?delete_id=' . $answer['base_data']['answer_id'] . '\'">delete</button>'. "</td>";
                     echo "</tr>";
                 }
             }
