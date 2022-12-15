@@ -70,7 +70,7 @@ if($questionnaire_id == 2 && $ex2 == 0){
 
 $delete_id = $_GET["delete_id"];
 if($delete_id){
-    echo "delete";
+    echo $delete_id;
     exit();
 }
 ?>
