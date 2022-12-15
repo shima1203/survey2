@@ -37,7 +37,7 @@ function resize(windowsize){
     var window_x = windowsize[k]["x"];
     var window_y = windowsize[k]["y"];
     var window_time = windowsize[k]["time"];
-    setTimeout(resize_window , window_time, 4, 4);
+    setTimeout(resize_window , window_time, window_x, window_y);
   }
 }
 
@@ -51,7 +51,7 @@ function drawLine(x,y,context){
 }
 
 function drawRec(x,y,context){
-  context.rect(x-2, y-2, x+2, y+2);
+  context.rect(x-2, y-2, 4, 4);
   context.fill();
 }
 
