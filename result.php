@@ -128,7 +128,7 @@ if($questionnaire_id == 2 && $ex2 == 0){
                     echo "<td>" . $answer['base_data']['created_at'] . "</td>";
                     
                     echo '<td align="center">', '<button onclick="location.href=\'/survey/result_mouse.php?answer_id=' . $answer['base_data']['answer_id'] . '\'">click here</button>'. "</td>";
-                    echo '<td align="center">', '<form action ="" method="post"><input type="submit" name="delete"  value=' . $answer['base_data']['answer_id'] . '\'">delete</form>'. "</td>";
+                    echo '<td align="center">', '<button onclick="location.href=\'/survey/result.php?delete_id=' . $answer['base_data']['answer_id'] . '\'">click here</button>'. "</td>";
                     echo "</tr>";
                 }
             }
