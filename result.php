@@ -108,27 +108,29 @@ if($questionnaire_id == 2 && $ex2 == 0){
             }
 
             foreach($ans_list as $answer) {
-                echo "<tr>";
-                echo "<td>" . $answer['base_data']['answer_id'] . "</td>";
-                echo "<td>" . $answer['base_data']['questionnaire_id'] . "</td>";
-                
-                $i = 0;
-                foreach($answer['answers'] as $ans) {
-                    if($questions[$i]['qtype'] == "radio"){
-                        $items = explode(",", $questions[$i]['items']);
-                        echo "<td>" . $items[$ans] . "</td>";
-                    }else{
-                        echo "<td>" . $ans . "</td>";
-                    }
+                if($answer['base_data']['flag_delete'] == 1){
+                    echo "<tr>";
+                    echo "<td>" . $answer['base_data']['answer_id'] . "</td>";
+                    echo "<td>" . $answer['base_data']['questionnaire_id'] . "</td>";
                     
-                    $i++;
-                }
+                    $i = 0;
+                    foreach($answer['answers'] as $ans) {
+                        if($questions[$i]['qtype'] == "radio"){
+                            $items = explode(",", $questions[$i]['items']);
+                            echo "<td>" . $items[$ans] . "</td>";
+                        }else{
+                            echo "<td>" . $ans . "</td>";
+                        }
+                        
+                        $i++;
+                    }
 
-                echo "<td>" . $answer['base_data']['created_at'] . "</td>";
-                
-                echo '<td align="center">', '<button onclick="location.href=\'/survey/result_mouse.php?answer_id=' . $answer['base_data']['answer_id'] . '\'">click here</button>'. "</td>";
-                
-                echo "</tr>";
+                    echo "<td>" . $answer['base_data']['created_at'] . "</td>";
+                    
+                    echo '<td align="center">', '<button onclick="location.href=\'/survey/result_mouse.php?answer_id=' . $answer['base_data']['answer_id'] . '\'">click here</button>'. "</td>";
+                    
+                    echo "</tr>";
+                }
             }
             ?>
         </table>
