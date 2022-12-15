@@ -108,7 +108,7 @@ if($questionnaire_id == 2 && $ex2 == 0){
             }
 
             foreach($ans_list as $answer) {
-                if($answer['base_data']['flag_delete'] == 1){
+                if($answer['base_data']['flag_delete'] == 0){
                     echo "<tr>";
                     echo "<td>" . $answer['base_data']['answer_id'] . "</td>";
                     echo "<td>" . $answer['base_data']['questionnaire_id'] . "</td>";
