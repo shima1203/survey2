@@ -51,7 +51,7 @@ function drawLine(x,y,context){
 }
 
 function drawRec(x,y,context){
-  context.rect(x-2, y-2, 4, 4);
+  context.rect(x-3, y-3, 6, 6);
   context.fill();
 }
 
