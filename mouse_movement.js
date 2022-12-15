@@ -71,19 +71,19 @@ else {
   console.log('正常に開けませんでした！');
   newWindow.close();
 }
-
-window.addEventListener('load', function() {
-  console.log("loaded");
-  draw_coordinates(coordinates,canvas);
-  draw_click(click,canvas);
-  resize(windowsize,window);
-});
 newWindow.addEventListener('load', function() {
   console.log("loaded");
   draw_coordinates(coordinates,canvas_new);
   draw_click(click,canvas_new);
   resize(windowsize,newWindow);
 });
+window.addEventListener('load', function() {
+  console.log("loaded");
+  draw_coordinates(coordinates,canvas);
+  draw_click(click,canvas);
+  resize(windowsize,window);
+});
+
 
 
 
