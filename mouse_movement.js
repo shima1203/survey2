@@ -1,5 +1,4 @@
-function draw_coordinates(coordinates){
-  const canvas = newWindow.document.getElementById("canvas");
+function draw_coordinates(coordinates,canvas){
     if (canvas.getContext) {
       const context = canvas.getContext("2d");//2次元描画
 
@@ -15,8 +14,7 @@ function draw_coordinates(coordinates){
     }
 };
 
-function draw_click(click){
-  const canvas = newWindow.document.getElementById("canvas");
+function draw_click(click,canvas){
     if (canvas.getContext) {
       const context = canvas.getContext("2d");//2次元描画
 
@@ -32,12 +30,12 @@ function draw_click(click){
     }
 };
 
-function resize(windowsize){
+function resize(windowsize,window){
   for(var k in windowsize){
     var window_x = windowsize[k]["x"];
     var window_y = windowsize[k]["y"];
     var window_time = windowsize[k]["time"];
-    setTimeout(resize_window , window_time, window_x, window_y);
+    setTimeout(resize_window , window_time, window_x, window_y, window);
   }
 }
 
@@ -55,15 +53,17 @@ function drawRec(x,y,context){
   context.fill();
 }
 
-function resize_window(window_x, window_y){
+function resize_window(window_x, window_y,window){
   console.log(window_x, window_y);
-  newWindow.resizeTo(window_x, window_y);
+  window.resizeTo(window_x, window_y);
 }
 
 
 
 
 let newWindow = open('result_mouse_new.php', '_blank', 'width=600,height=400');
+const canvas = window.document.getElementById("canvas");
+const canvas_new = newWindow.document.getElementById("canvas");
 if( newWindow ) {
   console.log('正常に開きました');
 }
@@ -72,13 +72,18 @@ else {
   newWindow.close();
 }
 
+window.addEventListener('load', function() {
+  console.log("loaded");
+  draw_coordinates(coordinates,canvas);
+  draw_click(click,canvas);
+  resize(windowsize,window);
+});
 newWindow.addEventListener('load', function() {
   console.log("loaded");
-  draw_coordinates(coordinates);
-  draw_click(click);
-  resize(windowsize);
+  draw_coordinates(coordinates,canvas_new);
+  draw_click(click,canvas_new);
+  resize(windowsize,newWindow);
 });
-
 
 
 
