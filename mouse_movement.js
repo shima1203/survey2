@@ -62,7 +62,7 @@ function resize_window(window_x, window_y, window){
 
 
 let newWindow = open('result_mouse_new.php', '_blank', 'width=600,height=400');
-const canvas = window.document.getElementById("canvas");
+
 
 if( newWindow ) {
   console.log('正常に開きました');
@@ -71,14 +71,20 @@ else {
   console.log('正常に開けませんでした！');
   newWindow.close();
 }
+
+window.addEventListener('load', function() {
+  const canvas = window.document.getElementById("canvas");
+  draw_coordinates(coordinates,canvas);
+  draw_click(click,canvas);
+  resize(windowsize,window);
+});
 newWindow.addEventListener('load', function() {
-  console.log("loaded");
+  console.log("newWindow loaded");
   const canvas_new = newWindow.document.getElementById("canvas");
   draw_coordinates(coordinates,canvas_new);
   draw_click(click,canvas_new);
   resize(windowsize,newWindow);
 });
-
 
 
 
