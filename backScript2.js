@@ -68,8 +68,8 @@ function MouseMoveFunc(e){
     tr = parseInt(tr);
 
     var coordinate={"event" : "mousemove",
-                    "x" : client_x, 
-                    "y" : client_y,
+                    "x" : page_x, 
+                    "y" : page_y,
                     "time" : tr};
 
     coordinates_list.push(coordinate);
