@@ -50,6 +50,9 @@ function MouseMoveFunc(e){
     // クライアント座標系を基点としたマウスカーソルの座標を取得
     var client_x = e.clientX;
     var client_y = e.clientY;
+    //ページ内の座標を取得
+    var page_x = e.pageX;
+    var page_y = e.pageY;
 
     // スクロール位置を取得
     var scroll_pos = DocumentGetScrollPosition(document);
@@ -65,8 +68,8 @@ function MouseMoveFunc(e){
     tr = parseInt(tr);
 
     var coordinate={"event" : "mousemove",
-                    "x" : client_x, 
-                    "y" : client_y,
+                    "x" : page_x, 
+                    "y" : page_y,
                     "time" : tr};
 
     coordinates_list.push(coordinate);
