@@ -129,15 +129,19 @@ if(document.addEventListener){
 
 
 //ウィンドウサイズ変更
-var window_x = window.innerWidth;
-var window_y = window.innerHeight;
+var outer_x = window.outerWidth;
+var outer_y = window.outerHeight;
+var inner_x = window.innerWidth;
+var inner_y = window.innerHeight;
 var screen_x = screen.availWidth;
 var screen_y = screen.availHeight;
 var windowsize_list = [];
-windowsize_list.push({"event" : "resizewindow", "x" : window_x, "y" : window_y, "time" : 0})
+windowsize_list.push({"event" : "resizewindow", "outer_x" : outer_x, "outer_y" : outer_y, "inner_x" : inner_x, "innery" : inner_y, "screen_x" : screen_y, "screen_y" : screen_y, "time" : 0})
 function resizeWindow(){
-    window_x = window.innerWidth;
-    window_y = window.innerHeight;
+    outer_x = window.outerWidth;
+    outer_y = window.outerHeight;
+    inner_x = window.innerWidth;
+    inner_y = window.innerHeight;
 
     //時間の計測
     var t = performance.now();
@@ -145,8 +149,12 @@ function resizeWindow(){
     tr = parseInt(tr);
 
     var windowsize={"event" : "resizewindow",
-                    "x" : window_x,
-                    "y" : window_y,
+                    "outer_x" : outer_x,
+                    "outer_y" : outer_y,
+                    "inner_x" : inner_x,
+                    "innery" : inner_y,
+                    "screen_x" : screen_y,
+                    "screen_y" : screen_y,
                     "time" : tr
     };
     windowsize_list.push(windowsize);

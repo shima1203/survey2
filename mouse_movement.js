@@ -32,8 +32,8 @@ function draw_click(click,canvas){
 
 function resize(windowsize,window){
   for(var k in windowsize){
-    var window_x = windowsize[k]["x"];
-    var window_y = windowsize[k]["y"];
+    var window_x = windowsize[k]["outer_x"];
+    var window_y = windowsize[k]["outer_y"];
     var window_time = windowsize[k]["time"];
     setTimeout(resize_window , window_time, window_x, window_y, window);
   }
