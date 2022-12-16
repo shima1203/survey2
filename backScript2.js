@@ -48,15 +48,15 @@ var coordinates_list = [];
 // マウス移動
 function MouseMoveFunc(e){
     // クライアント座標系を基点としたマウスカーソルの座標を取得
-    var mouse_x = e.clientX;
-    var mouse_y = e.clientY;
+    var client_x = e.clientX;
+    var client_y = e.clientY;
 
     // スクロール位置を取得
     var scroll_pos = DocumentGetScrollPosition(document);
 
     // スクロール位置を加算して、グローバル座標系に変換する
-    mouse_x += scroll_pos.x;
-    mouse_y += scroll_pos.y;
+    client_x += scroll_pos.x;
+    client_y += scroll_pos.y;
     distance += 1;
 
     //時間の計測
@@ -65,8 +65,8 @@ function MouseMoveFunc(e){
     tr = parseInt(tr);
 
     var coordinate={"event" : "mousemove",
-                    "x" : mouse_x, 
-                    "y" : mouse_y,
+                    "x" : client_x, 
+                    "y" : client_y,
                     "time" : tr};
 
     coordinates_list.push(coordinate);
