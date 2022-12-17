@@ -4,6 +4,9 @@ function draw_coordinates(coordinates,canvas){
 
       context.beginPath();
       context.moveTo(coordinates[0]["x"],coordinates[0]["y"]);
+      context.lineTo(x,y);
+      context.closePath();
+      context.stroke();
 
       for(var i in coordinates){
         var x = coordinates[i]["x"];
