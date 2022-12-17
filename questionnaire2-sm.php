@@ -49,7 +49,7 @@ if (!empty($_POST)){
 
         //DBにINSERT
         $message=$db->prepare('INSERT INTO Answers SET answer_id=?, questionnaire_id=?, question_id=?, answer=?, flag_delete=0, created_at=NOW()');
-        $message->execute(array($answer_id, $questionnaire_id, $question['question_id'], $answer, $_POST["coordinates"]));
+        $message->execute(array($answer_id, $questionnaire_id, $question['question_id'], $answer));
         
     }
     $message2=$db->prepare('INSERT INTO AnswerData SET answer_id=?, questionnaire_id=?, scroll=?, coordinates=?, click=?, windowsize=?, background=?, checking=?, type=?, enter_leave=?, total=?, device=?, created_at=NOW()');

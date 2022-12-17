@@ -3,12 +3,11 @@ session_start();
 require('dbconnect.php');
 $questionnaire_id = 3;
 
-
 //ユーザーエージェントの判定
 $user_device = '';
 // HTTP リクエストヘッダーが持っているユーザーエージェントの文字列を取得
 $useragent = $_SERVER['HTTP_USER_AGENT'];
-if((strpos($useragent, 'Android') !== false) &&
+    if((strpos($useragent, 'Android') !== false) &&
     (strpos($useragent, 'Mobile') !== false) ||
     (strpos($useragent, 'iPhone') !== false) ||
     (strpos($useragent, 'iPad') !== false) ||
@@ -35,6 +34,7 @@ $questionnaire=$questionnaires->fetch();
 $questions_pre=$db->prepare('SELECT * FROM Questions WHERE questionnaire_id=?');
 $questions_pre->execute(array($questionnaire_id));
 $questions=$questions_pre->fetchAll();
+
 //DBに追加
 if (!empty($_POST)){
     //answer_idの作成
@@ -45,15 +45,16 @@ if (!empty($_POST)){
         //解答の取得
         $answer=$_POST[$question['question_id']];
         if($_POST[$question['question_id']] == null){
-            header('Location: /survey/questionnaire2.php/?action=rewrite');
+            header('Location: /survey/questionnaire3.php/?action=rewrite');
             exit();
         }
 
         //DBにINSERT
-        $message=$db->prepare('INSERT INTO Answers SET answer_id=?, questionnaire_id=?, question_id=?, answer=?, flag_delete=0, created_at=NOW()');
-        $message->execute(array($answer_id, $questionnaire_id, $question['question_id'], $answer, $_POST["coordinates"]));
-        
-    }
+        $message1=$db->prepare('INSERT INTO Answers SET answer_id=?, questionnaire_id=?, question_id=?, answer=?, flag_delete=0, created_at=NOW()');
+        $message1->execute(array($answer_id, $questionnaire_id, $question['question_id'], $answer));
+
+
+    }    
     $message2=$db->prepare('INSERT INTO AnswerData SET answer_id=?, questionnaire_id=?, scroll=?, coordinates=?, click=?, windowsize=?, background=?, checking=?, type=?, enter_leave=?, total=?, device=?, created_at=NOW()');
     $message2->execute(array($answer_id, $questionnaire_id, $_POST["scroll"], $_POST["coordinates"], $_POST["click"], $_POST["windowsize"], $_POST["background"], $_POST["check"], $_POST["type"], $_POST["enter_leave"], $_POST["total"], $user_device));
     header('Location: /survey/questionnaire_confirmation.php');
@@ -62,9 +63,18 @@ if (!empty($_POST)){
 
 //スマホの場合
 if($user_device == 'smartphone' || $user_device == 'phone'){
-    header('Location: /survey/questionnaire2-sm.php');
+    header('Location: /survey/questionnaire3.php');
 }
 ?>
+
+<!-- このアンケートは実際の高専生活アンケートとは異なります
+回答内容は外部に漏れることもありますし、秘密にされる保証はありませんので、知られたく内容を答えないようにお願いいたします
+また、いじめ等に関して真面目に相談されても対応しかねますので、ご了承ください　
+
+回答方法
+1回目はしっかり問題文を読んで”集中して”回答ください　この際、「集中」を最初に選択ください
+2回目は問題文を読まず、選択肢も適当に回答ください
+-->
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -82,74 +92,77 @@ if($user_device == 'smartphone' || $user_device == 'phone'){
         <link rel="icon" sizes="16x16" href="/favicon.ico" />
 
         <style>
-        .bg-ddd {
+            .bg-ddd {
             background-size: 40px;
             background-color:rgba(120,170,140);
-        }
-        .box1 {
-        background-color: rgba(50,255,50,.1);
-        }
-        li {
-        margin-left: 0em;
-        text-indent: 0em;
-        font-size:14pt;
-        }
+            }
+            .box1 {
+            background-color: rgba(50,255,50,.1);
+            }
+            li {
+            margin-left: 0em;
+            text-indent: 0em;
+            font-size:14pt;
+            }
         </style>
     </head>
-    
+
 
     <!-- 外部ファイル読込 -->
     <script type="text/javascript" src="/survey/backScript2.js"></script>
-    
 
-<!-- ここからアンケート -->
+
+    <!-- ここからアンケート -->
 
     <body class="text-center box1" >
         <div class="card mx-auto"style="width: 750px;top:150px">
-        <div class="card-header" style="background-color: rgba(120,170,140);font-size:20px">
-            <h1 class="text-white bg-ddd h-30">しましまアンケート</h1>
-        </div>
-        <div class="card-header" style="background-color: rgba(100,100,100,.1);font-size:20px"><?php echo $questionnaire['title'] ?></div>
-            <article class="card-body">
-            <form action='' method="post" onsubmit = "modifysubmit(event)">
-                <div class="edit">
-                <div class="form-group text-left">
-                    <?php $q_number = 1;
-                    foreach($questions as $question){ ?>
-                    <li style="word-break : break-all;"><?php echo $question['title'] ?></li></br>
-                    <?php if($question["qtype"] == "radio"){?>
-                        <a><?php $items = explode(",", $question['items']); 
-                        foreach($items as $item => $i){
-                        echo '<label for="' . $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="' . $items[$item] . '">' . $i . '</label>' . "<br />";
-                        }
-                    ?>
-                    </a>
-                    <?php }elseif($question["qtype"] == "text"){?>
-                        <div class="form-group text-left">
-                        <td style="position:relative">
-                            <input type="text" style="width:80%; box-sizing:border-box" name= <?php echo '"' . $question['question_id'] . '"'?> value=" ">
-                        </td>
+            <div class="card-header" style="background-color: rgba(120,170,140);font-size:20px">
+                <h1 class="text-white bg-ddd h-30">しましまアンケート</h1>
+            </div>
+            <div class="card-header" style="background-color: rgba(100,100,100,.1);font-size:20px"><?php echo $questionnaire['title'] ?></div>
+                <article class="card-body">
+                    <form action='' method="post" onsubmit = "modifysubmit(event)">
+                        <div class="edit">
+                            <div class="form-group text-left">
+                                <?php $q_number = 1;
+                                foreach($questions as $question){ ?>
+                                <li style="word-break : break-all;" id=<?php echo'"'. $question['question_id'].'"' ?>><?php echo $question['title'] ?></li></br>
+                                <div class="items">
+                                <?php if($question["qtype"] == "radio"){?>
+                                    <a><?php $items = explode(",", $question['items']); 
+                                        foreach($items as $item => $i){
+                                            echo '<label for="' . $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="' . $items[$item] . '">' . $i . '</label>' . "<br />";
+                                        }
+                                        ?>
+                                    </a>
+                                <?php }elseif($question["qtype"] == "text"){?>
+                                    <div class="form-group text-left">
+                                        <td style="position:relative">
+                                            <label style="width:80%; box-sizing:border-box"><input type="text" style="width:80%; box-sizing:border-box" name= <?php echo '"' . $question['question_id'] . '"'?>></label>
+                                        </td>
+                                    </div>
+                                <?php }?>
+                                </div>
+                                <br><br><br>
+                                <?php $q_number++;
+                                } ?>
+                            </div>
+
+
+                            <?php if($_GET['action'] == 'rewrite'){
+                            ?><script>alert('アンケートの項目全てにお答えください')</script><?php
+                            } ?>
                         </div>
-                    <?php }?>
-                    <br />
-                    <?php $q_number++;
-                    } ?>
-                </div>
-                
-                <?php if($_GET['action'] == 'rewrite'){
-                    ?><script>alert('アンケートの項目全てにお答えください')</script><?php
-                } ?>
-                </div>
-                <div class="login2"><input type="submit" item="送信する" class="btn btn-outline-primary my-1">
-            </form>
-            </article>
-        </div>
-        <div style = "width:600px;height:200px;"></div>
-        <div style = "text-align:center;">※アンケート回答中の動作等をデータとして収集させていただきます。ご了承ください。</div>
-        <div style = "width:600px;height:50px;"></div>
-        
+                        <div class="login2"><input type="submit" item="送信する" class="btn btn-outline-primary my-1">
+                    </form>
+                </article>
+            </div>
+            <div style = "width:600px;height:200px;"></div>
+            <div style = "text-align:center;">※アンケート回答中の動作等をデータとして収集させていただきます。ご了承ください。</div>
+            <div style = "width:600px;height:50px;"></div>
+
         </div>  
     </body>
 
-<!-- ここまでアンケート -->
+    <!-- ここまでアンケート -->
 </html>
