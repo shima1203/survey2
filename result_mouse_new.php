@@ -66,6 +66,11 @@ $questions=$questions_pre->fetchAll();
             .box1 {
                 background-color: rgba(50,255,50,.1);
             }
+            li {
+                margin-left: 0em;
+                text-indent: 0em;
+                font-size:14pt;
+            }
             .canvas-wrapper {
                 position: relative;
                 z-index:1;
