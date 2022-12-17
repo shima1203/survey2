@@ -30,7 +30,7 @@ if($_SESSION['user_id'] != 1){
 }
 
 
-$questionnaire_id = 1;
+$questionnaire_id = 3;
 $answer_id = $_GET["answer_id"];
 
 //回答
