@@ -10,6 +10,29 @@ $questionnaire=$questionnaires->fetch();
 $questions_pre=$db->prepare('SELECT * FROM Questions WHERE questionnaire_id=?');
 $questions_pre->execute(array($questionnaire_id));
 $questions=$questions_pre->fetchAll();
+//ユーザーエージェントの判定
+$user_device = '';
+// HTTP リクエストヘッダーが持っているユーザーエージェントの文字列を取得
+$useragent = $_SERVER['HTTP_USER_AGENT'];
+    if((strpos($useragent, 'Android') !== false) &&
+    (strpos($useragent, 'Mobile') !== false) ||
+    (strpos($useragent, 'iPhone') !== false) ||
+    (strpos($useragent, 'iPad') !== false) ||
+    (strpos($useragent, 'Windows Phone') !== false)){
+    // スマホからアクセスしている場合
+    $user_device = 'smartphone';
+}elseif((strpos($useragent, 'DoCoMo') !== false) ||
+    (strpos($useragent, 'KDDI') !== false) ||
+    (strpos($useragent, 'SoftBank') !== false) ||
+    (strpos($useragent, 'Vodafone') !== false) ||
+    (strpos($useragent, 'J-PHONE') !== false)){
+    // ガラケーからアクセスしている場合
+    $user_device = 'phone';
+}else{
+    // パソコンからアクセスしている場合
+    $user_device = 'pc';
+}
+
 //DBに追加
 if (!empty($_POST)){
   //answer_idの作成
@@ -29,8 +52,8 @@ if (!empty($_POST)){
     $message->execute(array($answer_id, $questionnaire_id, $question['question_id'], $answer, $_POST["coordinates"]));
     
   }
-  $message2=$db->prepare('INSERT INTO AnswerData SET answer_id=?, questionnaire_id=?, scroll=?, coordinates=?, click=?, windowsize=?, background=?, checking=?, type=?, enter_leave=?, total=?, created_at=NOW()');
-  $message2->execute(array($answer_id, $questionnaire_id, $_POST["scroll"], $_POST["coordinates"], $_POST["click"], $_POST["windowsize"], $_POST["background"], $_POST["check"], $_POST["type"], $_POST["enter_leave"], $_POST["total"]));
+  $message2=$db->prepare('INSERT INTO AnswerData SET answer_id=?, questionnaire_id=?, scroll=?, coordinates=?, click=?, windowsize=?, background=?, checking=?, type=?, enter_leave=?, total=?, device=?, created_at=NOW()');
+  $message2->execute(array($answer_id, $questionnaire_id, $_POST["scroll"], $_POST["coordinates"], $_POST["click"], $_POST["windowsize"], $_POST["background"], $_POST["check"], $_POST["type"], $_POST["enter_leave"], $_POST["total"], $user_device));
   header('Location: /survey/questionnaire_confirmation.php');
   exit();
 }
