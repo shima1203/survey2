@@ -132,29 +132,29 @@ $questions=$questions_pre->fetchAll();
                                 foreach($questions as $question){ ?>
                                 <li style="word-break : break-all;" id=<?php echo'"'. $question['question_id'].'"' ?>><?php echo $question['title'] ?></li></br>
                                 <div class="items">
-                                    <?php if($question["qtype"] == "radio"){?>
+                                <?php if($question["qtype"] == "radio"){?>
                                     <a><?php $items = explode(",", $question['items']); 
-                                    foreach($items as $item => $i){
-                                        echo '<label for="' . $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="' . $items[$item] . '">' . $i . '</label>' . "<br />";
-                                    }
-                                    ?>
+                                        foreach($items as $item => $i){
+                                            echo '<label for="' . $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="' . $items[$item] . '">' . $i . '</label>' . "<br />";
+                                        }
+                                        ?>
                                     </a>
-                                    <?php }elseif($question["qtype"] == "text"){?>
+                                <?php }elseif($question["qtype"] == "text"){?>
                                     <div class="form-group text-left">
                                         <td style="position:relative">
-                                        <label style="width:80%; box-sizing:border-box"><input type="text" style="width:80%; box-sizing:border-box" name= <?php echo '"' . $question['question_id'] . '"'?>></label>
+                                            <label style="width:80%; box-sizing:border-box"><input type="text" style="width:80%; box-sizing:border-box" name= <?php echo '"' . $question['question_id'] . '"'?>></label>
                                         </td>
                                     </div>
-                                    <?php }?>
+                                <?php }?>
                                 </div>
                                 <br><br><br>
                                 <?php $q_number++;
                                 } ?>
                             </div>
-                            
+
 
                             <?php if($_GET['action'] == 'rewrite'){
-                                ?><script>alert('アンケートの項目全てにお答えください')</script><?php
+                            ?><script>alert('アンケートの項目全てにお答えください')</script><?php
                             } ?>
                         </div>
                         <div class="login2"><input type="submit" item="送信する" class="btn btn-outline-primary my-1">
@@ -164,7 +164,7 @@ $questions=$questions_pre->fetchAll();
             <div style = "width:600px;height:200px;"></div>
             <div style = "text-align:center;">※アンケート回答中の動作等をデータとして収集させていただきます。ご了承ください。</div>
             <div style = "width:600px;height:50px;"></div>
-        
+
         </div>  
     </body>
 
