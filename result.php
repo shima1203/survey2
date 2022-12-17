@@ -101,6 +101,7 @@ if($delete_id){
                 }?>
                 <th>created_at</th>
                 <th>coordinates</th>
+                <th>delete</th>
             </tr>
 
             <?php
