@@ -21,9 +21,6 @@ function draw_click(click,canvas){
     if (canvas.getContext) {
       const context = canvas.getContext("2d");//2次元描画
 
-      context.beginPath();
-      context.moveTo(click[0]["x"],click[0]["y"]);
-
       for(var i in click){
         var x = click[i]["x"];
         var y = click[i]["y"];
