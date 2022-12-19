@@ -67,21 +67,6 @@ if($user_device == 'smartphone' || $user_device == 'phone'){
 }
 ?>
 
-<!-- このアンケートは高専生活アンケートを模して作成したものです。実際の高専生活アンケートとは異なりますのでご注意ください
-回答内容は外部に漏れることもありますし、秘密にされる保証はありませんので、知られたく内容を答えないようにお願いいたします
-また、良くも悪くも回答内容は見ませんので、いじめ等に関して真面目に相談されても対応しかねます。ご了承ください　
-
-回答方法
-1回目はしっかり問題文を読んで”集中して”回答ください　この際、「集中」を最初に選択ください
-本当に思っていることを愚直に回答する必要はありませんが、実際のアンケートに答えているつもりで集中して回答ください
-2回目は問題文を読まず、選択肢も適当に回答ください
-回答時は全画面表示で、できる限りマウスを使用していただくようお願いいたします
-マウス以外のポインティングデバイスを使用される方は、最後の質問で使用したデバイスをお答えください
-
-計測項目：
-
--->
-
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -155,7 +140,7 @@ if($user_device == 'smartphone' || $user_device == 'phone'){
                                 <?php if($question["qtype"] == "radio"){?>
                                     <a><?php $items = explode(",", $question['items']); 
                                         foreach($items as $item => $i){
-                                            echo '<label for="'. $question['question_id'].'.'. $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="' . $items[$item] . '">' . $i . '</label>' . "<br />";
+                                            echo '<label for="'. $question['question_id'].'.'. $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="'. $question['question_id'].'.'. $items[$item] . '">' . $i . '</label>' . "<br />";
                                         }
                                         ?>
                                     </a>
