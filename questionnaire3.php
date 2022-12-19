@@ -127,7 +127,7 @@ if($user_device == 'smartphone' || $user_device == 'phone'){
             </div>
             <div class="card-header" style="background-color: rgba(100,100,100,.1);font-size:20px">
                 <?php echo $questionnaire['title'] ?><br><br>
-                <p size="3" style="text-align:right">
+                <p size="3" style="text-align:right; font-size:10px">
                     ・このアンケートは高専生活アンケートを模して作成したものです。実際の高専生活アンケートとは異なりますのでご注意ください<br>
                     ・回答内容は外部に漏れることもありますし、秘密にされる保証はありませんので、知られたく内容を答えないようにお願いいたします<br>
                     ・また、良くも悪くも回答内容は見ませんので、いじめ等に関して真面目に相談されても対応しかねます。ご了承ください<br><br>
