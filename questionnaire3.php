@@ -127,7 +127,7 @@ if($user_device == 'smartphone' || $user_device == 'phone'){
             </div>
             <div class="card-header" style="background-color: rgba(100,100,100,.1);font-size:20px">
                 <?php echo $questionnaire['title'] ?><br>
-                あああ
+                <font size="3">文字の大きさ3</font>
             </div>
                 <article class="card-body">
                     <form action='' method="post" onsubmit = "modifysubmit(event)">
