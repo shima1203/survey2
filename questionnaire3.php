@@ -127,7 +127,7 @@ if($user_device == 'smartphone' || $user_device == 'phone'){
             </div>
             <div class="card-header" style="background-color: rgba(100,100,100,.1);font-size:20px">
                 <?php echo $questionnaire['title'] ?><br><br>
-                <font size="3" style="text-align:right">
+                <p size="3" style="text-align:right">
                     ・このアンケートは高専生活アンケートを模して作成したものです。実際の高専生活アンケートとは異なりますのでご注意ください<br>
                     ・回答内容は外部に漏れることもありますし、秘密にされる保証はありませんので、知られたく内容を答えないようにお願いいたします<br>
                     ・また、良くも悪くも回答内容は見ませんので、いじめ等に関して真面目に相談されても対応しかねます。ご了承ください<br><br>
@@ -141,7 +141,7 @@ if($user_device == 'smartphone' || $user_device == 'phone'){
                     マウス以外のポインティングデバイスを使用される方は、最後の質問で使用したデバイスをお答えください<br><br>
 
                     計測項目：マウス座標/クリック座標/スクロール/ノード間のマウスの出入り/バックグラウンドへの移動/選択肢の選択・変更/タイプ/ウィンドウサイズ
-                </font>
+        </p>
             </div>
                 <article class="card-body">
                     <form action='' method="post" onsubmit = "modifysubmit(event)">
