@@ -147,7 +147,7 @@ if($user_device == 'smartphone' || $user_device == 'phone'){
                                 <?php }elseif($question["qtype"] == "text"){?>
                                     <div class="form-group text-left">
                                         <td style="position:relative">
-                                            <label style="width:80%; box-sizing:border-box"><input type="text" style="width:80%; box-sizing:border-box" name= <?php echo '"' . $question['question_id'] . '"'?>></label>
+                                            <label style="width:80%; box-sizing:border-box"><input type="text" style="width:80%; box-sizing:border-box" name= <?php echo '"' . $question['question_id'] . '"'?> value=" "></label>
                                         </td>
                                     </div>
                                 <?php }?>
