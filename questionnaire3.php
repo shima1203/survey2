@@ -155,7 +155,7 @@ if($user_device == 'smartphone' || $user_device == 'phone'){
                                 <?php if($question["qtype"] == "radio"){?>
                                     <a><?php $items = explode(",", $question['items']); 
                                         foreach($items as $item => $i){
-                                            echo '<label for="' $question['question_id'].'.'. $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="' . $items[$item] . '">' . $i . '</label>' . "<br />";
+                                            echo '<label for="' $question['question_id'].'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="' . $items[$item] . '">' . $i . '</label>' . "<br />";
                                         }
                                         ?>
                                     </a>
