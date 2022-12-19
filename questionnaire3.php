@@ -125,7 +125,10 @@ if($user_device == 'smartphone' || $user_device == 'phone'){
             <div class="card-header" style="background-color: rgba(120,170,140);font-size:20px">
                 <h1 class="text-white bg-ddd h-30">しましまアンケート</h1>
             </div>
-            <div class="card-header" style="background-color: rgba(100,100,100,.1);font-size:20px"><?php echo $questionnaire['title'] ?></div>
+            <div class="card-header" style="background-color: rgba(100,100,100,.1);font-size:20px">
+                <?php echo $questionnaire['title'] ?>
+                a
+            </div>
                 <article class="card-body">
                     <form action='' method="post" onsubmit = "modifysubmit(event)">
                         <div class="edit">
