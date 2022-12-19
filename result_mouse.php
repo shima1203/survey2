@@ -96,7 +96,7 @@ $questions=$questions_pre->fetchAll();
 
     <!-- canvas作成 -->
     <div class="canvas-wrapper">
-        <canvas id="canvas" width="1920" height="10000">canvas要素をサポートしていません。</canvas>
+        <canvas id="canvas" width="1920" height="14000">canvas要素をサポートしていません。</canvas>
     </div>
     
 
