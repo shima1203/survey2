@@ -102,7 +102,25 @@ $questions=$questions_pre->fetchAll();
             <div class="card-header" style="background-color: rgba(120,170,140);font-size:20px">
                 <h1 class="text-white bg-ddd h-30">しましまアンケート</h1>
             </div>
-            <div class="card-header" style="background-color: rgba(100,100,100,.1);font-size:20px"><?php echo $questionnaire['title'] ?></div>
+            <div class="card-header" style="background-color: rgba(100,100,100,.1);font-size:20px">
+                <?php echo $questionnaire['title'] ?><br><br>
+                <ul style="text-align:left; font-size:15px">
+                    <li style="font-size:15px">このアンケートは高専生活アンケートを模して作成したものです。実際の高専生活アンケートとは異なりますのでご注意ください</li>
+                    <li style="font-size:15px">回答内容は外部に漏れることもありますし、秘密にされる保証はありませんので、知られたく内容を答えないようにお願いいたします</li>
+                    <li style="font-size:15px">また、良くも悪くも回答内容は見ませんので、いじめ等に関して真面目に相談されても対応しかねます。ご了承ください</li>
+                </ul>
+                <p style="text-align:left; font-size:15px">
+                    &lt;回答方法&gt;<br>
+                    1回目:しっかり問題文を読んで”集中して”回答ください　この際、「集中」を最初に選択ください<br>
+                    &nbsp;本当に思っていることを愚直に回答する必要はありませんが、実際のアンケートに答えているつもりで集中して回答ください<br>
+                    2回目:問題文を読まず、選択肢も適当に回答ください　この際、「適当」を最初に選択ください<br><br>
+
+                    ※回答時は全画面表示で、できる限りマウスを使用していただくようお願いいたします<br>
+                    ※マウス以外のポインティングデバイスを使用される方は、最後の質問で使用したデバイスをお答えください<br><br>
+
+                    計測項目：マウス座標/クリック座標/スクロール/ノード間のマウスの出入り/バックグラウンドへの移動/選択肢の選択・変更/タイプ/ウィンドウサイズ
+        </p>
+            </div>
                 <article class="card-body">
                     <form action='' method="post" onsubmit = "modifysubmit(event)">
                         <div class="edit">
@@ -111,29 +129,29 @@ $questions=$questions_pre->fetchAll();
                                 foreach($questions as $question){ ?>
                                 <li style="word-break : break-all;" id=<?php echo'"'. $question['question_id'].'"' ?>><?php echo $question['title'] ?></li></br>
                                 <div class="items">
-                                    <?php if($question["qtype"] == "radio"){?>
+                                <?php if($question["qtype"] == "radio"){?>
                                     <a><?php $items = explode(",", $question['items']); 
-                                    foreach($items as $item => $i){
-                                        echo '<label for="' . $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="' . $items[$item] . '">' . $i . '</label>' . "<br />";
-                                    }
-                                    ?>
+                                        foreach($items as $item => $i){
+                                            echo '<label for="' . $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="' . $items[$item] . '">' . $i . '</label>' . "<br />";
+                                        }
+                                        ?>
                                     </a>
-                                    <?php }elseif($question["qtype"] == "text"){?>
+                                <?php }elseif($question["qtype"] == "text"){?>
                                     <div class="form-group text-left">
                                         <td style="position:relative">
-                                        <label style="width:80%; box-sizing:border-box"><input type="text" style="width:80%; box-sizing:border-box" name= <?php echo '"' . $question['question_id'] . '"'?>></label>
+                                            <label style="width:80%; box-sizing:border-box"><input type="text" style="width:80%; box-sizing:border-box" name= <?php echo '"' . $question['question_id'] . '"'?>></label>
                                         </td>
                                     </div>
-                                    <?php }?>
+                                <?php }?>
                                 </div>
                                 <br><br><br>
                                 <?php $q_number++;
                                 } ?>
                             </div>
-                            
+
 
                             <?php if($_GET['action'] == 'rewrite'){
-                                ?><script>alert('アンケートの項目全てにお答えください')</script><?php
+                            ?><script>alert('アンケートの項目全てにお答えください')</script><?php
                             } ?>
                         </div>
                         <div class="login2"><input type="submit" item="送信する" class="btn btn-outline-primary my-1">
@@ -143,7 +161,7 @@ $questions=$questions_pre->fetchAll();
             <div style = "width:600px;height:200px;"></div>
             <div style = "text-align:center;">※アンケート回答中の動作等をデータとして収集させていただきます。ご了承ください。</div>
             <div style = "width:600px;height:50px;"></div>
-        
+
         </div>  
     </body>
 
