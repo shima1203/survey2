@@ -89,6 +89,11 @@ if($delete_id){
         <meta name="viewport" content="width=device-width, initial-scale=1.0", user-scalable=yes>
         <div style = "width:600px;height:0px;"></div>
         <link rel="icon" sizes="16x16" href="/favicon.ico" />
+        <style>
+            th {
+                min-width: 200px;
+            }
+        </style>
     </head>
     <body>
         <table border="1">
