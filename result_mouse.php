@@ -105,6 +105,7 @@ $questions=$questions_pre->fetchAll();
         $coordinates=$answerdata["coordinates"];
         $click=$answerdata["click"];
         $windowsize=$answerdata["windowsize"];
+        $scroll=$answerdata["scroll"];
     ?>
     
     <script type="text/javascript">
@@ -112,6 +113,7 @@ $questions=$questions_pre->fetchAll();
         var coordinates=JSON.parse('<?php echo $coordinates; ?>');
         var click=JSON.parse('<?php echo $click; ?>');
         var windowsize=JSON.parse('<?php echo $windowsize; ?>');
+        var scroll=JSON.parse('<?php echo $scroll; ?>');
         window.resizeTo(250, 250);
     </script>
 
