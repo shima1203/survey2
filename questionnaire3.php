@@ -45,8 +45,9 @@ if (!empty($_POST)){
         //解答の取得
         $answer=$_POST[$question['question_id']];
         if($_POST[$question['question_id']] == null){
-            header('Location: /survey/questionnaire3.php/?action=rewrite');
-            exit();
+            //header('Location: /survey/questionnaire3.php/?action=rewrite');
+            //exit();
+            $_POST[$question['question_id']] = " ";
         }
 
         //DBにINSERT
@@ -147,7 +148,7 @@ if($user_device == 'smartphone' || $user_device == 'phone'){
                                 <?php }elseif($question["qtype"] == "text"){?>
                                     <div class="form-group text-left">
                                         <td style="position:relative">
-                                            <label style="width:80%; box-sizing:border-box"><input type="text" style="width:80%; box-sizing:border-box" name= <?php echo '"' . $question['question_id'] . '"'?> value=" "></label>
+                                            <label style="width:80%; box-sizing:border-box"><input type="text" style="width:80%; box-sizing:border-box" name= <?php echo '"' . $question['question_id'] . '"'?>></label>
                                         </td>
                                     </div>
                                 <?php }?>
