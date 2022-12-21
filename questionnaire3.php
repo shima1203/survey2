@@ -143,7 +143,7 @@ if($user_device == 'smartphone' || $user_device == 'phone'){
                                         foreach($items as $item => $i){
                                             echo '<label for="'. $question['question_id'].'.'. $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="'. $question['question_id'].'.'. $items[$item] . '">' . $i . '</label>' . "<br />";
                                         }
-                                        echo '<label for="'. $question['question_id'].'.'. '-1.未選択' .'" style="display: none;"><input type="radio" name="'. $question['question_id']. '" value="' . '-1.未選択' . '" id="'. $question['question_id'].'.'. '-1.未選択' . '" checked="checked" style="display: none;">' . '未選択' . '</label>';
+                                        echo '<label for="'. $question['question_id'].'.'. '-1.未選択' .'" style="display: none;"><input type="radio" name="'. $question['question_id']. '" value="' . '-1' . '" id="'. $question['question_id'].'.'. '-1.未選択' . '" checked="checked" style="display: none;">' . '未選択' . '</label>';
                                         ?>
                                     </a>
                                 <?php }elseif($question["qtype"] == "text"){?>

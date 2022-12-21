@@ -123,7 +123,7 @@ $questions=$questions_pre->fetchAll();
 
 
 
-<!-- ここからアンケート -->
+    <!-- ここからアンケート -->
 
     <body class="text-center box1" >
         <div class="card mx-auto"style="width: 750px;top:150px">
@@ -160,8 +160,9 @@ $questions=$questions_pre->fetchAll();
                                 <?php if($question["qtype"] == "radio"){?>
                                     <a><?php $items = explode(",", $question['items']); 
                                         foreach($items as $item => $i){
-                                            echo '<label for="' . $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="' . $items[$item] . '">' . $i . '</label>' . "<br />";
+                                            echo '<label for="'. $question['question_id'].'.'. $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="'. $question['question_id'].'.'. $items[$item] . '">' . $i . '</label>' . "<br />";
                                         }
+                                        echo '<label for="'. $question['question_id'].'.'. '-1.未選択' .'" style="display: none;"><input type="radio" name="'. $question['question_id']. '" value="' . '-1.未選択' . '" id="'. $question['question_id'].'.'. '-1.未選択' . '" checked="checked" style="display: none;">' . '未選択' . '</label>';
                                         ?>
                                     </a>
                                 <?php }elseif($question["qtype"] == "text"){?>
