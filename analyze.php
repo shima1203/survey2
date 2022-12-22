@@ -1,4 +1,4 @@
 <?php
-exec("python analyze.py", $output);
+exec("python3 analyze.py", $output);
 var_dump($output);
 ?>
