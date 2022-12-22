@@ -64,7 +64,9 @@ if (!empty($_POST)){
 
 //スマホの場合
 if($user_device == 'smartphone' || $user_device == 'phone'){
-    header('Location: /survey/questionnaire3.php');
+    //header('Location: /survey/questionnaire3.php');
+    echo "このサイトはスマホ未対応です";
+    exit();
 }
 ?>
 
