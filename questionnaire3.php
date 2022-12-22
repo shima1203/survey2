@@ -45,8 +45,9 @@ if (!empty($_POST)){
         //解答の取得
         $answer=$_POST[$question['question_id']];
         if($_POST[$question['question_id']] == null){
-            header('Location: /survey/questionnaire3.php/?action=rewrite');
-            exit();
+            //header('Location: /survey/questionnaire3.php/?action=rewrite');
+            //exit();
+            $_POST[$question['question_id']] = " ";
         }
 
         //DBにINSERT
@@ -142,12 +143,13 @@ if($user_device == 'smartphone' || $user_device == 'phone'){
                                         foreach($items as $item => $i){
                                             echo '<label for="'. $question['question_id'].'.'. $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="'. $question['question_id'].'.'. $items[$item] . '">' . $i . '</label>' . "<br />";
                                         }
+                                        echo '<label for="'. $question['question_id'].'.'. '-1.未選択' .'" style="display: none;"><input type="radio" name="'. $question['question_id']. '" value="' . '-1' . '" id="'. $question['question_id'].'.'. '-1.未選択' . '" checked="checked" style="display: none;">' . '未選択' . '</label>';
                                         ?>
                                     </a>
                                 <?php }elseif($question["qtype"] == "text"){?>
                                     <div class="form-group text-left">
                                         <td style="position:relative">
-                                            <label style="width:80%; box-sizing:border-box"><input type="text" style="width:80%; box-sizing:border-box" name= <?php echo '"' . $question['question_id'] . '"'?> value=" "></label>
+                                            <label style="width:80%; box-sizing:border-box"><input type="text" style="width:80%; box-sizing:border-box" name= <?php echo '"' . $question['question_id'] . '"'?>></label>
                                         </td>
                                     </div>
                                 <?php }?>

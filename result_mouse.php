@@ -105,6 +105,7 @@ $questions=$questions_pre->fetchAll();
         $coordinates=$answerdata["coordinates"];
         $click=$answerdata["click"];
         $windowsize=$answerdata["windowsize"];
+        $scroll=$answerdata["scroll"];
     ?>
     
     <script type="text/javascript">
@@ -112,6 +113,7 @@ $questions=$questions_pre->fetchAll();
         var coordinates=JSON.parse('<?php echo $coordinates; ?>');
         var click=JSON.parse('<?php echo $click; ?>');
         var windowsize=JSON.parse('<?php echo $windowsize; ?>');
+        var scroll=JSON.parse('<?php echo $scroll; ?>');
         window.resizeTo(250, 250);
     </script>
 
@@ -121,7 +123,7 @@ $questions=$questions_pre->fetchAll();
 
 
 
-<!-- ここからアンケート -->
+    <!-- ここからアンケート -->
 
     <body class="text-center box1" >
         <div class="card mx-auto"style="width: 750px;top:150px">
@@ -158,8 +160,9 @@ $questions=$questions_pre->fetchAll();
                                 <?php if($question["qtype"] == "radio"){?>
                                     <a><?php $items = explode(",", $question['items']); 
                                         foreach($items as $item => $i){
-                                            echo '<label for="' . $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="' . $items[$item] . '">' . $i . '</label>' . "<br />";
+                                            echo '<label for="'. $question['question_id'].'.'. $items[$item] .'"><input type="radio" name="'. $question['question_id']. '" value="' .$item . '" id="'. $question['question_id'].'.'. $items[$item] . '">' . $i . '</label>' . "<br />";
                                         }
+                                        echo '<label for="'. $question['question_id'].'.'. '-1.未選択' .'" style="display: none;"><input type="radio" name="'. $question['question_id']. '" value="' . '-1.未選択' . '" id="'. $question['question_id'].'.'. '-1.未選択' . '" checked="checked" style="display: none;">' . '未選択' . '</label>';
                                         ?>
                                     </a>
                                 <?php }elseif($question["qtype"] == "text"){?>
