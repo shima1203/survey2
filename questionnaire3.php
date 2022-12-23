@@ -85,6 +85,17 @@ if($user_device == 'smartphone' || $user_device == 'phone'){
         <div style = "width:600px;height:0px;"></div>
         <link rel="icon" sizes="16x16" href="/favicon.ico" />
 
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-252612564-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-252612564-1');
+        </script>
+
+
         <style>
             .bg-ddd {
             background-size: 40px;
