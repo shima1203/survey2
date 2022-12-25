@@ -23,7 +23,7 @@ $questions=$questions_pre->fetchAll();
 
 
 
-
-exec("python3 analyze.py", $output);
+$command = "python3 analyze.py";
+exec($command, $output);
 var_dump($output);
 ?>
