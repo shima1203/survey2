@@ -1,5 +1,6 @@
 import sys
 import json
 
-test = json.loads(sys.argv[1])
-print(test)
+test1 = sys.argv[1][0]
+test2 = json.loads(sys.argv[1])
+print(test1)
