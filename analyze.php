@@ -22,8 +22,8 @@ $questions=$questions_pre->fetchAll();
 
 
 
-
-$command = "python3 analyze.py $questionnaire";
+$test="test";
+$command = "python3 analyze.py $test";
 exec($command, $output);
 var_dump($output);
 ?>
