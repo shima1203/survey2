@@ -27,5 +27,5 @@ foreach($answerdata as $data){
 $test="test";
 $command = "python3 analyze.py $click";
 exec($command, $output);
-var_dump($output[0]);
+var_dump($click[0]);
 ?>
