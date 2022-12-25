@@ -25,5 +25,5 @@ $click = $answerdata[0]["click"];
 $test="test";
 $command = "python3 analyze.py $click";
 exec($command, $output);
-var_dump($output);
+var_dump($click);
 ?>
