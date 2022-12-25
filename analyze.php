@@ -10,7 +10,7 @@ $answers=$answers_pre->fetchAll();
 //回答データ
 $answerdata_pre=$db->prepare('SELECT * FROM AnswerData');
 $answerdata_pre->execute(array());
-$answerdata=$answerdata_pre->fetch();
+$answerdata=$answerdata_pre->fetchAll();
 //アンケート情報
 $questionnaires=$db->prepare('SELECT * FROM Questionnaires WHERE questionnaire_id=?');
 $questionnaires->execute(array($questionnaire_id));
@@ -21,9 +21,9 @@ $questions_pre->execute(array($questionnaire_id));
 $questions=$questions_pre->fetchAll();
 
 
-$click = $answerdata[1];
+$click = $answerdata[0]["click"];
 $test="test";
 $command = "python3 analyze.py $click";
 exec($command, $output);
-var_dump($click);
+var_dump($output);
 ?>
