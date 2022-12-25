@@ -20,8 +20,10 @@ $questions_pre=$db->prepare('SELECT * FROM Questions WHERE questionnaire_id=?');
 $questions_pre->execute(array($questionnaire_id));
 $questions=$questions_pre->fetchAll();
 
-
-$click = $answerdata[0]["click"];
+$click = [];
+foreach($answerdata as $data){
+    array_push($click, $data["click"]);
+}
 $test="test";
 $command = "python3 analyze.py $click";
 exec($command, $output);
