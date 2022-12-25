@@ -21,9 +21,9 @@ $questions_pre->execute(array($questionnaire_id));
 $questions=$questions_pre->fetchAll();
 
 
-
+$click = $answerdata[0]["click"];
 $test="test";
-$command = "python3 analyze.py $test";
+$command = "python3 analyze.py $click";
 exec($command, $output);
 var_dump($output);
 ?>
