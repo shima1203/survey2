@@ -24,7 +24,7 @@ $click = [];
 foreach($answerdata as $data){
     array_push($click, $data["click"]);
 }
-$command = "python3 analyze.py $click[0]";
+$command = "python3 analyze.py $click";
 exec($command, $output);
 var_dump($output);
 ?>
