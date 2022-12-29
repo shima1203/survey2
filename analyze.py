@@ -32,7 +32,7 @@ for answers_line in answers_list:
     
 
 # アンサーデータを辞書型に
-answer_id_dict = {}
+answer_id_list = []
 questionnaire_id_dict = {}
 scroll_dict = {}
 coordinates_dict = {}
@@ -46,7 +46,7 @@ total_dict = {}
 device_dict = {}
 created_at_dict = {}
 for answer_data_line in answer_data_list:
-    answer_id_dict[answer_data_line[0]] = answer_data_line[0]
+    answer_id_list.append(answer_data_line[0])
     questionnaire_id_dict[answer_data_line[0]] = answer_data_line[1]
     scroll_dict[answer_data_line[0]] = answer_data_line[2]
     coordinates_dict[answer_data_line[0]] = answer_data_line[3]
@@ -61,7 +61,7 @@ for answer_data_line in answer_data_list:
     created_at_dict[answer_data_line[0]] = answer_data_line[12]
     
 
-print(answer_id_dict)
+print(answer_id_list)
 
 
 
