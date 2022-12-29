@@ -31,7 +31,7 @@ for answers_line in answers_list:
             answers_dict[answers_line[0]].update({answers_line[2] : answers_line[3]})
     
 
-# アンサーデータを辞書型に   <-deleteされた回答を除去したい
+# アンサーデータを辞書型に
 answer_id_list = []
 questionnaire_id_dict = {}
 scroll_dict = {}
@@ -46,7 +46,7 @@ total_dict = {}
 device_dict = {}
 created_at_dict = {}
 for answer_data_line in answer_data_list:
-    if(answer_data_line[0] in answers_dict):
+    if(answer_data_line[0] in answers_dict):                   # <-delete除去,questionnaireid=3
         answer_id_list.append(answer_data_line[0])
         questionnaire_id_dict[answer_data_line[0]] = answer_data_line[1]
         scroll_dict[answer_data_line[0]] = json.loads(answer_data_line[2])
@@ -66,7 +66,7 @@ for tmp in scroll_dict[answer_id_list[0]]:
 
 print(answer_id_list)
 
-
+# 縦軸：クリックの回数　横軸：集中->1　適当->0
 
 
 
