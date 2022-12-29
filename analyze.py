@@ -60,8 +60,8 @@ for answer_data_line in answer_data_list:
     device_dict[answer_data_line[0]] = answer_data_line[11]
     created_at_dict[answer_data_line[0]] = answer_data_line[12]
     
-
-print(scroll_dict[answer_id_list[0]])
+for tmp in scroll_dict[answer_id_list[0]]:
+    print(tmp + "\n")
 
 
 
