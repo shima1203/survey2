@@ -1,7 +1,21 @@
-import sys
-import numpy as np
-import json
+# MySQLdbのインポート
+import MySQLdb
 
-test1 = sys.argv[1]
-test2 = np.array(json.loads(sys.argv[1]))
-print(test1)
+# データベースへの接続とカーソルの生成
+connection = MySQLdb.connect(
+    host='localhost',
+    user='root',
+    passwd='ルートのパスワード',
+    db='python_db')
+cursor = connection.cursor()
+
+# ここに実行したいコードを入力します
+
+# 保存を実行
+connection.commit()
+
+# 接続を閉じる
+connection.close()
+
+
+# クラス化しようかな
