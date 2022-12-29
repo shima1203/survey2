@@ -9,10 +9,10 @@ connection = MySQLdb.connect(
     db='survey')
 cursor = connection.cursor()
 
-# ここに実行したいコードを入力します
 cursor.execute("SELECT * FROM AnswerData")
-# fetchall()で全件取り出し
 answer_data = cursor.fetchall()
+cursor.execute("SELECT * FROM Answers")
+answers = cursor.fechall()
 
 
 answer_id_list = []
