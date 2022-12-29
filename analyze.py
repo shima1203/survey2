@@ -61,7 +61,7 @@ for answer_data_line in answer_data_list:
     created_at_dict[answer_data_line[0]] = answer_data_line[12]
     
 for tmp in scroll_dict[answer_id_list[0]]:
-    print(tmp["x"] , "\n")
+    print(tmp["y"])
 
 
 
