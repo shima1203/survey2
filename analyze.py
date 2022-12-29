@@ -30,39 +30,36 @@ for answers_line in answers_list:
         else:
             answers_dict[answers_line[0]].update({answers_line[2] : answers_line[3]})
     
-print(answers_dict)
 
-# アンサーデータ
-answer_id_list = []
-questionnaire_id_list = []
-scroll_list = []
-coordinates_list = []
-click_list = []
-windowsize_list = []
-background_list = []
-checking_list = []
-type_list = []
-enter_leave_list = []
-total_list = []
-device_list = []
-created_at_list = []
+# アンサーデータを辞書型に
+questionnaire_id_dict = {}
+scroll_dict = {}
+coordinates_dict = {}
+click_dict = {}
+windowsize_dict = {}
+background_dict = {}
+checking_dict = {}
+type_dict = {}
+enter_leave_dict = {}
+total_dict = {}
+device_dict = {}
+created_at_dict = {}
 for answer_data_line in answer_data_list:
-    answer_id_list.append(answer_data_line[0])
-    questionnaire_id_list.append(answer_data_line[1])
-    scroll_list.append(answer_data_line[2])
-    coordinates_list.append(answer_data_line[3])
-    click_list.append(answer_data_line[4])
-    windowsize_list.append(answer_data_line[5])
-    background_list.append(answer_data_line[6])
-    checking_list.append(answer_data_line[7])
-    type_list.append(answer_data_line[8])
-    enter_leave_list.append(answer_data_line[9])
-    total_list.append(answer_data_line[10])
-    device_list.append(answer_data_line[11])
-    created_at_list.append(answer_data_line[12])
+    questionnaire_id_dict[answer_data_line[0]] = answer_data_line[1]
+    scroll_dict[answer_data_line[0]] = answer_data_line[2]
+    coordinates_dict[answer_data_line[0]] = answer_data_line[3]
+    click_dict[answer_data_line[0]] = answer_data_line[4]
+    windowsize_dict[answer_data_line[0]] = answer_data_line[5]
+    background_dict[answer_data_line[0]] = answer_data_line[6]
+    checking_dict[answer_data_line[0]] = answer_data_line[7]
+    type_dict[answer_data_line[0]] = answer_data_line[8]
+    enter_leave_dict[answer_data_line[0]] = answer_data_line[9]
+    total_dict[answer_data_line[0]] = answer_data_line[10]
+    device_dict[answer_data_line[0]] = answer_data_line[11]
+    created_at_dict[answer_data_line[0]] = answer_data_line[12]
     
 
-print()
+print(questionnaire_id_dict)
 
 
 
