@@ -26,6 +26,7 @@ for answers_line in answers_list:
     if(answers_line[1] == questionnaire_id and answers_line[4] == 0):
         if(answer_id != answers_line[0]):
             answers_dict[answers_line[0]] = {answers_line[2] : answers_line[3]}
+            answer_id = answers_line[0]
         else:
             answers_dict[answers_line[0]].update({answers_line[2] : answers_line[3]})
     
