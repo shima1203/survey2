@@ -1,6 +1,9 @@
 # MySQLdbのインポート
 import MySQLdb
 
+questionnaire_id = 3
+
+
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
     host='localhost',
@@ -9,14 +12,22 @@ connection = MySQLdb.connect(
     db='survey')
 cursor = connection.cursor()
 
-cursor.execute("SELECT * FROM AnswerData")
-answer_data_list = cursor.fetchall()
+
 cursor.execute("SELECT * FROM Answers")
 answers_list = cursor.fetchall()
+cursor.execute("SELECT * FROM AnswerData")
+answer_data_list = cursor.fetchall()
 
-answers_dict = dict(answers_list)
+
+# 回答を辞書型に
+answers_dict = {}
+for answers_line in answers_list:
+    if(answers_line[1] == questionnaire_id and answers_line[4] == 0):
+        answers_dict[answers_line[0]] = {answers_line[2] : answers_line[3]}
+    
 
 
+# アンサーデータ
 answer_id_list = []
 questionnaire_id_list = []
 scroll_list = []
@@ -45,9 +56,8 @@ for answer_data_line in answer_data_list:
     device_list.append(answer_data_line[11])
     created_at_list.append(answer_data_line[12])
     
-answer_data_dict = dict(answer_data_list)
 
-print(answers_dict(answer_id_list[0]))
+print()
 
 
 
