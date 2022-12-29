@@ -49,19 +49,19 @@ for answer_data_line in answer_data_list:
     answer_id_list.append(answer_data_line[0])
     questionnaire_id_dict[answer_data_line[0]] = answer_data_line[1]
     scroll_dict[answer_data_line[0]] = json.loads(answer_data_line[2])
-    coordinates_dict[answer_data_line[0]] = answer_data_line[3]
-    click_dict[answer_data_line[0]] = answer_data_line[4]
-    windowsize_dict[answer_data_line[0]] = answer_data_line[5]
-    background_dict[answer_data_line[0]] = answer_data_line[6]
-    checking_dict[answer_data_line[0]] = answer_data_line[7]
-    type_dict[answer_data_line[0]] = answer_data_line[8]
-    enter_leave_dict[answer_data_line[0]] = answer_data_line[9]
-    total_dict[answer_data_line[0]] = answer_data_line[10]
+    coordinates_dict[answer_data_line[0]] = json.loads(answer_data_line[3])
+    click_dict[answer_data_line[0]] = json.loads(answer_data_line[4])
+    windowsize_dict[answer_data_line[0]] = json.loads(answer_data_line[5])
+    background_dict[answer_data_line[0]] = json.loads(answer_data_line[6])
+    checking_dict[answer_data_line[0]] = json.loads(answer_data_line[7])
+    type_dict[answer_data_line[0]] = json.loads(answer_data_line[8])
+    enter_leave_dict[answer_data_line[0]] = json.loads(answer_data_line[9])
+    total_dict[answer_data_line[0]] = json.loads(answer_data_line[10])
     device_dict[answer_data_line[0]] = answer_data_line[11]
     created_at_dict[answer_data_line[0]] = answer_data_line[12]
     
 for tmp in scroll_dict[answer_id_list[0]]:
-    print(tmp , "\n")
+    print(tmp["x"] , "\n")
 
 
 
