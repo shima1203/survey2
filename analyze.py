@@ -21,11 +21,12 @@ answer_data_list = cursor.fetchall()
 
 # 回答を辞書型に
 answers_dict = {}
+answer_id = 0
 for answers_line in answers_list:
     if(answers_line[1] == questionnaire_id and answers_line[4] == 0):
         answers_dict[answers_line[0]] = {answers_line[2] : answers_line[3]}
     
-
+print(answers_dict)
 
 # アンサーデータ
 answer_id_list = []
