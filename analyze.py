@@ -10,9 +10,11 @@ connection = MySQLdb.connect(
 cursor = connection.cursor()
 
 cursor.execute("SELECT * FROM AnswerData")
-answer_data = cursor.fetchall()
+answer_data_list = cursor.fetchall()
 cursor.execute("SELECT * FROM Answers")
-answers = cursor.fechall()
+answers_list = cursor.fechall()
+
+answers_dict = dict(answers_list)
 
 
 answer_id_list = []
@@ -28,7 +30,7 @@ enter_leave_list = []
 total_list = []
 device_list = []
 created_at_list = []
-for answer_data_line in answer_data:
+for answer_data_line in answer_data_list:
     answer_id_list.append(answer_data_line[0])
     questionnaire_id_list.append(answer_data_line[1])
     scroll_list.append(answer_data_line[2])
@@ -43,7 +45,9 @@ for answer_data_line in answer_data:
     device_list.append(answer_data_line[11])
     created_at_list.append(answer_data_line[12])
     
-print(click_list)
+answer_data_dict = dict(answer_data_list)
+
+print(answers_dict(answer_id_list[0]))
 
 
 
