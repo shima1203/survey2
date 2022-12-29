@@ -12,7 +12,7 @@ cursor = connection.cursor()
 cursor.execute("SELECT * FROM AnswerData")
 answer_data_list = cursor.fetchall()
 cursor.execute("SELECT * FROM Answers")
-answers_list = cursor.fechall()
+answers_list = cursor.fetchall()
 
 answers_dict = dict(answers_list)
 
