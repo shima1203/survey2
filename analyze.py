@@ -46,7 +46,7 @@ total_dict = {}
 device_dict = {}
 created_at_dict = {}
 for answer_data_line in answer_data_list:
-    if(answers_dict[answer_data_line[0]] in answers_dict):
+    if(answer_data_line[0] in answers_dict):
         answer_id_list.append(answer_data_line[0])
         questionnaire_id_dict[answer_data_line[0]] = answer_data_line[1]
         scroll_dict[answer_data_line[0]] = json.loads(answer_data_line[2])
