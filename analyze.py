@@ -10,10 +10,10 @@ connection = MySQLdb.connect(
 cursor = connection.cursor()
 
 # ここに実行したいコードを入力します
-cursor.execute("SELECT click FROM AnswerData")
+cursor.execute("SELECT * FROM AnswerData")
 # fetchall()で全件取り出し
-rows = cursor.fetchall()
-print(rows)
+answer_data = cursor.fetchall()
+print(answer_data[0])
 
 
 
