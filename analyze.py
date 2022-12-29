@@ -64,7 +64,7 @@ for answer_data_line in answer_data_list:
 for tmp in scroll_dict[answer_id_list[0]]:
     print(tmp["y"])
 
-
+print(answer_id_list)
 
 
 
