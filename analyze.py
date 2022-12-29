@@ -59,7 +59,7 @@ for answer_data_line in answer_data_list:
     created_at_dict[answer_data_line[0]] = answer_data_line[12]
     
 
-print(questionnaire_id_dict)
+print(click_dict)
 
 
 
