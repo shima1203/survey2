@@ -1,5 +1,5 @@
-# MySQLdbのインポート
 import MySQLdb
+import json
 
 questionnaire_id = 3
 
@@ -48,7 +48,7 @@ created_at_dict = {}
 for answer_data_line in answer_data_list:
     answer_id_list.append(answer_data_line[0])
     questionnaire_id_dict[answer_data_line[0]] = answer_data_line[1]
-    scroll_dict[answer_data_line[0]] = answer_data_line[2]
+    scroll_dict[answer_data_line[0]] = json.loads(answer_data_line[2])
     coordinates_dict[answer_data_line[0]] = answer_data_line[3]
     click_dict[answer_data_line[0]] = answer_data_line[4]
     windowsize_dict[answer_data_line[0]] = answer_data_line[5]
@@ -60,9 +60,8 @@ for answer_data_line in answer_data_list:
     device_dict[answer_data_line[0]] = answer_data_line[11]
     created_at_dict[answer_data_line[0]] = answer_data_line[12]
     
-print(scroll_dict[answer_id_list[0]])
-# for tmp in scroll_dict[answer_id_list[0]]:
-#     print(tmp , "\n")
+for tmp in scroll_dict[answer_id_list[0]]:
+    print(tmp , "\n")
 
 
 
