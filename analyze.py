@@ -103,7 +103,7 @@ def plot_feature_importance(df):
     plt.ylabel('Feature')                             # y軸のタイトル
 
 # Boston データセットの読み込み
-boston = datasets.load_boston()
+boston = datasets.load_iris()
 df = pd.DataFrame(boston.data, columns=boston.feature_names) # データフレームへの格納
 
 # データの確認
