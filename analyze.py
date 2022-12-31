@@ -64,6 +64,7 @@ for answer_data_line in answer_data_list:
 
 data_set = []
 for i in range(len(answer_id_list)):
+    data_set[i] = {}
     data_set[i]["target"] = answers_dict[i]["30"]
     data_set[i]["click_amount"] = len(click_dict[answer_id_list[i]])
 
