@@ -59,7 +59,7 @@ for answer_data_line in answer_data_list:
         created_at_dict[answer_data_line[0]] = answer_data_line[12]
 
 
-print(answers_dict)
+print(answer_id_list[i])
 # <--------ここからはデータセットの作成-------->
 
 data_set = []
