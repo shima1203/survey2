@@ -57,10 +57,28 @@ for answer_data_line in answer_data_list:
         total_dict[answer_data_line[0]] = json.loads(answer_data_line[10])
         device_dict[answer_data_line[0]] = answer_data_line[11]
         created_at_dict[answer_data_line[0]] = answer_data_line[12]
-        
+
 
 
 # <--------ここからはデータセットの作成-------->
+
+data = []
+for i in range(len(answer_id_list)):
+    data[i]["target"] = answers_dict[i]["30"]
+    data[i]["click_amount"] = len(click_dict[answer_id_list[i]])
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # 縦軸：クリックの回数　横軸：集中->1　適当->0
 
