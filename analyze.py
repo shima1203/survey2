@@ -62,11 +62,12 @@ for answer_data_line in answer_data_list:
 
 # <--------ここからはデータセットの作成-------->
 
-data = []
+data_set = []
 for i in range(len(answer_id_list)):
-    data[i]["target"] = answers_dict[i]["30"]
-    data[i]["click_amount"] = len(click_dict[answer_id_list[i]])
+    data_set[i]["target"] = answers_dict[i]["30"]
+    data_set[i]["click_amount"] = len(click_dict[answer_id_list[i]])
 
+print(data_set)
 
 
 
