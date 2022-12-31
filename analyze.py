@@ -12,12 +12,10 @@ connection = MySQLdb.connect(
     db='survey')
 cursor = connection.cursor()
 
-
 cursor.execute("SELECT * FROM Answers")
 answers_list = cursor.fetchall()
 cursor.execute("SELECT * FROM AnswerData")
 answer_data_list = cursor.fetchall()
-
 
 # 回答を辞書型に
 answers_dict = {}
@@ -29,7 +27,6 @@ for answers_line in answers_list:
             answer_id = answers_line[0]
         else:
             answers_dict[answers_line[0]].update({answers_line[2] : answers_line[3]})
-    
 
 # アンサーデータを辞書型に
 answer_id_list = []
@@ -61,10 +58,9 @@ for answer_data_line in answer_data_list:
         device_dict[answer_data_line[0]] = answer_data_line[11]
         created_at_dict[answer_data_line[0]] = answer_data_line[12]
         
-for tmp in scroll_dict[answer_id_list[0]]:
-    print(tmp["y"])
 
-print(answer_id_list)
+
+# <--------ここからはデータセットの作成-------->
 
 # 縦軸：クリックの回数　横軸：集中->1　適当->0
 
