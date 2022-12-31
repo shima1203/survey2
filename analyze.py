@@ -1,5 +1,11 @@
 import MySQLdb
 import json
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns; sns.set()
+import warnings
+warnings.filterwarnings('ignore')
 
 questionnaire_id = 3
 
@@ -71,10 +77,13 @@ for i in range(len(answer_id_list)):
     data_tmp['mouse_amount'] = len(coordinates_dict[answer_id_list[i]])
     data_set.append(data_tmp)
 
-print(data_set)
 
 
 
+
+
+
+# <--------特徴量重要度の表示-------->
 
 
 
