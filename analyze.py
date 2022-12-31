@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns; sns.set()
 import warnings
 warnings.filterwarnings('ignore')
+import IPython
 
 questionnaire_id = 3
 
@@ -84,10 +85,37 @@ for i in range(len(answer_id_list)):
 
 
 # <--------特徴量重要度の表示-------->
+from sklearn import datasets
+from sklearn.model_selection import train_test_split # データセット分割用
+# データフレームを綺麗に出力する関数
+def display(*dfs, head=True):
+    for df in dfs:
+        IPython.display.display(df.head() if head else df)
+# 特徴量重要度を棒グラフでプロットする関数 
+def plot_feature_importance(df): 
+    n_features = len(df)                              # 特徴量数(説明変数の個数) 
+    df_plot = df.sort_values('importance')            # df_importanceをプロット用に特徴量重要度を昇順ソート 
+    f_importance_plot = df_plot['importance'].values  # 特徴量重要度の取得 
+    plt.barh(range(n_features), f_importance_plot, align='center') 
+    cols_plot = df_plot['feature'].values             # 特徴量の取得 
+    plt.yticks(np.arange(n_features), cols_plot)      # x軸,y軸の値の設定
+    plt.xlabel('Feature importance')                  # x軸のタイトル
+    plt.ylabel('Feature')                             # y軸のタイトル
 
+# Boston データセットの読み込み
+boston = datasets.load_boston()
+df = pd.DataFrame(boston.data, columns=boston.feature_names) # データフレームへの格納
 
+# データの確認
+print(df.shape) # データサイズの確認(データ数,特徴量数(変数の個数))
+display(df)     # df.head()に同じ(文中に入れるときはdisplay()を使う)
 
+# 説明変数,目的変数
+X = df.drop('CRIM',axis=1).values # 説明変数(CRIM以外の特徴量)
+y = df['CRIM'].values             # 目的変数(CRIM)
 
+# トレーニングデータ,テストデータの分割
+X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=0.20, random_state=2)
 
 
 
