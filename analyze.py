@@ -59,13 +59,13 @@ for answer_data_line in answer_data_list:
         created_at_dict[answer_data_line[0]] = answer_data_line[12]
 
 
-print(scroll_dict[answer_id_list[2]])
+
 # <--------ここからはデータセットの作成-------->
 
 data_set = []
 for i in range(len(answer_id_list)):
     data_tmp = {}
-    data_tmp['target'] = answers_dict[i]['30']
+    data_tmp['target'] = answers_dict[answer_id_list[i]]['30']
     data_tmp['click_amount'] = len(click_dict[answer_id_list[i]])
     data_set.append(data_tmp)
 
