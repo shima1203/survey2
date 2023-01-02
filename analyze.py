@@ -127,7 +127,7 @@ metrics.log_loss(y_test, y_pred)
 
 lgb.plot_metric(model)
 lgb.plot_importance(model)
-
+plt.show()
 
 # 縦軸：クリックの回数　横軸：集中->1　適当->0
 
