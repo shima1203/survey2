@@ -7,6 +7,7 @@ import seaborn as sns; sns.set()
 import warnings
 warnings.filterwarnings('ignore')
 import IPython
+import lightgbm as lgb
 
 questionnaire_id = 3
 
@@ -86,37 +87,93 @@ for i in range(len(answer_id_list)):
 
 # <--------特徴量重要度の表示-------->
 from sklearn import datasets
-from sklearn.model_selection import train_test_split # データセット分割用
-# データフレームを綺麗に出力する関数
-def display(*dfs, head=True):
-    for df in dfs:
-        IPython.display.display(df.head() if head else df)
-# 特徴量重要度を棒グラフでプロットする関数 
-def plot_feature_importance(df): 
-    n_features = len(df)                              # 特徴量数(説明変数の個数) 
-    df_plot = df.sort_values('importance')            # df_importanceをプロット用に特徴量重要度を昇順ソート 
-    f_importance_plot = df_plot['importance'].values  # 特徴量重要度の取得 
-    plt.barh(range(n_features), f_importance_plot, align='center') 
-    cols_plot = df_plot['feature'].values             # 特徴量の取得 
-    plt.yticks(np.arange(n_features), cols_plot)      # x軸,y軸の値の設定
-    plt.xlabel('Feature importance')                  # x軸のタイトル
-    plt.ylabel('Feature')                             # y軸のタイトル
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import StratifiedKFold
 
-# Boston データセットの読み込み
-boston = datasets.load_iris()
-df = pd.DataFrame(boston.data, columns=boston.feature_names) # データフレームへの格納
+# iris データセットを読み込む
+iris = datasets.load_iris()
+X = iris['data']
+y = iris['target']
 
-# データの確認
-print(df.shape) # データサイズの確認(データ数,特徴量数(変数の個数))
-display(df)     # df.head()に同じ(文中に入れるときはdisplay()を使う)
+# 説明変数をpandas.DataFrameに入れ、カラム名を付ける
+df_X = pd.DataFrame(X, columns=iris['feature_names'])
 
-# 説明変数,目的変数
-X = df.drop('sepal length',axis=1).values # 説明変数(CRIM以外の特徴量)
-y = df['sepal length'].values             # 目的変数(CRIM)
+# カテゴリー変数を作成
+# sepal（がく）の面積から4区分のカテゴリーを作成
+df_X['sepal_cat'] = df_X['sepal length (cm)'] * df_X['sepal width (cm)']
+df_X['sepal_cat'] = pd.qcut(df_X['sepal_cat'], 4, labels=False)
+df_X['sepal_cat'] = df_X['sepal_cat'].astype('category')
 
-# トレーニングデータ,テストデータの分割
-X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=0.20, random_state=2)
+# カテゴリー変数を作成
+# petal（花びら）の面積から4区分のカテゴリーを作成
+df_X['petal_cat'] = df_X['petal length (cm)'] * df_X['petal width (cm)']
+df_X['petal_cat'] = pd.cut(df_X['petal_cat'], 4, labels=False)
+df_X['petal_cat'] = df_X['petal_cat'].astype('category')
 
+# 学習データとテストデータに分ける
+X_train, X_test, y_train, y_test = train_test_split(df_X, y,
+                                                    test_size=0.2,
+                                                    random_state=0,
+                                                    stratify=y)
+
+# 学習データを、学習用と検証用に分ける
+X_train, X_eval, y_train, y_eval = train_test_split(X_train, y_train,
+                                                    test_size=0.2,
+                                                    random_state=1,
+                                                    stratify=y_train)
+
+
+# カテゴリー変数
+categorical_features = {*sorted(['sepal_cat', 'petal_cat'])}
+
+
+# データを格納する
+# 学習用
+lgb_train = lgb.Dataset(X_train, y_train,
+                        categorical_feature=categorical_features,
+                        free_raw_data=False)
+# 検証用
+lgb_eval = lgb.Dataset(X_eval, y_eval, reference=lgb_train,
+                       categorical_feature=categorical_features,
+                       free_raw_data=False)
+
+# パラメータを設定
+params = {'task': 'train',                # 学習、トレーニング ⇔　予測predict
+          'boosting_type': 'gbdt',        # 勾配ブースティング
+          'objective': 'multiclass',      # 目的関数：多値分類、マルチクラス分類
+          'metric': 'multi_logloss',      # 分類モデルの性能を測る指標
+          'num_class': 3,                 # 目的変数のクラス数
+          'learning_rate': 0.02,          # 学習率（初期値0.1）
+          'num_leaves': 23,               # 決定木の複雑度を調整（初期値31）
+          'min_data_in_leaf': 1,          # データの最小数（初期値20）
+         }
+
+# 学習
+evaluation_results = {}                                     # 学習の経過を保存する箱
+model = lgb.train(params,                                   # 上記で設定したパラメータ
+                  lgb_train,                                # 使用するデータセット
+                  num_boost_round=1000,                     # 学習の回数
+                  valid_names=['train', 'valid'],           # 学習経過で表示する名称
+                  valid_sets=[lgb_train, lgb_eval],         # モデル検証のデータセット
+                  evals_result=evaluation_results,          # 学習の経過を保存
+                  categorical_feature=categorical_features, # カテゴリー変数を設定
+                  early_stopping_rounds=20,                 # アーリーストッピング
+                  verbose_eval=10)                          # 学習の経過の表示(10回毎)
+
+# 最もスコアが良いときのラウンドを保存
+optimum_boost_rounds = model.best_iteration
+
+# テストデータで予測
+y_pred = model.predict(X_test, num_iteration=model.best_iteration)
+y_pred_max = np.argmax(y_pred, axis=1)
+
+# Accuracy の計算
+accuracy = sum(y_test == y_pred_max) / len(y_test)
+print('accuracy:', accuracy)
+
+# feature importanceを表示
+importance = pd.DataFrame(model.feature_importance(), index=df_X.columns, columns=['importance'])
+display(importance)
 
 
 
