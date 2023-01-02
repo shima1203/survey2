@@ -111,8 +111,8 @@ print(df.shape) # データサイズの確認(データ数,特徴量数(変数�
 display(df)     # df.head()に同じ(文中に入れるときはdisplay()を使う)
 
 # 説明変数,目的変数
-X = df.drop('CRIM',axis=1).values # 説明変数(CRIM以外の特徴量)
-y = df['CRIM'].values             # 目的変数(CRIM)
+X = df.drop('sepal length',axis=1).values # 説明変数(CRIM以外の特徴量)
+y = df['sepal length'].values             # 目的変数(CRIM)
 
 # トレーニングデータ,テストデータの分割
 X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=0.20, random_state=2)
