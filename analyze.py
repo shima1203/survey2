@@ -3,6 +3,7 @@ import json
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+%matplotlib inline 
 import seaborn as sns; sns.set()
 import warnings
 warnings.filterwarnings('ignore')
@@ -149,32 +150,32 @@ lgb_train = lgb.Dataset(X_train, y_train,
                         categorical_feature=categorical_features,
                         free_raw_data=False)
 # 検証用
-lgb_eval = lgb.Dataset(X_eval, y_eval, reference=lgb_train,
-                       categorical_feature=categorical_features,
-                       free_raw_data=False)
+lgb_eval = lgb.Dataset( X_eval, y_eval, reference=lgb_train,
+                        categorical_feature=categorical_features,
+                        free_raw_data=False)
 
 # パラメータを設定
 params = {'task': 'train',                # 学習、トレーニング ⇔　予測predict
-          'boosting_type': 'gbdt',        # 勾配ブースティング
-          'objective': 'multiclass',      # 目的関数：多値分類、マルチクラス分類
-          'metric': 'multi_logloss',      # 分類モデルの性能を測る指標
-          'num_class': 3,                 # 目的変数のクラス数
-          'learning_rate': 0.02,          # 学習率（初期値0.1）
-          'num_leaves': 23,               # 決定木の複雑度を調整（初期値31）
-          'min_data_in_leaf': 1,          # データの最小数（初期値20）
-         }
+        'boosting_type': 'gbdt',        # 勾配ブースティング
+        'objective': 'multiclass',      # 目的関数：多値分類、マルチクラス分類
+        'metric': 'multi_logloss',      # 分類モデルの性能を測る指標
+        'num_class': 3,                 # 目的変数のクラス数
+        'learning_rate': 0.02,          # 学習率（初期値0.1）
+        'num_leaves': 23,               # 決定木の複雑度を調整（初期値31）
+        'min_data_in_leaf': 1,          # データの最小数（初期値20）
+        }
 
 # 学習
 evaluation_results = {}                                     # 学習の経過を保存する箱
-model = lgb.train(params,                                   # 上記で設定したパラメータ
-                  lgb_train,                                # 使用するデータセット
-                  num_boost_round=1000,                     # 学習の回数
-                  valid_names=['train', 'valid'],           # 学習経過で表示する名称
-                  valid_sets=[lgb_train, lgb_eval],         # モデル検証のデータセット
-                  evals_result=evaluation_results,          # 学習の経過を保存
-                  categorical_feature=categorical_features, # カテゴリー変数を設定
-                  early_stopping_rounds=20,                 # アーリーストッピング
-                  verbose_eval=10)                          # 学習の経過の表示(10回毎)
+model = lgb.train(  params,                                   # 上記で設定したパラメータ
+                    lgb_train,                                # 使用するデータセット
+                    num_boost_round=1000,                     # 学習の回数
+                    valid_names=['train', 'valid'],           # 学習経過で表示する名称
+                    valid_sets=[lgb_train, lgb_eval],         # モデル検証のデータセット
+                    evals_result=evaluation_results,          # 学習の経過を保存
+                    categorical_feature=categorical_features, # カテゴリー変数を設定
+                    early_stopping_rounds=20,                 # アーリーストッピング
+                    verbose_eval=10)                          # 学習の経過の表示(10回毎)
 
 # 最もスコアが良いときのラウンドを保存
 optimum_boost_rounds = model.best_iteration
