@@ -121,6 +121,7 @@ callbacks.append(lgb.log_evaluation())
 model.fit(X_train, y_train, eval_set=eval_set, callbacks=callbacks)
 
 	
+lgb.plot_metric(model)
 lgb.plot_importance(model)
 
 
