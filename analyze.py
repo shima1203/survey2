@@ -120,7 +120,8 @@ callbacks.append(lgb.early_stopping(stopping_rounds=10))
 callbacks.append(lgb.log_evaluation())
 model.fit(X_train, y_train, eval_set=eval_set, callbacks=callbacks)
 
-
+	
+lgb.plot_importance(model)
 
 
 # 縦軸：クリックの回数　横軸：集中->1　適当->0
