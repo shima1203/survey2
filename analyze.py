@@ -107,20 +107,20 @@ df = sns.load_dataset('titanic')
 X = df.loc[:, (df.columns!='survived') & (df.columns!='alive')]
 X = pd.get_dummies(X, drop_first=True)
 y = df['survived']
+
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+
 import lightgbm as lgb
 model = lgb.LGBMClassifier(boosting_type='goss', max_depth=5, random_state=0)
+
 eval_set = [(X_test, y_test)]
 callbacks = []
 callbacks.append(lgb.early_stopping(stopping_rounds=10))
 callbacks.append(lgb.log_evaluation())
 model.fit(X_train, y_train, eval_set=eval_set, callbacks=callbacks)
-eval_set = [(X_test, y_test)]
-callbacks = []
-callbacks.append(lgb.early_stopping(stopping_rounds=10))
-callbacks.append(lgb.log_evaluation())
-model.fit(X_train, y_train, eval_set=eval_set, callbacks=callbacks)
+
+
 
 
 # 縦軸：クリックの回数　横軸：集中->1　適当->0
