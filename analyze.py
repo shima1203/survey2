@@ -3,6 +3,7 @@ import json
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+plt.show()
 import seaborn as sns; sns.set()
 import warnings
 warnings.filterwarnings('ignore')
