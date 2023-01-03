@@ -80,6 +80,9 @@ for i in range(len(answer_id_list)):
     data_set.append(data_tmp)
 
 df = pd.DataFrame(data = data_set)
+X = df.loc[:, (df.columns !='target')]
+# X = pd.get_dummies(X, drop_first=True)
+y = df['target']
 print(df)
 
 
@@ -104,7 +107,6 @@ def plot_feature_importance(df):
     plt.ylabel('Feature')                             # y軸のタイトル
 
 df = sns.load_dataset('titanic')
-# df = df.dropna()
 X = df.loc[:, (df.columns!='survived') & (df.columns!='alive')]
 X = pd.get_dummies(X, drop_first=True)
 y = df['survived']
