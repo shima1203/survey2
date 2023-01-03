@@ -25,6 +25,12 @@ answers_list = cursor.fetchall()
 cursor.execute("SELECT * FROM AnswerData")
 answer_data_list = cursor.fetchall()
 
+# 保存を実行
+connection.commit()
+# 接続を閉じる
+connection.close()
+
+
 # 回答を辞書型に
 answers_dict = {}
 answer_id = 0
@@ -143,10 +149,7 @@ plt.show()
 
 
 
-# 保存を実行
-connection.commit()
-# 接続を閉じる
-connection.close()
+
 
 
 # クラス化しようかな
