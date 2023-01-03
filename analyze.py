@@ -79,6 +79,9 @@ for i in range(len(answer_id_list)):
     data_tmp['mouse_amount'] = len(coordinates_dict[answer_id_list[i]])
     data_set.append(data_tmp)
 
+df = pd.DataFrame(  np.arange(12).reshape(3,4),
+                    columns=['click_amount', 'mouse_amount'])
+
 
 
 
