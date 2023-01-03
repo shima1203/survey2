@@ -121,7 +121,7 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
 
 import lightgbm as lgb
-model = lgb.LGBMClassifier(boosting_type='goss', max_depth=5, random_state=0)
+model = lgb.LGBMClassifier(boosting_type='gbdt', max_depth=5, random_state=0)
 
 eval_set = [(X_test, y_test)]
 callbacks = []
