@@ -112,7 +112,7 @@ def plot_feature_importance(df):
 # y = df['survived']
 
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
 
 import lightgbm as lgb
 model = lgb.LGBMClassifier(boosting_type='goss', max_depth=5, random_state=0)
