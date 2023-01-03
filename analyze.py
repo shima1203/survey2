@@ -106,10 +106,10 @@ def plot_feature_importance(df):
     plt.xlabel('Feature importance')                  # x軸のタイトル
     plt.ylabel('Feature')                             # y軸のタイトル
 
-df = sns.load_dataset('titanic')
-X = df.loc[:, (df.columns!='survived') & (df.columns!='alive')]
-X = pd.get_dummies(X, drop_first=True)
-y = df['survived']
+# df = sns.load_dataset('titanic')
+# X = df.loc[:, (df.columns!='survived') & (df.columns!='alive')]
+# X = pd.get_dummies(X, drop_first=True)
+# y = df['survived']
 
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
