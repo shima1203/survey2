@@ -81,7 +81,8 @@ for i in range(len(answer_id_list)):
 
 df = pd.DataFrame(  np.arange(6).reshape(3, 2),
                     columns=['click_amount', 'mouse_amount'])
-
+# df.loc[:, 'click_amount'] = data_set['click_amount']
+df = pd.DataFrame(data = data_set)
 print(df)
 
 
