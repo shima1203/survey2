@@ -89,6 +89,9 @@ df = pd.DataFrame(data = data_set)
 X = df.loc[:, (df.columns !='target')]
 # X = pd.get_dummies(X, drop_first=True)
 y = df['target']
+print(df)
+
+
 
 
 
@@ -113,8 +116,6 @@ def plot_feature_importance(df):
 # X = df.loc[:, (df.columns!='survived') & (df.columns!='alive')]
 # X = pd.get_dummies(X, drop_first=True)
 # y = df['survived']
-
-display(df)
 
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
