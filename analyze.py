@@ -76,6 +76,7 @@ for answer_data_line in answer_data_list:
 
 
 # <--------ここからはデータセットの作成-------->
+print("--------------------データ--------------------")
 
 data_set = []
 for i in range(len(answer_id_list)):
@@ -89,13 +90,39 @@ df = pd.DataFrame(data = data_set)
 X = df.loc[:, (df.columns !='target')]
 # X = pd.get_dummies(X, drop_first=True)
 y = df['target']
+
 print(df)
+print(" ")
+
+# <--------ヒューリスティックに予測-------->
 
 
 
 
 
-# <--------LightGBMで学習-------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# <--------LightGBMで学習して予測-------->
+print("--------------------LightGBMの学習結果--------------------")
 
 # データフレームを綺麗に出力する関数
 def display(*dfs, head=True):
