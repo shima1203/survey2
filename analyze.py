@@ -95,8 +95,17 @@ print(df)
 print(" ")
 
 # <--------ヒューリスティックに予測-------->
+print("--------------------予測結果--------------------")
+
+# 入力(各特徴量の値)に対して0~1にスケーリングした値を返す
+def func_click_amount(click_amount):
+    return click_amount/100
 
 
+predict = []
+
+for i in range(len(answer_id_list)):
+    predict[i] += func_click_amount(data_set[i]['click_amount'])
 
 
 
