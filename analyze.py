@@ -105,7 +105,7 @@ def func_click_amount(click_amount):
 predict = []
 
 for i in range(len(answer_id_list)):
-    predict[i] += func_click_amount(data_set[i]['click_amount'])
+    predict.append(func_click_amount(data_set[i]['click_amount']))
 
 
 
