@@ -81,7 +81,7 @@ print("--------------------データ--------------------")
 data_set = []
 for i in range(len(answer_id_list)):
     data_tmp = {}
-    data_tmp['target'] = answers_dict[answer_id_list[i]][30]
+    data_tmp['target'] = int(answers_dict[answer_id_list[i]][30])
     data_tmp['click_amount'] = len(click_dict[answer_id_list[i]])
     data_tmp['mouse_amount'] = len(coordinates_dict[answer_id_list[i]])
     data_set.append(data_tmp)
@@ -107,9 +107,11 @@ predict = []
 for i in range(len(answer_id_list)):
     predict.append(func_click_amount(data_set[i]['click_amount']))
 
+tmp1,tmp2 = 0
 for tmp in data_set:
     if tmp['target'] == '0':
         print(tmp)
+        tmp += tmp['click_amount']
 for tmp in data_set:
     if tmp['target'] == '1':
         print(tmp)
