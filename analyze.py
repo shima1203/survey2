@@ -110,11 +110,11 @@ for i in range(len(answer_id_list)):
 tmp1 = 0
 tmp2 = 0
 for tmp in data_set:
-    if tmp['target'] == '0':
+    if tmp['target'] == 0:
         print(tmp)
         tmp1 += tmp['click_amount']
 for tmp in data_set:
-    if tmp['target'] == '1':
+    if tmp['target'] == 1:
         print(tmp)
 
 
