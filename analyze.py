@@ -182,8 +182,8 @@ for data in data_set:
         sum_mouse_amount += data['mouse_amount']
         sum_mouse_speed_click_pre +=data['mouse_speed_click_pre']
 print('----------average----------')
-print("click_ave:", sum_click_amount/j)
-print("mouse_ave:", sum_mouse_amount/j)
+print("click_amount:", sum_click_amount/j)
+print("mouse_amount:", sum_mouse_amount/j)
 print("mouse_speed_click_pre:",sum_mouse_speed_click_pre/j)
 
 
