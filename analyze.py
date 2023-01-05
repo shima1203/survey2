@@ -128,33 +128,41 @@ print("--------------------予測結果--------------------")
 def func_click_amount(click_amount):
     return click_amount/100
 
-
 predict = []
 
 for i in range(len(answer_id_list)):
     predict.append(func_click_amount(data_set[i]['click_amount']))
 
+
+
+
 sum_click = 0
 sum_mouse = 0
 tmp2 = 0
 j = 0
+
+print('集中')
 for data in data_set:
     if data['target'] == 0:
         print(data, )
         j += 1
         sum_click += data['click_amount']
         sum_mouse += data['mouse_amount']
-print("click_ave:", sum_click/j)
-print("mouse_ave:", sum_mouse/j)
+print('----------average----------')
+print("click_amount:", sum_click/j)
+print("mouse_amount:", sum_mouse/j)
 sum_click = 0
 sum_mouse = 0
 j = 0
+
+print('適当')
 for data in data_set:
     if data['target'] == 1:
         print(data)
         j += 1
         sum_click += data['click_amount']
         sum_mouse += data['mouse_amount']
+print('----------average----------')
 print("click_ave:", sum_click/j)
 print("mouse_ave:", sum_mouse/j)
 
