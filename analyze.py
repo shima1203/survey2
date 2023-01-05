@@ -129,8 +129,10 @@ X = df.loc[:, (df.columns !='target')]
 # X = pd.get_dummies(X, drop_first=True)
 y = df['target']
 
+print('＜集中＞')
 print(df[df['target'] == 0])
 print(" ")
+print('＜適当＞')
 print(df[df['target'] == 1])
 print(" ")
 
