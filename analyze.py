@@ -96,13 +96,14 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
     clicks = clicks_ori.copy()
     click_pre_list = []
     time_close = 500
-    time_tmp = 0
+    time_tmp = coordinates[0]['time']
     for click in clicks:
         i = 0
         for coordinate in coordinates:
             if(coordinate['time'] <= click['time'] and coordinate['time'] >= click['time'] - time_close):
-                click_pre_list.append(coordinate['time'] - time_tmp)
-                time_tmp = coordinate['time']
+                if(coordinate['time'] - time_tmp <= 1000):
+                    click_pre_list.append(coordinate['time'] - time_tmp)
+                    time_tmp = coordinate['time']
             elif(coordinate['time'] >= click['time']):
                 time_tmp = coordinate['time']
                 break
