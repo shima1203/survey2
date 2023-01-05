@@ -77,7 +77,7 @@ for answer_data_line in answer_data_list:
 
 # <--------ここからはデータセットの作成-------->
 print("--------------------データ--------------------")
-print(coordinates_dict[answer_id_list[0]][0]['time'])
+print(type(coordinates_dict[answer_id_list[0]][0]['time']))
 def mouse_speed_click_pre(coordinates, clicks):
     click_pre_list = []
     time_close = 1000
