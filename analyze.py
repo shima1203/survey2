@@ -109,11 +109,10 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
                     tmp.append(coordinate['time'])
             if(coordinate['time'] > click['time']):
                 break
-            
             time_tmp = coordinate['time']
             i += 1
         for j in range(i):
-            del coordinates[j]
+            del coordinates[j-1]
         print('click_pre_list : ', len(click_pre_list))
         print('coordinates_list : ', len(coordinates))
         print('----------------------------------')
