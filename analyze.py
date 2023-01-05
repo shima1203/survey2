@@ -78,7 +78,9 @@ for answer_data_line in answer_data_list:
 # <--------ここからはデータセットの作成-------->
 print("--------------------データ--------------------")
 
-def mouse_speed_click_pre(coordinates=[], clicks=[]):
+def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
+    coordinates = coordinates_ori.copy()
+    clicks = clicks_ori.copy()
     click_pre_list = []
     time_close = 1000
     for click in clicks:
