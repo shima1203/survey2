@@ -113,6 +113,7 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
             i += 1
         for j in range(i):
             if(len(coordinates) != 0):
+                print('del : 'coordinates[j]['time'])
                 del coordinates[j]
         print('click_pre_list : ', len(click_pre_list))
         print('coordinates_list : ', len(coordinates))
