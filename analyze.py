@@ -101,7 +101,7 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
     time_tmp = coordinates[0]['time']
     for click in clicks:
         i = 0
-        for i in len(coordinates):
+        for i in range(len(coordinates)):
             print(coordinates[i]['time'])
             if(coordinates[i]['time'] <= click['time'] and coordinates[i]['time'] >= click['time'] - time_close):
                 if(coordinates[i]['time'] - time_tmp <= 1000):
