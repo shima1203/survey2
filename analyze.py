@@ -79,7 +79,6 @@ for answer_data_line in answer_data_list:
 print("--------------------データ--------------------")
 
 # マウスの平均スピードを返す関数
-# 要修正
 def mouse_speed(coordinates=[]):
     sum_mous = 0
     i = 0
@@ -110,12 +109,12 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
             time_tmp = coordinate['time']
             del coordinates[i]
             i += 1
-        # print('click_pre_list : ', len(click_pre_list))
-        # print('coordinates_list : ', len(coordinates))
-        # print('----------------------------------')
+        print('click_pre_list : ', len(click_pre_list))
+        print('coordinates_list : ', len(coordinates))
+        print('----------------------------------')
     # time_close以内のマウスイベントの数を返す
     # return(len(click_pre_list))
-    print(click_pre_list)
+
     # time_close以内のマウス速度の平均を返す
     time_sum = 0
     j = 0
@@ -124,7 +123,7 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
         j += 1
     return(time_sum / j)
         
-
+data_tmp['mouse_speed_click_pre'] = mouse_speed_click_pre(coordinates_dict[answer_id_list[0]], click_dict[answer_id_list[0]])
 
 
 data_set = []
@@ -135,7 +134,7 @@ for i in range(len(answer_id_list)):
     data_tmp['click_amount'] = len(click_dict[answer_id_list[i]])
     data_tmp['mouse_amount'] = len(coordinates_dict[answer_id_list[i]])
     data_tmp['mouse_ave'] = mouse_speed(coordinates_dict[answer_id_list[i]])
-    data_tmp['mouse_speed_click_pre'] = mouse_speed_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])
+    #data_tmp['mouse_speed_click_pre'] = mouse_speed_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])
     
     
     data_set.append(data_tmp)
