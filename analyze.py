@@ -101,7 +101,7 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
     time_sum = 0
     j = 0
     for click_pre in click_pre_list:
-        time_sum += click_pre_list['time']
+        time_sum += click_pre['time']
         j += 1
     return(time_sum / j)
         
