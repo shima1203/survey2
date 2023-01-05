@@ -81,7 +81,7 @@ print("--------------------データ--------------------")
 data_set = []
 for i in range(len(answer_id_list)):
     data_tmp = {}
-    data_tmp['answer_id'] = answer_id_list[i]
+    data_tmp['answer_id'] = answer_id_list[i]               # 後で消す
     data_tmp['target'] = int(answers_dict[answer_id_list[i]][30])
     data_tmp['click_amount'] = len(click_dict[answer_id_list[i]])
     data_tmp['mouse_amount'] = len(coordinates_dict[answer_id_list[i]])
@@ -108,22 +108,29 @@ predict = []
 for i in range(len(answer_id_list)):
     predict.append(func_click_amount(data_set[i]['click_amount']))
 
-tmp1 = 0
+sum_click = 0
+sum_mouse = 0
 tmp2 = 0
 j = 0
-for tmp in data_set:
-    if tmp['target'] == 0:
-        print(tmp, )
+for data in data_set:
+    if data['target'] == 0:
+        print(data, )
         j += 1
-        tmp1 += tmp['click_amount']
-print("click_ave:", tmp1/j)
+        sum_click += data['click_amount']
+        sum_mouse += data['mouse_amount']
+print("click_ave:", sum_click/j)
+print("mouse_ave:", sum_mouse/j)
+sum_click = 0
+sum_mouse = 0
 j = 0
-for tmp in data_set:
-    if tmp['target'] == 1:
-        print(tmp)
+for data in data_set:
+    if data['target'] == 1:
+        print(data)
         j += 1
-        tmp2 += tmp['click_amount']
-print("click_ave:", tmp2/j)
+        sum_click += data['click_amount']
+        sum_mouse += data['mouse_amount']
+print("click_ave:", sum_click/j)
+print("mouse_ave:", sum_mouse/j)
 
 
 
