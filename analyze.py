@@ -123,7 +123,7 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
         j += 1
     return(time_sum / j)
         
-data_tmp['mouse_speed_click_pre'] = mouse_speed_click_pre(coordinates_dict[answer_id_list[0]], click_dict[answer_id_list[0]])
+mouse_speed_click_pre(coordinates_dict[answer_id_list[0]], click_dict[answer_id_list[0]])
 
 
 data_set = []
