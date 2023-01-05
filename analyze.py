@@ -106,8 +106,6 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
                     click_pre_list.append(coordinate['time'] - time_tmp)
             elif(coordinate['time'] > click['time']):
                 break
-            else:
-                print('else')
             time_tmp = coordinate['time']
             del coordinates[i]
             i += 1
@@ -127,7 +125,7 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
         j += 1
     return(time_sum / j)
         
-mouse_speed_click_pre(coordinates_dict[answer_id_list[1]], click_dict[answer_id_list[1]])
+mouse_speed_click_pre(coordinates_dict[answer_id_list[3]], click_dict[answer_id_list[3]])
 
 
 data_set = []
