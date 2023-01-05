@@ -81,6 +81,7 @@ print("--------------------データ--------------------")
 data_set = []
 for i in range(len(answer_id_list)):
     data_tmp = {}
+    data_tmp['answer_id'] = answer_id_list[i]
     data_tmp['target'] = int(answers_dict[answer_id_list[i]][30])
     data_tmp['click_amount'] = len(click_dict[answer_id_list[i]])
     data_tmp['mouse_amount'] = len(coordinates_dict[answer_id_list[i]])
@@ -115,14 +116,14 @@ for tmp in data_set:
         print(tmp, )
         j += 1
         tmp1 += tmp['click_amount']
-print("ave:", tmp1/j)
+print("click_ave:", tmp1/j)
 j = 0
 for tmp in data_set:
     if tmp['target'] == 1:
         print(tmp)
         j += 1
         tmp2 += tmp['click_amount']
-print("ave:", tmp2/j)
+print("click_ave:", tmp2/j)
 
 
 
