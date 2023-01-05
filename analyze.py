@@ -81,8 +81,8 @@ print("--------------------データ--------------------")
 def mouse_speed_click_pre(coordinates=[], clicks=[]):
     click_pre_list = []
     time_close = 1000
-    i = 0
     for click in clicks:
+        i = 0
         for coordinate in coordinates:
             if(coordinate['time'] <= click['time'] and coordinate['time'] >= click['time'] - time_close):
                 click_pre_list.append(coordinate)
