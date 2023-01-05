@@ -77,18 +77,25 @@ for answer_data_line in answer_data_list:
 
 # <--------ここからはデータセットの作成-------->
 print("--------------------データ--------------------")
-print(type(coordinates_dict[answer_id_list[0]][0]['time']))
+
 def mouse_speed_click_pre(coordinates, clicks):
     click_pre_list = []
     time_close = 1000
+    i = 0
     for click in clicks:
         for coordinate in coordinates:
             if(coordinate['time'] <= click['time'] and coordinate['time'] >= click['time'] - time_close):
                 click_pre_list.append(coordinate)
-            else:
+            elif(coordinate['time'] >= click['time']):
                 exit()
-        # click_pre_list <- coordinates around click["time"]
-        
+            del coordinates[answer_id_list[i]]
+            i += 1
+        print('click_pre_list-----------------------------')
+        print(click_pre_list)
+        print('coordinates_list-----------------------------')
+        print(coordinates)
+
+
 
 data_set = []
 for i in range(len(answer_id_list)):
