@@ -128,7 +128,7 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
 
 
 # クリックイベント直前のマウスのイベント数を返す関数
-def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
+def mouse_event_click_pre(coordinates_ori=[], clicks_ori=[]):
     coordinates = coordinates_ori.copy()
     clicks = clicks_ori.copy()
     click_pre_list = []
@@ -164,6 +164,7 @@ for i in range(len(answer_id_list)):
     data_tmp['mouse_amount'] = len(coordinates_dict[answer_id_list[i]])
     data_tmp['mouse_ave'] = mouse_speed(coordinates_dict[answer_id_list[i]])
     data_tmp['mouse_speed_click_pre'] = mouse_speed_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])
+    data_tmp['mouse_event_click_pre'] = mouse_event_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])
     
     
     data_set.append(data_tmp)
