@@ -90,10 +90,9 @@ def mouse_speed_click_pre(coordinates=[], clicks=[]):
                 break
             del coordinates[i]
             i += 1
-        print('click_pre_list-----------------------------')
-        print(click_pre_list)
-        print('coordinates_list-----------------------------')
-        print(coordinates)
+        print('click_pre_list : ', len(click_pre_list))
+        print('coordinates_list : ', len(coordinates))
+        print('----------------------------------')
 
 mouse_speed_click_pre(coordinates_dict[answer_id_list[0]], click_dict[answer_id_list[0]])
 
