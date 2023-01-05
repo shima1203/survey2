@@ -114,7 +114,7 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
         # print('----------------------------------')
     # time_close以内のマウスイベントの数を返す
     # return(len(click_pre_list))
-    
+    print(click_pre_list)
     # time_close以内のマウス速度の平均を返す
     time_sum = 0
     j = 0
