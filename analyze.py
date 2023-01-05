@@ -83,16 +83,10 @@ def mouse_speed(coordinates=[]):
     sum_mous = 0
     i = 0
     for coordinate in coordinates:
-        if(coordinate['time'] <= 1000):             # １秒以内でイベントが発生している場合、マウスが連続で動いていると考える
+        if(coordinate['time'] <= 10000):             # １秒以内でイベントが発生している場合、マウスが連続で動いていると考える
             sum_mous += coordinate['time']
             i += 1
     return(sum_mous/i)
-
-
-
-
-
-
 
 
 # クリックイベント直前のマウスのスピードを返す関数
