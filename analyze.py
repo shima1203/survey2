@@ -109,14 +109,20 @@ for i in range(len(answer_id_list)):
 
 tmp1 = 0
 tmp2 = 0
+j = 0
 for tmp in data_set:
     if tmp['target'] == 0:
-        print(tmp)
+        print(tmp, )
+        j += 1
         tmp1 += tmp['click_amount']
+print("ave:", tmp1/j)
+j = 0
 for tmp in data_set:
     if tmp['target'] == 1:
         print(tmp)
-
+        j += 1
+        tmp2 += tmp['click_amount']
+print("ave:", tmp2/j)
 
 
 
