@@ -95,7 +95,7 @@ def mouse_speed_click_pre(coordinates, clicks):
         print('coordinates_list-----------------------------')
         print(coordinates)
 
-
+mouse_speed_click_pre(coordinates_dict[answer_id_list[0]], click_dict[answer_id_list[0]])
 
 data_set = []
 for i in range(len(answer_id_list)):
