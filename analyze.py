@@ -75,9 +75,27 @@ for answer_data_line in answer_data_list:
 
 
 
-# <--------ここからはデータセットの作成-------->
+# <--------------------ここからはデータセットの作成-------------------->
 print("--------------------データ--------------------")
 
+# マウスの平均スピードを返す関数
+def mouse_speed(coordinates=[]):
+    sum_mous = 0
+    i = 0
+    for coordinate in coordinates:
+        if(coordinate['time'] <= 1000):             # １秒以内でイベントが発生している場合、マウスが連続で動いていると考える
+            sum_mous += coordinate['time']
+            i += 1
+    return(sum_mous/i)
+
+
+
+
+
+
+
+
+# クリックイベント直前のマウスのスピードを返す関数
 def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
     coordinates = coordinates_ori.copy()
     clicks = clicks_ori.copy()
@@ -116,7 +134,7 @@ for i in range(len(answer_id_list)):
     data_tmp['target'] = int(answers_dict[answer_id_list[i]][30])
     data_tmp['click_amount'] = len(click_dict[answer_id_list[i]])
     data_tmp['mouse_amount'] = len(coordinates_dict[answer_id_list[i]])
-    data_tmp['mouse_ave'] = 0
+    data_tmp['mouse_ave'] = mouse_speed(coordinates_dict[answer_id_list[i]])
     data_tmp['mouse_speed_click_pre'] = mouse_speed_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])
     
     
@@ -137,19 +155,14 @@ print(df[df['target'] == 1])
 print(" ")
 
 
-# <--------ヒューリスティックに予測してみる-------->
+
+
+
+
+
+
+# <--------------------ヒューリスティックに予測してみる-------------------->
 print("--------------------予測結果--------------------")
-
-# 入力(各特徴量の値)に対して0~1にスケーリングした値を返す
-def func_click_amount(click_amount):
-    return click_amount/100
-
-predict = []
-
-for i in range(len(answer_id_list)):
-    predict.append(func_click_amount(data_set[i]['click_amount']))
-
-
 
 print('＜集中＞')
 sum_click_amount = 0
@@ -191,6 +204,14 @@ print("mouse_speed_click_pre:",sum_mouse_speed_click_pre/j)
 
 
 
+# 入力(各特徴量の値)に対して0~1にスケーリングした値を返す
+def func_click_amount(click_amount):
+    return click_amount/100
+
+predict = []
+
+for i in range(len(answer_id_list)):
+    predict.append(func_click_amount(data_set[i]['click_amount']))
 
 
 
@@ -206,7 +227,8 @@ print("mouse_speed_click_pre:",sum_mouse_speed_click_pre/j)
 
 
 
-# <--------LightGBMで学習して予測-------->
+
+# <--------------------LightGBMで学習して予測-------------------->
 print("--------------------LightGBMの学習結果--------------------")
 
 # データフレームを綺麗に出力する関数
@@ -250,14 +272,5 @@ lgb.plot_metric(model)
 lgb.plot_importance(model)
 plt.show()
 
-# 縦軸：クリックの回数　横軸：集中->1　適当->0
 
 
-
-
-
-
-
-
-
-# クラス化しようかな
