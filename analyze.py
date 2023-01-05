@@ -83,10 +83,12 @@ print("--------------------データ--------------------")
 def mouse_speed(coordinates=[]):
     sum_mous = 0
     i = 0
+    time_tmp  = coordinates[0]['time']
     for coordinate in coordinates:
         if(coordinate['time'] <= 10000):             # １秒以内でイベントが発生している場合、マウスが連続で動いていると考える
-            sum_mous += coordinate['time']
+            sum_mous += coordinate['time'] - time_tmp
             i += 1
+        time_tmp  = coordinate['time']
     return(sum_mous/i)
 
 
