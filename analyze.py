@@ -151,25 +151,26 @@ for i in range(len(answer_id_list)):
 
 
 
-
-sum_click = 0
-sum_mouse = 0
-tmp2 = 0
-j = 0
-
 print('＜集中＞')
+sum_click_amount = 0
+sum_mouse_amount = 0
+sum_mouse_speed_click_pre = 0
+j = 0
 for data in data_set:
     if data['target'] == 0:
         print(data, )
         j += 1
-        sum_click += data['click_amount']
-        sum_mouse += data['mouse_amount']
+        sum_click_amount += data['click_amount']
+        sum_mouse_amount += data['mouse_amount']
+        sum_mouse_speed_click_pre +=data['mouse_speed_click_pre']
 print('----------average----------')
-print("click_amount:", sum_click/j)
-print("mouse_amount:", sum_mouse/j)
+print("click_amount:", sum_click_amount/j)
+print("mouse_amount:", sum_mouse_amount/j)
+print("mouse_speed_click_pre:",sum_mouse_speed_click_pre/j)
 print(' ')
-sum_click = 0
-sum_mouse = 0
+sum_click_amount = 0
+sum_mouse_amount = 0
+sum_mouse_speed_click_pre = 0
 j = 0
 
 print('＜適当＞')
@@ -177,11 +178,13 @@ for data in data_set:
     if data['target'] == 1:
         print(data)
         j += 1
-        sum_click += data['click_amount']
-        sum_mouse += data['mouse_amount']
+        sum_click_amount += data['click_amount']
+        sum_mouse_amount += data['mouse_amount']
+        sum_mouse_speed_click_pre +=data['mouse_speed_click_pre']
 print('----------average----------')
-print("click_ave:", sum_click/j)
-print("mouse_ave:", sum_mouse/j)
+print("click_ave:", sum_click_amount/j)
+print("mouse_ave:", sum_mouse_amount/j)
+print("mouse_speed_click_pre:",sum_mouse_speed_click_pre/j)
 
 
 
