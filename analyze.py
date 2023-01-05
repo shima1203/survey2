@@ -79,6 +79,7 @@ for answer_data_line in answer_data_list:
 print("--------------------データ--------------------")
 
 # マウスの平均スピードを返す関数
+# 要修正
 def mouse_speed(coordinates=[]):
     sum_mous = 0
     i = 0
@@ -95,12 +96,15 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
     clicks = clicks_ori.copy()
     click_pre_list = []
     time_close = 500
+    time_tmp = 0
     for click in clicks:
         i = 0
         for coordinate in coordinates:
             if(coordinate['time'] <= click['time'] and coordinate['time'] >= click['time'] - time_close):
-                click_pre_list.append(coordinate)
+                click_pre_list.append(coordinate['time'] - time_tmp)
+                time_tmp = coordinate['time']
             elif(coordinate['time'] >= click['time']):
+                time_tmp = coordinate['time']
                 break
             del coordinates[i]
             i += 1
@@ -114,7 +118,7 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
     time_sum = 0
     j = 0
     for click_pre in click_pre_list:
-        time_sum += click_pre['time']
+        time_sum += click_pre
         j += 1
     return(time_sum / j)
         
