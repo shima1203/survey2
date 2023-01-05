@@ -95,6 +95,7 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
         # print('click_pre_list : ', len(click_pre_list))
         # print('coordinates_list : ', len(coordinates))
         # print('----------------------------------')
+    # time_close以内のマウスイベントの数を返す
     # return(len(click_pre_list))
     
     # time_close以内のマウス速度の平均を返す
@@ -121,15 +122,20 @@ for i in range(len(answer_id_list)):
     
     data_set.append(data_tmp)
 
+
+
 df = pd.DataFrame(data = data_set)
 X = df.loc[:, (df.columns !='target')]
 # X = pd.get_dummies(X, drop_first=True)
 y = df['target']
 
-print(df)
+print(df[df['target'] == 0])
+print(" ")
+print(df[df['target'] == 1])
 print(" ")
 
-# <--------ヒューリスティックに予測-------->
+
+# <--------ヒューリスティックに予測してみる-------->
 print("--------------------予測結果--------------------")
 
 # 入力(各特徴量の値)に対して0~1にスケーリングした値を返す
