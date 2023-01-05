@@ -113,6 +113,7 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
         print('coordinates_list : ', len(coordinates))
         print('i : ', i)
         print('----------------------------------')
+    print(coordinates)
     # time_close以内のマウスイベントの数を返す
     # return(len(click_pre_list))
 
