@@ -125,8 +125,34 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
         time_sum += click_pre
         j += 1
     return(time_sum / j)
-        
-mouse_speed_click_pre(coordinates_dict[answer_id_list[0]], click_dict[answer_id_list[0]])
+
+
+# クリックイベント直前のマウスのイベント数を返す関数
+def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
+    coordinates = coordinates_ori.copy()
+    clicks = clicks_ori.copy()
+    click_pre_list = []
+    tmp = []
+    time_close = 500
+    time_tmp = coordinates[0]['time']
+    for click in clicks:
+        i = 0
+        for coordinate in coordinates:
+            if(coordinate['time'] <= click['time'] and coordinate['time'] >= click['time'] - time_close):
+                if(coordinate['time'] - time_tmp <= 1000):
+                    click_pre_list.append(coordinate['time'] - time_tmp)
+                    tmp.append(coordinate['time'])
+            if(coordinate['time'] > click['time']):
+                break
+            time_tmp = coordinate['time']
+            i += 1
+        for j in range(i):
+            del coordinates[0]
+        # print('click_pre_list : ', len(click_pre_list))
+        # print('coordinates_list : ', len(coordinates))
+        # print('----------------------------------')
+    # time_close以内のマウスイベントの数を返す
+    return(len(click_pre_list))
 
 
 data_set = []
