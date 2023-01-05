@@ -141,7 +141,7 @@ sum_mouse = 0
 tmp2 = 0
 j = 0
 
-print('集中')
+print('＜集中＞')
 for data in data_set:
     if data['target'] == 0:
         print(data, )
@@ -151,11 +151,12 @@ for data in data_set:
 print('----------average----------')
 print("click_amount:", sum_click/j)
 print("mouse_amount:", sum_mouse/j)
+print(' ')
 sum_click = 0
 sum_mouse = 0
 j = 0
 
-print('適当')
+print('＜適当＞')
 for data in data_set:
     if data['target'] == 1:
         print(data)
