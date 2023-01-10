@@ -84,7 +84,7 @@ def mouse_speed(coordinates=[]):
     i = 0
     time_tmp  = coordinates[0]['time']
     for coordinate in coordinates:
-        if(coordinate['time'] <= 10000):             # １秒以内でイベントが発生している場合、マウスが連続で動いていると考える
+        if(coordinate['time'] <= 1000):             # １秒以内でイベントが発生している場合、マウスが連続で動いていると考える
             sum_mous += coordinate['time'] - time_tmp
             i += 1
         time_tmp  = coordinate['time']
@@ -97,7 +97,7 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
     clicks = clicks_ori.copy()
     click_pre_list = []
     tmp = []
-    time_close = 100
+    time_close = 500
     time_tmp = coordinates[0]['time']
     for click in clicks:
         i = 0
@@ -133,7 +133,7 @@ def mouse_event_click_pre(coordinates_ori=[], clicks_ori=[]):
     clicks = clicks_ori.copy()
     click_pre_list = []
     tmp = []
-    time_close = 100
+    time_close = 500
     time_tmp = coordinates[0]['time']
     for click in clicks:
         i = 0
@@ -157,7 +157,7 @@ def mouse_speed_click_rear(coordinates_ori=[], clicks_ori=[]):
     clicks = clicks_ori.copy()
     click_pre_list = []
     tmp = []
-    time_close = 100
+    time_close = 500
     time_tmp = coordinates[0]['time']
     for click in clicks:
         i = 0
