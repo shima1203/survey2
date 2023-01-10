@@ -179,13 +179,10 @@ print(len(df_b.query('ratio_mouse_speed_click_rear < 1.1')))
 
 
 # 入力(各特徴量の値)に対して0~1にスケーリングした値を返す
-def func_click_amount(click_amount):
-    return click_amount/100
 
-predict = []
 
-for i in range(len(answer_id_list)):
-    predict.append(func_click_amount(data_set[i]['click_amount']))
+# 箱ひげ図の描画
+
 
 
 
