@@ -294,7 +294,7 @@ for i in range(len(answer_id_list)):
     data_tmp['ave_mouse_event_click_rear'] = mouse_event_click_rear(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])/len(click_dict[answer_id_list[i]])        # １クリックあたりの平均マウスイベント数(クリック直後)
     data_tmp['ratio_mouse_event_click_pre_and_rear'] = mouse_event_click_rear(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])/mouse_event_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])     # event rear / pre
     data_tmp['ratio_mouse_speed_scroll_rear'] = mouse_speed_scroll_rear(coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/mouse_speed(coordinates_dict[answer_id_list[i]])   #通常のマウススピードとスクロール直後のマウススピードの比較
-    data_tmp['mouse_event_scroll_rear'] = mouse_event_scroll_rear(coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/len(scroll_dict[answer_id_list[i]])      # １スクロールあたりの平均マウスイベント数(スクロール直後)
+    data_tmp['ave_mouse_event_scroll_rear'] = mouse_event_scroll_rear(coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/len(scroll_dict[answer_id_list[i]])      # １スクロールあたりの平均マウスイベント数(スクロール直後)
 
 
     data_set.append(data_tmp)
@@ -324,7 +324,7 @@ print(" ")
 print("--------------------予測結果--------------------")
 
 print('＜集中＞')
-print(df[df['target'] == 0].loc[:,['ratio_mouse_speed_click_pre','ratio_mouse_speed_click_rear','ave_mouse_event_click_pre','ave_mouse_event_click_rear','ratio_mouse_event_click_pre_and_rear','ratio_mouse_speed_scroll_rear','mouse_event_scroll_rear']])
+print(df[df['target'] == 0].loc[:,['ratio_mouse_speed_click_pre','ratio_mouse_speed_click_rear','ave_mouse_event_click_pre','ave_mouse_event_click_rear','ratio_mouse_event_click_pre_and_rear','ratio_mouse_speed_scroll_rear','ave_mouse_event_scroll_rear']])
 sum_click_amount = 0
 sum_mouse_amount = 0
 sum_mouse_speed_click_pre = 0
@@ -347,7 +347,7 @@ sum_mouse_speed_click_pre = 0
 j = 0
 
 print('＜適当＞')
-print(df[df['target'] == 1].loc[:,['ratio_mouse_speed_click_pre','ratio_mouse_speed_click_rear','ave_mouse_event_click_pre','ave_mouse_event_click_rear','ratio_mouse_event_click_pre_and_rear','ratio_mouse_speed_scroll_rear','mouse_event_scroll_rear']])
+print(df[df['target'] == 1].loc[:,['ratio_mouse_speed_click_pre','ratio_mouse_speed_click_rear','ave_mouse_event_click_pre','ave_mouse_event_click_rear','ratio_mouse_event_click_pre_and_rear','ratio_mouse_speed_scroll_rear','ave_mouse_event_scroll_rear']])
 for data in data_set:
     if data['target'] == 1:
         # print(data)
