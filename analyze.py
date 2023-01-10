@@ -436,8 +436,8 @@ y_pred = model.predict_proba(X_test)
 metrics.log_loss(y_test, y_pred)
 
 lgb.plot_metric(model)
-lgb.plot_importance(model)
-plt.show()
+# lgb.plot_importance(model)
+
 
 
 
