@@ -162,11 +162,11 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
     for click in clicks:
         i = 0
         for coordinate in coordinates:
-            if(coordinate['time'] <= click['time'] and coordinate['time'] >= click['time'] - time_close):
+            if(coordinate['time'] >= click['time'] and coordinate['time'] <= click['time'] + time_close):
                 if(coordinate['time'] - time_tmp <= 1000):
                     click_pre_list.append(coordinate['time'] - time_tmp)
                     tmp.append(coordinate['time'])
-            if(coordinate['time'] > click['time']):
+            if(coordinate['time'] > click['time'] + time_close):
                 break
             time_tmp = coordinate['time']
             i += 1
@@ -195,7 +195,7 @@ for i in range(len(answer_id_list)):
     data_tmp['mouse_speed_click_pre'] = mouse_speed_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])
     data_tmp['ratio_mouse_speed_click_pre'] = mouse_speed_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])/mouse_speed(coordinates_dict[answer_id_list[i]])      #通常のマウススピードとクリック直前のマウススピードの比較
     data_tmp['mouse_event_click_pre'] = mouse_event_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])
-    data_tmp['ave_mouse_event_click_pre'] = mouse_event_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])/len(click_dict[answer_id_list[i]])        # １クリックあたりの平均移動距離(クリック直前)
+    data_tmp['ave_mouse_event_click_pre'] = mouse_event_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])/len(click_dict[answer_id_list[i]])        # １クリックあたりの平均マウスイベント数(クリック直前)
     
     data_set.append(data_tmp)
 
