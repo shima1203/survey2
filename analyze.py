@@ -348,7 +348,7 @@ sum_mouse_speed_click_pre = 0
 j = 0
 
 print(len(df_a))
-print(len(df_a.query('ratio_mouse_speed_click_rear > 1.1')))
+print(len(df_a.query('ratio_mouse_speed_click_rear < 1.1')))
 
 print('＜適当＞')
 df_b = df[df['target'] == 1].loc[:,['ratio_mouse_speed_click_pre','ratio_mouse_speed_click_rear','ave_mouse_event_click_pre','ave_mouse_event_click_rear','ratio_mouse_event_click_pre_and_rear','ratio_mouse_speed_scroll_rear','ave_mouse_event_scroll_rear']]
@@ -366,7 +366,7 @@ print("mouse_amount:", sum_mouse_amount/j)
 print("mouse_speed_click_pre:",sum_mouse_speed_click_pre/j)
 
 print(len(df_b))
-print(len(df_b.query('ratio_mouse_speed_click_rear > 1.1')))
+print(len(df_b.query('ratio_mouse_speed_click_rear < 1.1')))
 
 
 
