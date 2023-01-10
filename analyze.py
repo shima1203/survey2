@@ -227,6 +227,7 @@ print(" ")
 print("--------------------予測結果--------------------")
 
 print('＜集中＞')
+print(df.loc[:,['ratio_mouse_speed_click_pre','ave_mouse_event_click_pre','ratio_mouse_speed_click_rear','ratio_mouse_speed_click_pre_and_rear']])
 sum_click_amount = 0
 sum_mouse_amount = 0
 sum_mouse_speed_click_pre = 0
@@ -251,7 +252,7 @@ j = 0
 print('＜適当＞')
 for data in data_set:
     if data['target'] == 1:
-        print(data)
+        # print(data)
         j += 1
         sum_click_amount += data['click_amount']
         sum_mouse_amount += data['mouse_amount']
