@@ -233,7 +233,7 @@ sum_mouse_speed_click_pre = 0
 j = 0
 for data in data_set:
     if data['target'] == 0:
-        print(data, )
+        # print(data, )
         j += 1
         sum_click_amount += data['click_amount']
         sum_mouse_amount += data['mouse_amount']
