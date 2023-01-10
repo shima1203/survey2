@@ -324,7 +324,8 @@ print(" ")
 print("--------------------予測結果--------------------")
 
 print('＜集中＞')
-print(df[df['target'] == 0].loc[:,['ratio_mouse_speed_click_pre','ratio_mouse_speed_click_rear','ave_mouse_event_click_pre','ave_mouse_event_click_rear','ratio_mouse_event_click_pre_and_rear','ratio_mouse_speed_scroll_rear','ave_mouse_event_scroll_rear']])
+df_a = df[df['target'] == 0].loc[:,['ratio_mouse_speed_click_pre','ratio_mouse_speed_click_rear','ave_mouse_event_click_pre','ave_mouse_event_click_rear','ratio_mouse_event_click_pre_and_rear','ratio_mouse_speed_scroll_rear','ave_mouse_event_scroll_rear']]
+print(df_a)
 sum_click_amount = 0
 sum_mouse_amount = 0
 sum_mouse_speed_click_pre = 0
@@ -346,8 +347,11 @@ sum_mouse_amount = 0
 sum_mouse_speed_click_pre = 0
 j = 0
 
+print(len(df_a))
+
 print('＜適当＞')
-print(df[df['target'] == 1].loc[:,['ratio_mouse_speed_click_pre','ratio_mouse_speed_click_rear','ave_mouse_event_click_pre','ave_mouse_event_click_rear','ratio_mouse_event_click_pre_and_rear','ratio_mouse_speed_scroll_rear','ave_mouse_event_scroll_rear']])
+df_b = df[df['target'] == 1].loc[:,['ratio_mouse_speed_click_pre','ratio_mouse_speed_click_rear','ave_mouse_event_click_pre','ave_mouse_event_click_rear','ratio_mouse_event_click_pre_and_rear','ratio_mouse_speed_scroll_rear','ave_mouse_event_scroll_rear']]
+print(df_b)
 for data in data_set:
     if data['target'] == 1:
         # print(data)
@@ -360,7 +364,7 @@ print("click_amount:", sum_click_amount/j)
 print("mouse_amount:", sum_mouse_amount/j)
 print("mouse_speed_click_pre:",sum_mouse_speed_click_pre/j)
 
-
+print(len(df_b))
 
 
 
