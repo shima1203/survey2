@@ -158,7 +158,7 @@ def mouse_event_click_pre(coordinates_ori=[], clicks_ori=[]):
 data_set = []
 for i in range(len(answer_id_list)):
     data_tmp = {}
-    # data_tmp['answer_id'] = answer_id_list[i]               # 後で消す
+    data_tmp['answer_id'] = answer_id_list[i]               # 後で消す
     data_tmp['target'] = int(answers_dict[answer_id_list[i]][30])
     data_tmp['click_amount'] = len(click_dict[answer_id_list[i]])
     data_tmp['mouse_amount'] = len(coordinates_dict[answer_id_list[i]])
