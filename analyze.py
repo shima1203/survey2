@@ -347,6 +347,7 @@ sum_mouse_amount = 0
 sum_mouse_speed_click_pre = 0
 j = 0
 
+print(len(df_a))
 print(len(df_a.query('ratio_mouse_speed_click_rear > 1.1')))
 
 print('＜適当＞')
@@ -364,6 +365,7 @@ print("click_amount:", sum_click_amount/j)
 print("mouse_amount:", sum_mouse_amount/j)
 print("mouse_speed_click_pre:",sum_mouse_speed_click_pre/j)
 
+print(len(df_b))
 print(len(df_b.query('ratio_mouse_speed_click_rear > 1.1')))
 
 
