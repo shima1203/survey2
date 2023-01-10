@@ -218,14 +218,15 @@ for i in range(len(answer_id_list)):
     data_tmp['mouse_amount'] = len(coordinates_dict[answer_id_list[i]])
     data_tmp['mouse_ave'] = mouse_speed(coordinates_dict[answer_id_list[i]])
     data_tmp['mouse_speed_click_pre'] = mouse_speed_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])
-    data_tmp['ratio_mouse_speed_click_pre'] = mouse_speed_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])/mouse_speed(coordinates_dict[answer_id_list[i]])      #通常のマウススピードとクリック直前のマウススピードの比較
     data_tmp['mouse_event_click_pre'] = mouse_event_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])
-    data_tmp['ave_mouse_event_click_pre'] = mouse_event_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])/len(click_dict[answer_id_list[i]])        # １クリックあたりの平均マウスイベント数(クリック直前)
     data_tmp['mouse_speed_click_rear'] = mouse_speed_click_rear(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])
+    data_tmp['mouse_event_click_rear'] = mouse_event_click_rear(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])
+    data_tmp['ratio_mouse_speed_click_pre'] = mouse_speed_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])/mouse_speed(coordinates_dict[answer_id_list[i]])      #通常のマウススピードとクリック直前のマウススピードの比較
+    data_tmp['ave_mouse_event_click_pre'] = mouse_event_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])/len(click_dict[answer_id_list[i]])        # １クリックあたりの平均マウスイベント数(クリック直前)
     data_tmp['ratio_mouse_speed_click_rear'] = mouse_speed_click_rear(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])/mouse_speed(coordinates_dict[answer_id_list[i]])      #通常のマウススピードとクリック直後のマウススピードの比較
     data_tmp['ratio_mouse_speed_click_pre_and_rear'] = mouse_speed_click_rear(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])/mouse_speed_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])     # speed rear / pre
-    data_tmp['mouse_event_click_rear'] = mouse_event_click_rear(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])
     data_tmp['ave_mouse_event_click_rear'] = mouse_event_click_rear(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])/len(click_dict[answer_id_list[i]])        # １クリックあたりの平均マウスイベント数(クリック直後)
+    data_tmp['ratio_mouse_event_click_pre_and_rear'] = mouse_event_click_rear(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])/mouse_event_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])     # event rear / pre
 
 
     data_set.append(data_tmp)
