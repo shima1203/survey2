@@ -97,7 +97,7 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
     clicks = clicks_ori.copy()
     click_pre_list = []
     tmp = []
-    time_close = 300
+    time_close = 500
     time_tmp = coordinates[0]['time']
     for click in clicks:
         i = 0
@@ -133,7 +133,7 @@ def mouse_event_click_pre(coordinates_ori=[], clicks_ori=[]):
     clicks = clicks_ori.copy()
     click_pre_list = []
     tmp = []
-    time_close = 300
+    time_close = 500
     time_tmp = coordinates[0]['time']
     for click in clicks:
         i = 0
