@@ -217,7 +217,7 @@ def mouse_speed_scroll_rear(coordinates_ori=[], scrolls_ori=[]):
     scroll_time_tmp = scrolls[0]['time']
     for scroll in scrolls:
         i = 0
-        if(scroll['time'] - scroll_time_tmp <= 1000):
+        if(scroll['time'] - scroll_time_tmp <= 1000 and scroll['time'] - scroll_time_tmp != 0):
             for coordinate in coordinates:
                 if(coordinate['time'] >= scroll['time'] and coordinate['time'] <= scroll['time'] + time_close):
                     if(coordinate['time'] - coordinate_time_tmp <= 1000):
