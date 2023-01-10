@@ -279,7 +279,7 @@ sum_mouse_speed_click_pre = 0
 j = 0
 
 print('＜適当＞')
-print(df[df['target'] == 1].loc[:,['ratio_mouse_speed_click_pre','ave_mouse_event_click_pre','ratio_mouse_speed_click_rear','ratio_mouse_speed_click_pre_and_rear']])
+print(df[df['target'] == 1].loc[:,['ratio_mouse_speed_click_pre','ratio_mouse_speed_click_rear','ratio_mouse_speed_click_pre_and_rear','ave_mouse_event_click_pre','ave_mouse_event_click_rear','ratio_mouse_event_click_pre_and_rear']])
 for data in data_set:
     if data['target'] == 1:
         # print(data)
