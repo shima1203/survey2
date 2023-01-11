@@ -182,7 +182,8 @@ print(len(df_b.query('ratio_mouse_speed_click_rear < 1.1')))
 
 
 # 箱ひげ図の描画
-l = df_a.values.tolist()
+df_a_t = df_a.T
+l = df_a_t.values.tolist()
 print(l)
 
 
