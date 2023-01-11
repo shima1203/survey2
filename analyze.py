@@ -196,9 +196,6 @@ print(len(df_b.query('ratio_mouse_speed_click_rear < 1.1')))
 
 
 
-
-
-
 # <--------------------LightGBMで学習して予測-------------------->
 print("--------------------LightGBMの学習結果--------------------")
 
