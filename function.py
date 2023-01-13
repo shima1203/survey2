@@ -217,4 +217,4 @@ def test():
     data = [{"event":"mousemove","x":1,"y":1,"time":1},
             {"event":"mousemove","x":2,"y":6,"time":10},
             {"event":"mousemove","x":5,"y":6,"time":20}]
-    print(5, 15, data)
+    print(mince_data(5, 15, data))
