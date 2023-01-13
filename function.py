@@ -31,7 +31,11 @@ def mouse_speed(stop_time , coordinates_ori=[], scroll_ori = []):
         i = 0
         for sc in scroll:
             if(sc['time'] <= coordinate['time'] ):
-                rear_scroll = coordinate
+                for c in coordinates:
+                    if(coordinate['time'] < c['time']):
+                        if(coordinate['x'] != c['x'] or coordinate['y'] != c['y']):
+                            rear_scroll = coordinate
+                            break
                 coordinate_tmp  = coordinate
                 i += 1
             else:
@@ -39,9 +43,8 @@ def mouse_speed(stop_time , coordinates_ori=[], scroll_ori = []):
         for j in range(i):
             del scroll[0]
         print(rear_scroll['x'])
-        
-        if(coordinate_tmp['x'] != coordinate['x'] or coordinate_tmp['y'] != coordinate['y']):
-            if(coordinate['x'] != rear_scroll['x'] or coordinate['y'] != rear_scroll['y']):
+        if(coordinate['x'] != rear_scroll['x'] or coordinate['y'] != rear_scroll['y']):
+            if(coordinate_tmp['x'] != coordinate['x'] or coordinate_tmp['y'] != coordinate['y']):
                 if(coordinate['time'] - coordinate_tmp["time"] <= stop_time):             # stop_time以内でイベントが発生している場合、マウスが連続で動いていると考える
                     distance += abs(coordinate['x'] - coordinate_tmp['x']) + abs(coordinate['y'] - coordinate_tmp['y'])
                     move_time += coordinate['time'] - coordinate_tmp["time"]
