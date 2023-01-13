@@ -43,7 +43,6 @@ def mouse_speed(stop_time , coordinates_ori=[], scroll_ori = []):
                 distance += abs(coordinate['x'] - coordinate_tmp['x']) + abs(coordinate['y'] - coordinate_tmp['y'])
                 move_time += coordinate['time'] - coordinate_tmp["time"]
                 i += 1
-                print(coordinate, distance, move_time)
             coordinate_tmp  = coordinate
     return(distance / move_time)
 
@@ -244,4 +243,3 @@ def test():
     print(mouse_speed(100, mince_data(1,36,data_mouse), data_scroll))
     print(mince_data(1,36,data_mouse))
     
-test()
