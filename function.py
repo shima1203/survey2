@@ -233,7 +233,8 @@ def test():
                 {"event":"mousemove","x":2,"y":6,"time":10},
                 {"event":"mousemove","x":5,"y":6,"time":20},
                 {"event":"mousemove","x":10,"y":10,"time":30},
-                {"event":"mousemove","x":20,"y":20,"time":35}]
+                {"event":"mousemove","x":20,"y":20,"time":35}
+                {"event":"mousemove","x":20,"y":20,"time":36}]
     
     data_scroll =  [{"event":"scroll","x":1,"y":1,"time":21},
                     {"event":"scroll","x":2,"y":2,"time":22},
