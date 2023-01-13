@@ -5,6 +5,7 @@ def mince_data(start_time, finish_time, coordinates_ori=[]):
     coordinate_tmp = coordinates[0]
     print("c")
     for coordinate in coordinates:
+        print("d")
         if(coordinate['time'] <= start_time and coordinate['time'] >= finish_time):
             print("a")
             i = 0
