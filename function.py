@@ -23,7 +23,7 @@ def mince_data(start_time, finish_time, coordinates_ori=[]):
 def mouse_speed(stop_time , coordinates_ori=[], scroll_ori = []):
     distance = 0
     move_time = 0
-    coordinates = coordinates_ori.copy
+    coordinates = coordinates_ori.copy()
     scroll = scroll_ori.copy()
     coordinate_tmp = coordinates[0]
     for coordinate in coordinates:
