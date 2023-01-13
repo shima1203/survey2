@@ -209,3 +209,12 @@ def mouse_event_scroll_rear(coordinates_ori=[], scrolls_ori=[]):
         scroll_time_tmp = scroll['time']
     # time_close以内のマウスイベントの数を返す
     return(len(scroll_pre_list))
+
+
+
+
+def test():
+    data = [{"event":"mousemove","x":1,"y":1,"time":1},
+            {"event":"mousemove","x":2,"y":6,"time":10},
+            {"event":"mousemove","x":5,"y":6,"time":20}]
+    print(5, 15, data)
