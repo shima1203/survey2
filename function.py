@@ -47,6 +47,39 @@ def mouse_speed(stop_time , coordinates_ori=[], scroll_ori = []):
     return(distance / move_time)
 
 
+# マウスの平均スピードを返す関数
+def mouse_speed_period(stop_time , start_time, finish_time, coordinates_ori=[], scroll_ori = []):
+    distance = 0
+    move_time = 0
+    coordinates = coordinates_ori.copy()
+    scroll = scroll_ori.copy()
+    coordinate_tmp = coordinates[0]
+    for coordinate in coordinates:
+        if(coordinate['time'] >= start_time and coordinate['time'] <= finish_time):
+            i = 0
+            if(coordinate_tmp['x'] != coordinate['x'] or coordinate_tmp['y'] != coordinate['y']):
+                for sc in scroll:
+                    if(sc['time'] <= coordinate['time'] ):
+                        coordinate_tmp  = coordinate
+                        i += 1
+                    else:
+                        break
+                for j in range(i):
+                    del scroll[0]
+                    
+            if(coordinate_tmp['x'] != coordinate['x'] or coordinate_tmp['y'] != coordinate['y']):
+                if(coordinate_tmp["time"] < start_time and coordinate['time'] - coordinate_tmp["time"] <= stop_time):
+                    distance += (abs(coordinate['x'] - coordinate_tmp['x']) + abs(coordinate['y'] - coordinate_tmp['y'])) * (coordinate['time'] - start_time) / coordinate['time'] - coordinate_tmp['time']
+                    move_time += coordinate['time'] - start_time
+                    i += 1
+                elif(coordinate['time'] - coordinate_tmp["time"] <= stop_time):             # stop_time以内でイベントが発生している場合、マウスが連続で動いていると考える
+                    distance += abs(coordinate['x'] - coordinate_tmp['x']) + abs(coordinate['y'] - coordinate_tmp['y'])
+                    move_time += coordinate['time'] - coordinate_tmp["time"]
+                    i += 1
+                coordinate_tmp  = coordinate
+    return(distance / move_time)
+
+
 # クリックイベント直前のマウスのスピードを返す関数
 def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[]):
     coordinates = coordinates_ori.copy()
