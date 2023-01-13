@@ -26,7 +26,7 @@ def mouse_speed(stop_time , coordinates_ori=[], scroll_ori = []):
     coordinates = coordinates_ori.copy()
     scroll = scroll_ori.copy()
     coordinate_tmp = coordinates[0]
-    rear_scroll = []
+    rear_scroll = {"event":"scroll","x":0,"y":0,"time":0}
     for coordinate in coordinates:
         i = 0
         flag = 0
