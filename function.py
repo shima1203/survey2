@@ -20,17 +20,29 @@ def mince_data(start_time, finish_time, coordinates_ori=[]):
 
 
 # マウスの平均スピードを返す関数
-def mouse_speed(coordinates=[]):
-    stop_time = 500
-    sum_mous = 0
-    i = 0
-    time_tmp  = coordinates[0]['time']
+def mouse_speed(stop_time , coordinates_ori=[], scroll_ori = []):
+    distance = 0
+    move_time = 0
+    coordinates = coordinates_ori.cpy
+    scroll = scroll_ori.copy()
+    coordinate_tmp = coordinates[0]
     for coordinate in coordinates:
-        if(coordinate['time'] - time_tmp <= stop_time):             # １秒以内でイベントが発生している場合、マウスが連続で動いていると考える
-            sum_mous += coordinate['time'] - time_tmp
-            i += 1
-        time_tmp  = coordinate['time']
-    return(sum_mous/i)
+        i = 0
+        for sc in scroll:
+            if(sc['time'] <= coordinate['time'] ):
+                coordinate_tmp = coordinate
+                i += 1
+            else:
+                for j in range(i):
+                    del scroll[0]
+                break
+        if(coordinate_tmp != coordinate):
+            if(coordinate['time'] - coordinate_tmp["time"] <= stop_time):             # stop_time以内でイベントが発生している場合、マウスが連続で動いていると考える
+                distance += abs(coordinate['x'] - coordinate_tmp['x']) + abs(coordinate['y'] - coordinate_tmp['y'])
+                move_time += coordinate['time'] - coordinate_tmp["time"]
+                i += 1
+            coordinate_tmp  = coordinate
+    return(distance / move_time)
 
 
 # クリックイベント直前のマウスのスピードを返す関数

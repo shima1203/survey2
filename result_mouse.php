@@ -19,7 +19,7 @@ if (isset($_SESSION['user_id']) && ($_SESSION['time'] + 3600 > time())) {
     $question=$questions->fetch();
 
     } else {
-        header('Location: login.php/?action=resulut_mouse');
+        header('Location: login.php/?action=result_mouse');
     exit();
 }
 
