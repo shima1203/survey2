@@ -240,3 +240,4 @@ metrics.log_loss(y_test, y_pred)
 # lgb.plot_importance(model)
 plt.show()
 
+test()
