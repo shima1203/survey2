@@ -216,7 +216,7 @@ def mouse_event_scroll_rear(coordinates_ori=[], scrolls_ori=[]):
 def test():
     data = [{"event":"mousemove","x":1,"y":1,"time":1},
             {"event":"mousemove","x":2,"y":6,"time":10},
-            {"event":"mousemove","x":5,"y":6,"time":20}
-            {"event":"mousemove","x":5,"y":6,"time":30}
+            {"event":"mousemove","x":5,"y":6,"time":20},
+            {"event":"mousemove","x":5,"y":6,"time":30},
             {"event":"mousemove","x":5,"y":6,"time":35}]
     print(mince_data(5, 35, data))
