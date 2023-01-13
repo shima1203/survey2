@@ -32,6 +32,7 @@ def mouse_speed(stop_time , coordinates_ori=[], scroll_ori = []):
         for sc in scroll:
             if(sc['time'] <= coordinate['time'] ):
                 rear_scroll = coordinate
+                coordinate_tmp  = coordinate
                 i += 1
             else:
                 break
