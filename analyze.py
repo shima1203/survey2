@@ -9,7 +9,7 @@ warnings.filterwarnings('ignore')
 import IPython
 import lightgbm as lgb
 
-from function import mouse_speed,mouse_speed_click_pre,mouse_event_click_pre,mouse_speed_click_rear,mouse_event_click_rear,mouse_speed_scroll_rear,mouse_event_scroll_rear
+from function import mince_data,mouse_speed,mouse_speed_click_pre,mouse_event_click_pre,mouse_speed_click_rear,mouse_event_click_rear,mouse_speed_scroll_rear,mouse_event_scroll_rear
 
 questionnaire_id = 3
 

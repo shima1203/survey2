@@ -1,3 +1,24 @@
+# データを1ms単位に変換する関数
+def mince_data(start_time, finish_time, coordinates_ori=[]):
+    coordinates = coordinates_ori.copy()
+    mince_coordinate = []
+    coordinate_tmp = coordinates[0]
+    for coordinate in coordinates:
+        if(coordinate['time'] <= start_time and coordinate['time'] >= finish_time):
+            i = 0
+            time_s = 0
+            if(coordinate_tmp["time"] < start_time):
+                time_s = start_time
+            else:
+                time_s = coordinate_tmp["time"]
+            while(time_s + i < coordinate['time'] and time_s + i < finish_time):
+                mince_coordinate.append({"event":coordinate_tmp['event'],"x":coordinate_tmp["x"],"y":coordinate_tmp['y'],"time":time_s + i})
+                i += 1
+        coordinate_tmp = coordinate
+    return mince_coordinate
+
+
+
 # マウスの平均スピードを返す関数
 def mouse_speed(coordinates=[]):
     stop_time = 500
