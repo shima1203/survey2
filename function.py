@@ -40,6 +40,7 @@ def mouse_speed(stop_time , coordinates_ori=[], scroll_ori = []):
             if(coordinate['time'] - coordinate_tmp["time"] <= stop_time):             # stop_time以内でイベントが発生している場合、マウスが連続で動いていると考える
                 distance += abs(coordinate['x'] - coordinate_tmp['x']) + abs(coordinate['y'] - coordinate_tmp['y'])
                 move_time += coordinate['time'] - coordinate_tmp["time"]
+                print(distance, move_time)
                 i += 1
             coordinate_tmp  = coordinate
     return(distance / move_time)
@@ -232,7 +233,7 @@ def test():
                 {"event":"mousemove","x":10,"y":10,"time":30},
                 {"event":"mousemove","x":20,"y":20,"time":35}]
     
-    data_scroll = [{"event":"scroll","x":1,"y":1,"time":21},
+    data_scroll =  [{"event":"scroll","x":1,"y":1,"time":21},
                     {"event":"scroll","x":2,"y":2,"time":22},
                     {"event":"scroll","x":3,"y":3,"time":23},
                     {"event":"scroll","x":4,"y":4,"time":24},]
