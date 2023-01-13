@@ -33,10 +33,9 @@ def mouse_speed(stop_time , coordinates_ori=[], scroll_ori = []):
                 coordinate_tmp = coordinate
                 i += 1
             else:
-                for j in range(i):
-                    del scroll[0]
                 break
-        print(scroll)
+            for j in range(i):
+                del scroll[0]
         print(coordinate, coordinate_tmp)
         if(coordinate_tmp != coordinate):
             if(coordinate['time'] - coordinate_tmp["time"] <= stop_time):             # stop_time以内でイベントが発生している場合、マウスが連続で動いていると考える
