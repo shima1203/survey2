@@ -5,7 +5,6 @@ def mince_data(start_time, finish_time, coordinates_ori=[]):
     coordinate_tmp = coordinates[0]
     for coordinate in coordinates:
         if(coordinate['time'] >= start_time and coordinate['time'] <= finish_time):
-            print("a")
             i = 0
             time_s = 0
             if(coordinate_tmp["time"] < start_time):
@@ -13,7 +12,6 @@ def mince_data(start_time, finish_time, coordinates_ori=[]):
             else:
                 time_s = coordinate_tmp["time"]
             while(time_s + i < coordinate['time'] and time_s + i < finish_time):
-                print("b")
                 mince_coordinate.append({"event":coordinate_tmp['event'],"x":coordinate_tmp["x"],"y":coordinate_tmp['y'],"time":time_s + i})
                 i += 1
         coordinate_tmp = coordinate
@@ -219,6 +217,6 @@ def test():
     data = [{"event":"mousemove","x":1,"y":1,"time":1},
             {"event":"mousemove","x":2,"y":6,"time":10},
             {"event":"mousemove","x":5,"y":6,"time":20},
-            {"event":"mousemove","x":5,"y":6,"time":30},
-            {"event":"mousemove","x":5,"y":6,"time":35}]
+            {"event":"mousemove","x":10,"y":10,"time":30},
+            {"event":"mousemove","x":20,"y":20,"time":35}]
     print(mince_data(5, 35, data))
