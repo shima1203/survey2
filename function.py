@@ -238,6 +238,6 @@ def test():
                     {"event":"scroll","x":3,"y":3,"time":23},
                     {"event":"scroll","x":4,"y":4,"time":24},]
     print(mouse_speed(100,data_mouse, data_scroll))
-    print(mouse_speed(100, mince_data(1,35,data_mouse), data_scroll))
+    print(mouse_speed(100, mince_data(1,36,data_mouse), data_scroll))
     
 test()
