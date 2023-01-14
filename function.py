@@ -148,7 +148,10 @@ def mouse_speed_click_rear(start_time, finish_time, coordinates_ori=[], clicks_o
     for click_pre in click_pre_list:
         time_sum += click_pre
         j += 1
-    return(time_sum / j)
+    if(j != 0):
+        return(time_sum / j)
+    else:
+        return(0)
 
 # クリックイベント直後のマウスのイベント数を返す関数
 def mouse_event_click_rear(coordinates_ori=[], clicks_ori=[]):
