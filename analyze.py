@@ -103,11 +103,11 @@ for i in range(len(answer_id_list)):
     data_tmp['ratio_mouse_speed_scroll_rear'] = mouse_speed_scroll_rear(coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']                  #通常のマウススピードとスクロール直後のマウススピードの比較
     data_tmp['ave_mouse_event_scroll_rear'] = mouse_event_scroll_rear(coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/len(scroll_dict[answer_id_list[i]])      #１スクロールあたりの平均マウスイベント数(スクロール直後)
 
-    data_tmp['ratio_mouse_speed_click_pre1'] = mouse_speed_click_pre(500, 400, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-    data_tmp['ratio_mouse_speed_click_pre2'] = mouse_speed_click_pre(400, 300, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-    data_tmp['ratio_mouse_speed_click_pre3'] = mouse_speed_click_pre(300, 200, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-    data_tmp['ratio_mouse_speed_click_pre4'] = mouse_speed_click_pre(200, 100, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-    data_tmp['ratio_mouse_speed_click_pre5'] = mouse_speed_click_pre(100, 0, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+    data_tmp['ratio_mouse_speed_click_pre1'] = mouse_speed_click_pre(1000, 800, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+    data_tmp['ratio_mouse_speed_click_pre2'] = mouse_speed_click_pre(800, 600, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+    data_tmp['ratio_mouse_speed_click_pre3'] = mouse_speed_click_pre(600, 400, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+    data_tmp['ratio_mouse_speed_click_pre4'] = mouse_speed_click_pre(400, 200, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+    data_tmp['ratio_mouse_speed_click_pre5'] = mouse_speed_click_pre(200, 0, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
     data_set.append(data_tmp)
 
 
