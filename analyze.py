@@ -88,7 +88,7 @@ for i in range(len(answer_id_list)):
     data_tmp['click_amount'] = len(click_dict[answer_id_list[i]])
     data_tmp['mouse_amount'] = len(coordinates_dict[answer_id_list[i]])
     data_tmp['mouse_ave'] = mouse_speed(100,coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])
-    data_tmp['mouse_speed_click_pre'] = mouse_speed_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])
+    data_tmp['mouse_speed_click_pre'] = mouse_speed_click_pre(500, 0, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])
     data_tmp['mouse_event_click_pre'] = mouse_event_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])
     data_tmp['mouse_speed_click_rear'] = mouse_speed_click_rear(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])
     data_tmp['mouse_event_click_rear'] = mouse_event_click_rear(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])
