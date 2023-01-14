@@ -114,10 +114,14 @@ def mouse_speed_click_pre(start_time, finish_time, coordinates_ori=[], clicks_or
     if(len(click_pre_list_sorted) >= pick_num):
         for j in range(pick_num):
             time_sum += click_pre_list_sorted[j]
+        return(time_sum / pick_num)
     else:
         for j in range(len(click_pre_list_sorted)):
             time_sum += click_pre_list_sorted[j]
-    return(time_sum / j)
+        if(len(click_pre_list_sorted) != 0):
+            return(time_sum / len(click_pre_list_sorted))
+        else:
+            return(0)
 
 # クリックイベント直前のマウスのイベント数を返す関数
 def mouse_event_click_pre(coordinates_ori=[], clicks_ori=[]):
