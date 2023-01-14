@@ -103,16 +103,16 @@ for i in range(len(answer_id_list)):
     data_tmp['ratio_mouse_speed_scroll_rear'] = data_tmp['mouse_speed_scroll_rear']/data_tmp['mouse_ave']                                                                           #通常のマウススピードとスクロール直後のマウススピードの比較
     data_tmp['ave_mouse_event_scroll_rear'] = mouse_event_scroll_rear(coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/len(scroll_dict[answer_id_list[i]])      #１スクロールあたりの平均マウスイベント数(スクロール直後)
 
-    # data_tmp['ratio_mouse_speed_click_pre1'] = mouse_speed_click_pre(1000, 900, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-    # data_tmp['ratio_mouse_speed_click_pre2'] = mouse_speed_click_pre(900, 800, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-    # data_tmp['ratio_mouse_speed_click_pre3'] = mouse_speed_click_pre(800, 700, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-    # data_tmp['ratio_mouse_speed_click_pre4'] = mouse_speed_click_pre(700, 600, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-    # data_tmp['ratio_mouse_speed_click_pre5'] = mouse_speed_click_pre(600, 500, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-    # data_tmp['ratio_mouse_speed_click_pre6'] = mouse_speed_click_pre(500, 400, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-    # data_tmp['ratio_mouse_speed_click_pre7'] = mouse_speed_click_pre(400, 300, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-    # data_tmp['ratio_mouse_speed_click_pre8'] = mouse_speed_click_pre(300, 200, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-    # data_tmp['ratio_mouse_speed_click_pre9'] = mouse_speed_click_pre(200, 100, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-    # data_tmp['ratio_mouse_speed_click_pre10'] = mouse_speed_click_pre(100, 0, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    data_tmp['ratio_mouse_speed_click_pre1'] = mouse_speed_click_pre(1000, 900, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+    data_tmp['ratio_mouse_speed_click_pre2'] = mouse_speed_click_pre(900, 800, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+    data_tmp['ratio_mouse_speed_click_pre3'] = mouse_speed_click_pre(800, 700, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+    data_tmp['ratio_mouse_speed_click_pre4'] = mouse_speed_click_pre(700, 600, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+    data_tmp['ratio_mouse_speed_click_pre5'] = mouse_speed_click_pre(600, 500, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    data_tmp['ratio_mouse_speed_click_pre6'] = mouse_speed_click_pre(500, 400, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    data_tmp['ratio_mouse_speed_click_pre7'] = mouse_speed_click_pre(400, 300, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    data_tmp['ratio_mouse_speed_click_pre8'] = mouse_speed_click_pre(300, 200, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    data_tmp['ratio_mouse_speed_click_pre9'] = mouse_speed_click_pre(200, 100, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    data_tmp['ratio_mouse_speed_click_pre10'] = mouse_speed_click_pre(100, 0, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
     
     # data_tmp['ratio_mouse_speed_click_pre1'] = mouse_speed_click_rear(0, 100, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
     # data_tmp['ratio_mouse_speed_click_pre2'] = mouse_speed_click_rear(100, 200, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
@@ -125,16 +125,16 @@ for i in range(len(answer_id_list)):
     # data_tmp['ratio_mouse_speed_click_pre9'] = mouse_speed_click_rear(800, 900, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
     # data_tmp['ratio_mouse_speed_click_pre10'] = mouse_speed_click_rear(900, 1000, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
     
-    data_tmp['ratio_mouse_speed_click_pre1'] = mouse_speed_scroll_rear(0, 100, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-    data_tmp['ratio_mouse_speed_click_pre2'] = mouse_speed_scroll_rear(100, 200, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-    data_tmp['ratio_mouse_speed_click_pre3'] = mouse_speed_scroll_rear(200, 300, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-    data_tmp['ratio_mouse_speed_click_pre4'] = mouse_speed_scroll_rear(300, 400, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-    data_tmp['ratio_mouse_speed_click_pre5'] = mouse_speed_scroll_rear(400, 500, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-    data_tmp['ratio_mouse_speed_click_pre6'] = mouse_speed_scroll_rear(500, 600, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-    data_tmp['ratio_mouse_speed_click_pre7'] = mouse_speed_scroll_rear(600, 700, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-    data_tmp['ratio_mouse_speed_click_pre8'] = mouse_speed_scroll_rear(700, 800, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-    data_tmp['ratio_mouse_speed_click_pre9'] = mouse_speed_scroll_rear(800, 900, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-    data_tmp['ratio_mouse_speed_click_pre10'] = mouse_speed_scroll_rear(900, 1000, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    # data_tmp['ratio_mouse_speed_click_pre1'] = mouse_speed_scroll_rear(0, 100, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+    # data_tmp['ratio_mouse_speed_click_pre2'] = mouse_speed_scroll_rear(100, 200, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+    # data_tmp['ratio_mouse_speed_click_pre3'] = mouse_speed_scroll_rear(200, 300, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+    # data_tmp['ratio_mouse_speed_click_pre4'] = mouse_speed_scroll_rear(300, 400, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+    # data_tmp['ratio_mouse_speed_click_pre5'] = mouse_speed_scroll_rear(400, 500, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    # data_tmp['ratio_mouse_speed_click_pre6'] = mouse_speed_scroll_rear(500, 600, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    # data_tmp['ratio_mouse_speed_click_pre7'] = mouse_speed_scroll_rear(600, 700, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    # data_tmp['ratio_mouse_speed_click_pre8'] = mouse_speed_scroll_rear(700, 800, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    # data_tmp['ratio_mouse_speed_click_pre9'] = mouse_speed_scroll_rear(800, 900, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    # data_tmp['ratio_mouse_speed_click_pre10'] = mouse_speed_scroll_rear(900, 1000, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
     data_set.append(data_tmp)
 
 
