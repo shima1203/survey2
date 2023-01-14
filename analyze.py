@@ -136,6 +136,7 @@ print(df_a)
 sum_click_amount = 0
 sum_mouse_amount = 0
 sum_mouse_speed_click_pre = 0
+sum_mouse_speed_click_rear = 0
 j = 0
 for data in data_set:
     if data['target'] == 0:
@@ -143,15 +144,18 @@ for data in data_set:
         j += 1
         sum_click_amount += data['click_amount']
         sum_mouse_amount += data['mouse_amount']
-        sum_mouse_speed_click_pre +=data['mouse_speed_click_pre']
+        sum_mouse_speed_click_pre += data['mouse_speed_click_pre']
+        sum_mouse_speed_click_rear += data['mouse_speed_click_rear']
 print('----------average----------')
 print("click_amount:", sum_click_amount/j)
 print("mouse_amount:", sum_mouse_amount/j)
 print("mouse_speed_click_pre:",sum_mouse_speed_click_pre/j)
+print("mouse_speed_click_rear:",sum_mouse_speed_click_rear/j)
 print(' ')
 sum_click_amount = 0
 sum_mouse_amount = 0
 sum_mouse_speed_click_pre = 0
+sum_mouse_speed_click_rear = 0
 j = 0
 
 
@@ -164,12 +168,13 @@ for data in data_set:
         j += 1
         sum_click_amount += data['click_amount']
         sum_mouse_amount += data['mouse_amount']
-        sum_mouse_speed_click_pre +=data['mouse_speed_click_pre']
+        sum_mouse_speed_click_pre += data['mouse_speed_click_pre']
+        sum_mouse_speed_click_rear += data['mouse_speed_click_rear']
 print('----------average----------')
 print("click_amount:", sum_click_amount/j)
 print("mouse_amount:", sum_mouse_amount/j)
 print("mouse_speed_click_pre:",sum_mouse_speed_click_pre/j)
-
+print("mouse_speed_click_rear:",sum_mouse_speed_click_rear/j)
 
 
 
