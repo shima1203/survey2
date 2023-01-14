@@ -95,7 +95,7 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[], scrolls_ori = []):
     for click in clicks:
         speed_pre = mouse_speed_period(1000, click['time'] - time_close, click['time'], coordinates, scrolls)
         if(speed_pre != None):
-            click_pre_list.append(mouse_speed_period(1000, click['time'] - time_close, click['time'], coordinates, scrolls))
+            click_pre_list.append(speed_pre)
 
     # time_close以内のマウス速度の平均を返す
     time_sum = 0
@@ -130,7 +130,7 @@ def mouse_event_click_pre(coordinates_ori=[], clicks_ori=[]):
     # time_close以内のマウスイベントの数を返す
     return(len(click_pre_list))
 
-# クリックイベント直前のマウスのスピードを返す関数
+# クリックイベント直後のマウスのスピードを返す関数
 def mouse_speed_click_rear(coordinates_ori=[], clicks_ori=[], scrolls_ori = []):
     coordinates = coordinates_ori.copy()
     clicks = clicks_ori.copy()
@@ -140,7 +140,7 @@ def mouse_speed_click_rear(coordinates_ori=[], clicks_ori=[], scrolls_ori = []):
     for click in clicks:
         speed_pre = mouse_speed_period(1000, click['time'], click['time'] + time_close, coordinates, scrolls)
         if(speed_pre != None):
-            click_pre_list.append(mouse_speed_period(1000, click['time'] - time_close, click['time'], coordinates, scrolls))
+            click_pre_list.append(speed_pre)
 
     # time_close以内のマウス速度の平均を返す
     time_sum = 0
