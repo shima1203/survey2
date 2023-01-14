@@ -102,8 +102,10 @@ def mouse_speed_click_pre(start_time, finish_time, coordinates_ori=[], clicks_or
     for click_pre in click_pre_list:
         time_sum += click_pre
         j += 1
-    return(time_sum / j)
-
+    if(j != 0):
+        return(time_sum / j)
+    else:
+        return(0)
 
 # クリックイベント直前のマウスのイベント数を返す関数
 def mouse_event_click_pre(coordinates_ori=[], clicks_ori=[]):
@@ -250,7 +252,6 @@ def test():
     data_click = [{"event":"click","x":5,"y":6,"time":21}]
     print(mouse_speed_scroll_rear(data_coordinate,  data_scroll))
 
-test()
 
 
 
