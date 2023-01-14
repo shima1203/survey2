@@ -100,7 +100,7 @@ for i in range(len(answer_id_list)):
     data_tmp['ratio_mouse_speed_click_pre_and_rear'] = data_tmp['mouse_speed_click_rear']/data_tmp['mouse_speed_click_pre']                                                         # speed rear / pre
     data_tmp['ave_mouse_event_click_rear'] = mouse_event_click_rear(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])/len(click_dict[answer_id_list[i]])          #１クリックあたりの平均マウスイベント数(クリック直後)
     data_tmp['ratio_mouse_event_click_pre_and_rear'] = mouse_event_click_rear(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])/mouse_event_click_pre(coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]])     # event rear / pre
-    data_tmp['ratio_mouse_speed_scroll_rear'] = mouse_speed_scroll_rear(coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']                  #通常のマウススピードとスクロール直後のマウススピードの比較
+    data_tmp['ratio_mouse_speed_scroll_rear'] = data_tmp['mouse_speed_scroll_rear']/data_tmp['mouse_ave']                                                                           #通常のマウススピードとスクロール直後のマウススピードの比較
     data_tmp['ave_mouse_event_scroll_rear'] = mouse_event_scroll_rear(coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/len(scroll_dict[answer_id_list[i]])      #１スクロールあたりの平均マウスイベント数(スクロール直後)
 
     # data_tmp['ratio_mouse_speed_click_pre1'] = mouse_speed_click_pre(1000, 900, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
