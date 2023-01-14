@@ -181,22 +181,17 @@ def mouse_speed_scroll_rear(coordinates_ori=[], scrolls_ori=[]):
     scroll_pre_list = []
     tmp = []
     time_close = 500
+    select_time = 100
     coordinate_time_tmp = coordinates[0]['time']
     scroll_time_tmp = scrolls[0]['time']
     for scroll in scrolls:
         i = 0
-        if(scroll['time'] - scroll_time_tmp <= 1000 and scroll['time'] - scroll_time_tmp != 0):
-            for coordinate in coordinates:
-                if(coordinate['time'] >= scroll['time'] and coordinate['time'] <= scroll['time'] + time_close):
-                    if(coordinate['time'] - coordinate_time_tmp <= 1000):
-                        scroll_pre_list.append(coordinate['time'] - coordinate_time_tmp)
-                        tmp.append(coordinate['time'])
-                if(coordinate['time'] > scroll['time'] + time_close):
-                    break
-                coordinate_time_tmp = coordinate['time']
-                i += 1
-            for j in range(i):
-                del coordinates[0]
+        if(scroll['time'] - scroll_time_tmp >= select_time):
+            speed_pre = mouse_speed_period(1000, scroll_time_tmp, scroll_time_tmp + time_close, coordinates, scrolls)
+            if(speed_pre != None):
+                scroll_pre_list.append(speed_pre)
+            else:
+                scroll_pre_list.append(0)
         scroll_time_tmp = scroll['time']
     # time_close以内のマウスイベントの数を返す
     # return(len(click_pre_list))
