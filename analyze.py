@@ -103,11 +103,16 @@ for i in range(len(answer_id_list)):
     data_tmp['ratio_mouse_speed_scroll_rear'] = mouse_speed_scroll_rear(coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']                  #通常のマウススピードとスクロール直後のマウススピードの比較
     data_tmp['ave_mouse_event_scroll_rear'] = mouse_event_scroll_rear(coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/len(scroll_dict[answer_id_list[i]])      #１スクロールあたりの平均マウスイベント数(スクロール直後)
 
-    data_tmp['ratio_mouse_speed_click_pre1'] = mouse_speed_click_pre(1000, 800, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-    data_tmp['ratio_mouse_speed_click_pre2'] = mouse_speed_click_pre(800, 600, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-    data_tmp['ratio_mouse_speed_click_pre3'] = mouse_speed_click_pre(600, 400, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-    data_tmp['ratio_mouse_speed_click_pre4'] = mouse_speed_click_pre(400, 200, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-    data_tmp['ratio_mouse_speed_click_pre5'] = mouse_speed_click_pre(200, 0, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+    data_tmp['ratio_mouse_speed_click_pre1'] = mouse_speed_click_pre(1000, 900, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+    data_tmp['ratio_mouse_speed_click_pre2'] = mouse_speed_click_pre(900, 800, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+    data_tmp['ratio_mouse_speed_click_pre3'] = mouse_speed_click_pre(800, 700, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+    data_tmp['ratio_mouse_speed_click_pre4'] = mouse_speed_click_pre(700, 600, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+    data_tmp['ratio_mouse_speed_click_pre5'] = mouse_speed_click_pre(600, 500, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    data_tmp['ratio_mouse_speed_click_pre6'] = mouse_speed_click_pre(500, 400, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    data_tmp['ratio_mouse_speed_click_pre7'] = mouse_speed_click_pre(400, 300, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    data_tmp['ratio_mouse_speed_click_pre8'] = mouse_speed_click_pre(300, 200, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    data_tmp['ratio_mouse_speed_click_pre9'] = mouse_speed_click_pre(200, 100, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    data_tmp['ratio_mouse_speed_click_pre10'] = mouse_speed_click_pre(100, 0, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
     data_set.append(data_tmp)
 
 
@@ -136,7 +141,7 @@ print("--------------------予測結果--------------------")
 
 print('＜集中＞')
 # df_a = df[df['target'] == 0].loc[:,['ratio_mouse_speed_click_pre','ratio_mouse_speed_click_rear','ratio_mouse_speed_scroll_rear']]
-df_a = df[df['target'] == 0].loc[:,['ratio_mouse_speed_click_pre1','ratio_mouse_speed_click_pre2','ratio_mouse_speed_click_pre3','ratio_mouse_speed_click_pre4','ratio_mouse_speed_click_pre5']]
+df_a = df[df['target'] == 0].loc[:,['ratio_mouse_speed_click_pre1','ratio_mouse_speed_click_pre2','ratio_mouse_speed_click_pre3','ratio_mouse_speed_click_pre4','ratio_mouse_speed_click_pre5','ratio_mouse_speed_click_pre6','ratio_mouse_speed_click_pre7','ratio_mouse_speed_click_pre8','ratio_mouse_speed_click_pre9','ratio_mouse_speed_click_pre10']]
 print(df_a)
 sum_click_amount = 0
 sum_mouse_amount = 0
@@ -174,7 +179,7 @@ j = 0
 
 print('＜適当＞')
 # df_b = df[df['target'] == 1].loc[:,['ratio_mouse_speed_click_pre','ratio_mouse_speed_click_rear','ratio_mouse_speed_scroll_rear']]
-df_b = df[df['target'] == 1].loc[:,['ratio_mouse_speed_click_pre1','ratio_mouse_speed_click_pre2','ratio_mouse_speed_click_pre3','ratio_mouse_speed_click_pre4','ratio_mouse_speed_click_pre5']]
+df_b = df[df['target'] == 1].loc[:,['ratio_mouse_speed_click_pre1','ratio_mouse_speed_click_pre2','ratio_mouse_speed_click_pre3','ratio_mouse_speed_click_pre4','ratio_mouse_speed_click_pre5','ratio_mouse_speed_click_pre6','ratio_mouse_speed_click_pre7','ratio_mouse_speed_click_pre8','ratio_mouse_speed_click_pre9','ratio_mouse_speed_click_pre10']]
 print(df_b)
 for data in data_set:
     if data['target'] == 1:
