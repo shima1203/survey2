@@ -71,7 +71,7 @@ def mouse_speed_period(stop_time , start_time, finish_time, coordinates_ori=[], 
                     
             if(coordinate_tmp['x'] != coordinate['x'] or coordinate_tmp['y'] != coordinate['y']):
                 if(coordinate_tmp["time"] < start_time and coordinate['time'] - coordinate_tmp["time"] <= stop_time):
-                    distance += (abs(coordinate['x'] - coordinate_tmp['x']) + abs(coordinate['y'] - coordinate_tmp['y'])) * (coordinate['time'] - start_time) / coordinate['time'] - coordinate_tmp['time']
+                    distance += (abs(coordinate['x'] - coordinate_tmp['x']) + abs(coordinate['y'] - coordinate_tmp['y'])) * (coordinate['time'] - start_time) / (coordinate['time'] - coordinate_tmp['time'])
                     move_time += coordinate['time'] - start_time
                     i += 1
                 elif(coordinate['time'] - coordinate_tmp["time"] <= stop_time):             # stop_time以内でイベントが発生している場合、マウスが連続で動いていると考える
@@ -80,10 +80,6 @@ def mouse_speed_period(stop_time , start_time, finish_time, coordinates_ori=[], 
                     i += 1
                 coordinate_tmp  = coordinate
     if(move_time != 0):
-        if(move_time < 0):
-            print("a")
-        if(distance < 0):
-            print("b")
         return(distance / move_time)
     else:
         return None
