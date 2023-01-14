@@ -245,11 +245,13 @@ def test():
     data_scroll =  [{"event":"scroll","x":1,"y":1,"time":21},
                     {"event":"scroll","x":2,"y":2,"time":22},
                     {"event":"scroll","x":3,"y":3,"time":23},
-                    {"event":"scroll","x":4,"y":4,"time":24},]
+                    {"event":"scroll","x":4,"y":4,"time":24},
+                    {"event":"scroll","x":3,"y":3,"time":200},]
     
     data_click = [{"event":"click","x":5,"y":6,"time":21}]
     print(mouse_speed_scroll_rear(data_coordinate,  data_scroll))
 
+test()
 
 
 
