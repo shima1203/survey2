@@ -43,6 +43,7 @@ def mouse_speed(stop_time , coordinates_ori=[], scroll_ori = []):
                 move_time += coordinate['time'] - coordinate_tmp["time"]
                 i += 1
             coordinate_tmp  = coordinate
+    print(move_time)
     return(distance / move_time)
 
 
