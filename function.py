@@ -250,7 +250,6 @@ def test():
     data_click = [{"event":"click","x":5,"y":6,"time":21}]
     print(mouse_speed_scroll_rear(data_coordinate,  data_scroll))
 
-test()
 
 
 
