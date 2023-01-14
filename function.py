@@ -80,6 +80,8 @@ def mouse_speed_period(stop_time , start_time, finish_time, coordinates_ori=[], 
                     i += 1
                 coordinate_tmp  = coordinate
     if(move_time != 0):
+        if(move_time < 0):
+            print("minus")
         return(distance / move_time)
     else:
         return None
