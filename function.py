@@ -244,12 +244,12 @@ def mouse_event_scroll_rear(coordinates_ori=[], scrolls_ori=[]):
 
 
 def test():
-    data_mouse = [{"event":"mousemove","x":1,"y":1,"time":1},
-                {"event":"mousemove","x":2,"y":6,"time":10},
-                {"event":"mousemove","x":5,"y":6,"time":20},
-                {"event":"mousemove","x":10,"y":10,"time":30},
-                {"event":"mousemove","x":20,"y":20,"time":35},
-                {"event":"mousemove","x":20,"y":20,"time":36}]
+    data_coordinate =  [{"event":"mousemove","x":1,"y":1,"time":1},
+                        {"event":"mousemove","x":2,"y":6,"time":10},
+                        {"event":"mousemove","x":5,"y":6,"time":20},
+                        {"event":"mousemove","x":10,"y":10,"time":30},
+                        {"event":"mousemove","x":20,"y":20,"time":35},
+                        {"event":"mousemove","x":20,"y":20,"time":36}]
     
     data_scroll =  [{"event":"scroll","x":1,"y":1,"time":21},
                     {"event":"scroll","x":2,"y":2,"time":22},
@@ -257,7 +257,7 @@ def test():
                     {"event":"scroll","x":4,"y":4,"time":24},]
     
     data_click = [{"event":"click","x":5,"y":6,"time":21}]
-    print(mouse_speed_click_pre(data_mouse, data_click, data_scroll))
+    print(mouse_speed_click_pre(data_coordinate, data_click, data_scroll))
 
     
 test()
