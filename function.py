@@ -87,7 +87,7 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[], scrolls_ori = []):
     click_pre_list = []
     time_close = 500
     for click in clicks:
-        click_pre_list.append(1000, click['time'] - time_close, click['time'], coordinates, scrolls)
+        click_pre_list.append(mouse_speed_period(1000, click['time'] - time_close, click['time'], coordinates, scrolls))
 
     # time_close以内のマウス速度の平均を返す
     time_sum = 0
