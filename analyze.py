@@ -202,8 +202,8 @@ df_b_t = df_b.T
 la = df_a_t.values.tolist()
 lb = df_b_t.values.tolist()
 
-plt.boxplot(la, color='black', linewidth=1)
-plt.boxplot(lb, color='blue', linewidth=1)
+plt.boxplot(la, boxprops=dict(facecolor='#1E90FF80', color='black', linewidth=1),)
+plt.boxplot(lb, boxprops=dict(facecolor='#1E90FF80', color='blue', linewidth=1),)
 
 
 
