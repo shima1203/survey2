@@ -132,14 +132,13 @@ def mouse_event_click_pre(coordinates_ori=[], clicks_ori=[]):
     return(len(click_pre_list))
 
 # クリックイベント直後のマウスのスピードを返す関数
-def mouse_speed_click_rear(coordinates_ori=[], clicks_ori=[], scrolls_ori = []):
+def mouse_speed_click_rear(start_time, finish_time, coordinates_ori=[], clicks_ori=[], scrolls_ori = []):
     coordinates = coordinates_ori.copy()
     clicks = clicks_ori.copy()
     scrolls = scrolls_ori.copy()
     click_pre_list = []
-    time_close = 500
     for click in clicks:
-        speed_pre = mouse_speed_period(1000, click['time'], click['time'] + time_close, coordinates, scrolls)
+        speed_pre = mouse_speed_period(1000, click['time'] + start_time, click['time'] + finish_time, coordinates, scrolls)
         if(speed_pre != None):
             click_pre_list.append(speed_pre)
 
