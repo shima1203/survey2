@@ -197,10 +197,13 @@ print("ratio_mouse_speed_scroll_rear:",sum_ratio_mouse_speed_scroll_rear/j)
 
 # 縦横転置
 df_a_t = df_a.T
+df_b_t = df_b.T
 # pandasDataFrame -> list
-l = df_a_t.values.tolist()
+la = df_a_t.values.tolist()
+lb = df_b_t.values.tolist()
 
-plt.boxplot(l)
+plt.boxplot(la)
+plt.boxplot(lb)
 
 
 
