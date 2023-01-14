@@ -257,7 +257,7 @@ def test():
                     {"event":"scroll","x":4,"y":4,"time":24},]
     
     data_click = [{"event":"click","x":5,"y":6,"time":21}]
-    print(mouse_speed_click_pre(100,15,35,data_mouse, data_click, data_scroll))
+    print(mouse_speed_click_pre(data_mouse, data_click, data_scroll))
 
     
 test()
