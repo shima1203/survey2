@@ -138,6 +138,7 @@ sum_mouse_amount = 0
 sum_ratio_mouse_speed_click_pre = 0
 sum_ratio_mouse_speed_click_rear = 0
 sum_ratio_mouse_speed_click_pre_and_rear = 0
+sum_ratio_mouse_speed_scroll_rear = 0
 j = 0
 for data in data_set:
     if data['target'] == 0:
@@ -148,18 +149,21 @@ for data in data_set:
         sum_ratio_mouse_speed_click_pre += data['ratio_mouse_speed_click_pre']
         sum_ratio_mouse_speed_click_rear += data['ratio_mouse_speed_click_rear']
         sum_ratio_mouse_speed_click_pre_and_rear += data['ratio_mouse_speed_click_pre_and_rear']
+        sum_ratio_mouse_speed_scroll_rear += data['ratio_mouse_speed_scroll_rear']
 print('----------average----------')
 print("click_amount:", sum_click_amount/j)
 print("mouse_amount:", sum_mouse_amount/j)
 print("ratio_mouse_speed_click_pre:",sum_ratio_mouse_speed_click_pre/j)
 print("ratio_mouse_speed_click_rear:",sum_ratio_mouse_speed_click_rear/j)
 print("ratio_mouse_speed_click_pre_and_rear:",sum_ratio_mouse_speed_click_pre_and_rear/j)
+print("ratio_mouse_speed_scroll_rear:",sum_ratio_mouse_speed_scroll_rear/j)
 print(' ')
 sum_click_amount = 0
 sum_mouse_amount = 0
 sum_ratio_mouse_speed_click_pre = 0
 sum_ratio_mouse_speed_click_rear = 0
 sum_ratio_mouse_speed_click_pre_and_rear = 0
+sum_ratio_mouse_speed_scroll_rear = 0
 j = 0
 
 
@@ -175,12 +179,14 @@ for data in data_set:
         sum_ratio_mouse_speed_click_pre += data['ratio_mouse_speed_click_pre']
         sum_ratio_mouse_speed_click_rear += data['ratio_mouse_speed_click_rear']
         sum_ratio_mouse_speed_click_pre_and_rear += data['ratio_mouse_speed_click_pre_and_rear']
+        sum_ratio_mouse_speed_scroll_rear += data['ratio_mouse_speed_scroll_rear']
 print('----------average----------')
 print("click_amount:", sum_click_amount/j)
 print("mouse_amount:", sum_mouse_amount/j)
 print("ratio_mouse_speed_click_pre:",sum_ratio_mouse_speed_click_pre/j)
 print("ratio_mouse_speed_click_rear:",sum_ratio_mouse_speed_click_rear/j)
-print("ratio_ratio_mouse_speed_click_pre_and_rear:",sum_ratio_mouse_speed_click_pre_and_rear/j)
+print("ratio_mouse_speed_click_pre_and_rear:",sum_ratio_mouse_speed_click_pre_and_rear/j)
+print("ratio_mouse_speed_scroll_rear:",sum_ratio_mouse_speed_scroll_rear/j)
 
 
 
