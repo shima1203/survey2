@@ -96,16 +96,28 @@ def mouse_speed_click_pre(start_time, finish_time, coordinates_ori=[], clicks_or
         if(speed_pre != None):
             click_pre_list.append(speed_pre)
 
-    # time_close以内のマウス速度の平均を返す
+    # マウス速度の平均を返す
+    # time_sum = 0
+    # j = 0
+    # for click_pre in click_pre_list:
+    #     time_sum += click_pre
+    #     j += 1
+    # if(j != 0):
+    #     return(time_sum / j)
+    # else:
+    #     return(0)
+    
+    # 最小のマウス速度pick_num個をピックし、その平均を返す
+    pick_num = 5
     time_sum = 0
-    j = 0
-    for click_pre in click_pre_list:
-        time_sum += click_pre
-        j += 1
-    if(j != 0):
-        return(time_sum / j)
+    click_pre_list_sorted = sorted(click_pre_list)
+    if(len(click_pre_list_sorted) >= pick_num):
+        for j in range(pick_num):
+            time_sum += click_pre_list_sorted[j]
     else:
-        return(0)
+        for j in range(len(click_pre_list_sorted)):
+            time_sum += click_pre_list_sorted[j]
+    return(time_sum / j)
 
 # クリックイベント直前のマウスのイベント数を返す関数
 def mouse_event_click_pre(coordinates_ori=[], clicks_ori=[]):
