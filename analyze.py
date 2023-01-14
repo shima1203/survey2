@@ -137,6 +137,7 @@ sum_click_amount = 0
 sum_mouse_amount = 0
 sum_ratio_mouse_speed_click_pre = 0
 sum_ratio_mouse_speed_click_rear = 0
+sum_ratio_mouse_speed_click_pre_and_rear = 0
 j = 0
 for data in data_set:
     if data['target'] == 0:
@@ -146,21 +147,24 @@ for data in data_set:
         sum_mouse_amount += data['mouse_amount']
         sum_ratio_mouse_speed_click_pre += data['ratio_mouse_speed_click_pre']
         sum_ratio_mouse_speed_click_rear += data['ratio_mouse_speed_click_rear']
+        sum_ratio_mouse_speed_click_pre_and_rear += data['ratio_mouse_speed_click_pre_and_rear']
 print('----------average----------')
 print("click_amount:", sum_click_amount/j)
 print("mouse_amount:", sum_mouse_amount/j)
 print("ratio_mouse_speed_click_pre:",sum_ratio_mouse_speed_click_pre/j)
 print("ratio_mouse_speed_click_rear:",sum_ratio_mouse_speed_click_rear/j)
+print("ratio_mouse_speed_click_pre_and_rear:",sum_ratio_mouse_speed_click_pre_and_rear/j)
 print(' ')
 sum_click_amount = 0
 sum_mouse_amount = 0
 sum_ratio_mouse_speed_click_pre = 0
 sum_ratio_mouse_speed_click_rear = 0
+sum_ratio_mouse_speed_click_pre_and_rear = 0
 j = 0
 
 
 print('＜適当＞')
-df_b = df[df['target'] == 1].loc[:,['ratio_mouse_speed_click_pre','ratio_mouse_speed_click_rear','ave_mouse_event_click_pre','ave_mouse_event_click_rear','ratio_mouse_event_click_pre_and_rear','ratio_mouse_speed_scroll_rear','ave_mouse_event_scroll_rear']]
+df_b = df[df['target'] == 1].loc[:,['ratio_mouse_speed_click_pre','ratio_mouse_speed_click_rear','ratio_mouse_speed_click_pre_and_rear','ratio_mouse_event_click_pre_and_rear','ratio_mouse_speed_scroll_rear','ave_mouse_event_scroll_rear']]
 print(df_b)
 for data in data_set:
     if data['target'] == 1:
@@ -170,12 +174,13 @@ for data in data_set:
         sum_mouse_amount += data['mouse_amount']
         sum_ratio_mouse_speed_click_pre += data['ratio_mouse_speed_click_pre']
         sum_ratio_mouse_speed_click_rear += data['ratio_mouse_speed_click_rear']
+        sum_ratio_mouse_speed_click_pre_and_rear += data['ratio_mouse_speed_click_pre_and_rear']
 print('----------average----------')
 print("click_amount:", sum_click_amount/j)
 print("mouse_amount:", sum_mouse_amount/j)
 print("ratio_mouse_speed_click_pre:",sum_ratio_mouse_speed_click_pre/j)
 print("ratio_mouse_speed_click_rear:",sum_ratio_mouse_speed_click_rear/j)
-
+print("ratio_ratio_mouse_speed_click_pre_and_rear:",sum_ratio_mouse_speed_click_pre_and_rear/j)
 
 
 
