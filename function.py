@@ -210,7 +210,7 @@ def mouse_event_scroll_rear(coordinates_ori=[], scrolls_ori=[]):
     scrolls = scrolls_ori.copy()
     scroll_pre_list = []
     tmp = []
-    time_close = 500
+    time_close = 100
     coordinate_time_tmp = coordinates[0]['time']
     scroll_time_tmp = scrolls[0]['time']
     for scroll in scrolls:
