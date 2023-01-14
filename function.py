@@ -43,8 +43,10 @@ def mouse_speed(stop_time , coordinates_ori=[], scroll_ori = []):
                 move_time += coordinate['time'] - coordinate_tmp["time"]
                 i += 1
             coordinate_tmp  = coordinate
-    print(move_time)
-    return(distance / move_time)
+    if(move_time != 0):
+        return(distance / move_time)
+    else:
+        return None
 
 
 # マウスの平均スピードを返す関数
@@ -77,7 +79,10 @@ def mouse_speed_period(stop_time , start_time, finish_time, coordinates_ori=[], 
                     move_time += coordinate['time'] - coordinate_tmp["time"]
                     i += 1
                 coordinate_tmp  = coordinate
-    return(distance / move_time)
+    if(move_time != 0):
+        return(distance / move_time)
+    else:
+        return None
 
 
 # クリックイベント直前のマウスのスピードを返す関数
@@ -88,7 +93,9 @@ def mouse_speed_click_pre(coordinates_ori=[], clicks_ori=[], scrolls_ori = []):
     click_pre_list = []
     time_close = 500
     for click in clicks:
-        click_pre_list.append(mouse_speed_period(1000, click['time'] - time_close, click['time'], coordinates, scrolls))
+        speed_pre = mouse_speed_period(1000, click['time'] - time_close, click['time'], coordinates, scrolls)
+        if(speed_pre != None):
+            click_pre_list.append(mouse_speed_period(1000, click['time'] - time_close, click['time'], coordinates, scrolls))
 
     # time_close以内のマウス速度の平均を返す
     time_sum = 0
@@ -260,8 +267,8 @@ def test():
     data_click = [{"event":"click","x":5,"y":6,"time":21}]
     print(mouse_speed_click_pre(data_coordinate, data_click, data_scroll))
 
-    
 test()
+
 
 
 
