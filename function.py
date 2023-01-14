@@ -130,29 +130,17 @@ def mouse_event_click_pre(coordinates_ori=[], clicks_ori=[]):
     # time_close以内のマウスイベントの数を返す
     return(len(click_pre_list))
 
-# クリックイベント直後のマウスのスピードを返す関数
-def mouse_speed_click_rear(coordinates_ori=[], clicks_ori=[]):
+# クリックイベント直前のマウスのスピードを返す関数
+def mouse_speed_click_rear(coordinates_ori=[], clicks_ori=[], scrolls_ori = []):
     coordinates = coordinates_ori.copy()
     clicks = clicks_ori.copy()
+    scrolls = scrolls_ori.copy()
     click_pre_list = []
-    tmp = []
     time_close = 500
-    time_tmp = coordinates[0]['time']
     for click in clicks:
-        i = 0
-        for coordinate in coordinates:
-            if(coordinate['time'] >= click['time'] and coordinate['time'] <= click['time'] + time_close):
-                if(coordinate['time'] - time_tmp <= 1000):
-                    click_pre_list.append(coordinate['time'] - time_tmp)
-                    tmp.append(coordinate['time'])
-            if(coordinate['time'] > click['time'] + time_close):
-                break
-            time_tmp = coordinate['time']
-            i += 1
-        for j in range(i):
-            del coordinates[0]
-    # time_close以内のマウスイベントの数を返す
-    # return(len(click_pre_list))
+        speed_pre = mouse_speed_period(1000, click['time'], click['time'] + time_close, coordinates, scrolls)
+        if(speed_pre != None):
+            click_pre_list.append(mouse_speed_period(1000, click['time'] - time_close, click['time'], coordinates, scrolls))
 
     # time_close以内のマウス速度の平均を返す
     time_sum = 0
@@ -265,7 +253,7 @@ def test():
                     {"event":"scroll","x":4,"y":4,"time":24},]
     
     data_click = [{"event":"click","x":5,"y":6,"time":21}]
-    print(mouse_speed_click_pre(data_coordinate, data_click, data_scroll))
+    print(mouse_speed_click_rear(data_coordinate, data_click, data_scroll))
 
 test()
 
