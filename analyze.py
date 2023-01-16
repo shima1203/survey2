@@ -268,27 +268,22 @@ def plot_feature_importance(df):
     plt.xlabel('Feature importance')                  # x軸のタイトル
     plt.ylabel('Feature')                             # y軸のタイトル
 
-# df = sns.load_dataset('titanic')
-# X = df.loc[:, (df.columns!='survived') & (df.columns!='alive')]
-# X = pd.get_dummies(X, drop_first=True)
-# y = df['survived']
+# from sklearn.model_selection import train_test_split
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
 
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
+# import lightgbm as lgb
+# model = lgb.LGBMClassifier(boosting_type='gbdt', max_depth=5, random_state=0)
 
-import lightgbm as lgb
-model = lgb.LGBMClassifier(boosting_type='gbdt', max_depth=5, random_state=0)
-
-eval_set = [(X_test, y_test)]
-callbacks = []
-callbacks.append(lgb.early_stopping(stopping_rounds=10))
-callbacks.append(lgb.log_evaluation())
-model.fit(X_train, y_train, eval_set=eval_set, callbacks=callbacks)
+# eval_set = [(X_test, y_test)]
+# callbacks = []
+# callbacks.append(lgb.early_stopping(stopping_rounds=10))
+# callbacks.append(lgb.log_evaluation())
+# model.fit(X_train, y_train, eval_set=eval_set, callbacks=callbacks)
 
 
-from sklearn import metrics
-y_pred = model.predict_proba(X_test)
-metrics.log_loss(y_test, y_pred)
+# from sklearn import metrics
+# y_pred = model.predict_proba(X_test)
+# metrics.log_loss(y_test, y_pred)
 
 # lgb.plot_metric(model)
 # lgb.plot_importance(model)
