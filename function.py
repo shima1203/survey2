@@ -241,7 +241,7 @@ def mouse_speed_scroll_rear(start_time, finish_time, coordinates_ori=[], scrolls
     #     return(0)
     
     # 最小のマウス速度pick_num個をピックし、その平均を返す
-    pick_num = 50
+    pick_num = 80
     time_sum = 0
     scroll_pre_list_sorted = sorted(scroll_pre_list, reverse=False)
     if(len(scroll_pre_list_sorted) >= pick_num):
