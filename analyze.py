@@ -239,7 +239,7 @@ plt.boxplot(la, showmeans=True, boxprops=dict(color='black', linewidth=1),median
 plt.boxplot(lb, showmeans=True, boxprops=dict(color='blue', linewidth=1),medianprops=dict(color='blue', linewidth=1),whiskerprops=dict(color='blue', linewidth=1),capprops=dict(color='blue', linewidth=1),flierprops=dict(markeredgecolor='blue', markeredgewidth=1))
 # df_a.plot.box()
 # df_b.plot.box()
-plt.ylim(0, 0.5)
+# plt.ylim(0, 0.5)
 
 
 
