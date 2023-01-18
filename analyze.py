@@ -240,10 +240,10 @@ df_b_t = df_b.T
 la = df_a_t.values.tolist()
 lb = df_b_t.values.tolist()
 
-plt.boxplot(la, showmeans=True, boxprops=dict(color='black', linewidth=1),medianprops=dict(color='black', linewidth=1),whiskerprops=dict(color='black', linewidth=1),capprops=dict(color='black', linewidth=1),flierprops=dict(markeredgecolor='black', markeredgewidth=1))
-plt.boxplot(lb, showmeans=True, boxprops=dict(color='blue', linewidth=1),medianprops=dict(color='blue', linewidth=1),whiskerprops=dict(color='blue', linewidth=1),capprops=dict(color='blue', linewidth=1),flierprops=dict(markeredgecolor='blue', markeredgewidth=1))
-# df_a.plot.box()
-# df_b.plot.box()
+# plt.boxplot(la, showmeans=True, boxprops=dict(color='black', linewidth=1),medianprops=dict(color='black', linewidth=1),whiskerprops=dict(color='black', linewidth=1),capprops=dict(color='black', linewidth=1),flierprops=dict(markeredgecolor='black', markeredgewidth=1))
+# plt.boxplot(lb, showmeans=True, boxprops=dict(color='blue', linewidth=1),medianprops=dict(color='blue', linewidth=1),whiskerprops=dict(color='blue', linewidth=1),capprops=dict(color='blue', linewidth=1),flierprops=dict(markeredgecolor='blue', markeredgewidth=1))
+df_a.plot.box()
+df_b.plot.box()
 # plt.ylim(0, 0.5)
 
 
