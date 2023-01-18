@@ -108,9 +108,9 @@ def mouse_speed_click_pre(start_time, finish_time, coordinates_ori=[], clicks_or
     #     return(0)
     
     # 最小のマウス速度pick_num個をピックし、その平均を返す
-    pick_num = 10
+    pick_num = 30
     time_sum = 0
-    click_pre_list_sorted = sorted(click_pre_list, reverse=False)
+    click_pre_list_sorted = sorted(click_pre_list, reverse=True)
     if(len(click_pre_list_sorted) >= pick_num):
         for j in range(pick_num):
             time_sum += click_pre_list_sorted[j]
@@ -229,16 +229,32 @@ def mouse_speed_scroll_rear(start_time, finish_time, coordinates_ori=[], scrolls
     # time_close以内のマウスイベントの数を返す
     # return(len(click_pre_list))
 
-    # time_close以内のマウス速度の平均を返す
+    # マウス速度の平均を返す
+    # time_sum = 0
+    # j = 0
+    # for scroll_pre in scroll_pre_list:
+    #     time_sum += scroll_pre
+    #     j += 1
+    # if(j != 0):
+    #     return(time_sum / j)
+    # else:
+    #     return(0)
+    
+    # 最小のマウス速度pick_num個をピックし、その平均を返す
+    pick_num = 10
     time_sum = 0
-    j = 0
-    for scroll_pre in scroll_pre_list:
-        time_sum += scroll_pre
-        j += 1
-    if(j != 0):
-        return(time_sum / j)
+    scroll_pre_list_sorted = sorted(scroll_pre_list, reverse=False)
+    if(len(scroll_pre_list_sorted) >= pick_num):
+        for j in range(pick_num):
+            time_sum += scroll_pre_list_sorted[j]
+        return(time_sum / pick_num)
     else:
-        return(0)
+        for j in range(len(scroll_pre_list_sorted)):
+            time_sum += scroll_pre_list_sorted[j]
+        if(len(scroll_pre_list_sorted) != 0):
+            return(time_sum / len(scroll_pre_list_sorted))
+        else:
+            return(0)
 
 # スクロールイベント直後のマウスのイベント数を返す関数
 def mouse_event_scroll_rear(coordinates_ori=[], scrolls_ori=[]):
