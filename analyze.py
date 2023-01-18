@@ -245,16 +245,16 @@ lb = df_b_t.values.tolist()
 
 # merge the two data frames to one data frame
 df_a_melt = pd.melt(df_a)
-df_a_melt['species'] = 'T. aestivum'
+df_a_melt['species'] = 'concentrated answer'
 df_b_melt = pd.melt(df_b)
-df_b_melt['species'] = 'A. tauschii'
+df_b_melt['species'] = 'sloppy answer'
 df_marged = pd.concat([df_a_melt, df_b_melt], axis=0)
 
 fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
 sns.boxplot(x='variable', y='value', data=df_marged, hue='species', palette='Dark2', ax=ax)
 
-ax.set_xlabel('time [ms]')
+ax.set_xlabel('time  [ms]')
 ax.set_ylabel('ratio')
 # ax.set_ylim(0, 20)
 ax.legend()
