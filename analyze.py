@@ -239,12 +239,26 @@ df_b_t = df_b.T
 # pandasDataFrame -> list
 la = df_a_t.values.tolist()
 lb = df_b_t.values.tolist()
-
 # plt.boxplot(la, showmeans=True, boxprops=dict(color='black', linewidth=1),medianprops=dict(color='black', linewidth=1),whiskerprops=dict(color='black', linewidth=1),capprops=dict(color='black', linewidth=1),flierprops=dict(markeredgecolor='black', markeredgewidth=1))
 # plt.boxplot(lb, showmeans=True, boxprops=dict(color='blue', linewidth=1),medianprops=dict(color='blue', linewidth=1),whiskerprops=dict(color='blue', linewidth=1),capprops=dict(color='blue', linewidth=1),flierprops=dict(markeredgecolor='blue', markeredgewidth=1))
-df_a.plot.box()
-df_b.plot.box()
 # plt.ylim(0, 0.5)
+
+# merge the two data frames to one data frame
+df_a_melt = pd.melt(df_a)
+df_a_melt['species'] = 'T. aestivum'
+df_b_melt = pd.melt(df_b)
+df_b_melt['species'] = 'A. tauschii'
+df_marged = pd.concat([df_a_melt, df_b_melt], axis=0)
+
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1)
+sns.boxplot(x='variable', y='value', data=df_marged, hue='species', palette='Dark2', ax=ax)
+
+ax.set_xlabel('time [ms]')
+ax.set_ylabel('ratio')
+# ax.set_ylim(0, 20)
+ax.legend()
+
 
 
 
