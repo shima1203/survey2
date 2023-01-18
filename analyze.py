@@ -227,6 +227,10 @@ print("ratio_mouse_speed_scroll_rear:",sum_ratio_mouse_speed_scroll_rear/j)
 
 
 # 箱ひげ図の描画
+plt.style.use('default')
+sns.set()
+sns.set_style('whitegrid')
+sns.set_palette('Set3')
 
 # 縦横転置
 df_a_t = df_a.T
