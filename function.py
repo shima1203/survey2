@@ -78,6 +78,12 @@ def mouse_speed_period(stop_time , start_time, finish_time, coordinates_ori=[], 
                     distance += abs(coordinate['x'] - coordinate_tmp['x']) + abs(coordinate['y'] - coordinate_tmp['y'])
                     move_time += coordinate['time'] - coordinate_tmp["time"]
                     i += 1
+                # 追加
+                else:
+                    distance += (abs(coordinate['x'] - coordinate_tmp['x']) + abs(coordinate['y'] - coordinate_tmp['y'])) * (finish_time - coordinate['time']) / (coordinate['time'] - coordinate_tmp['time'])
+                    move_time += finish_time - coordinate['time']
+                    i += 1
+                    break
                 coordinate_tmp  = coordinate
     if(move_time != 0):
         return(distance / move_time)
