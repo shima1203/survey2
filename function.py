@@ -116,7 +116,8 @@ def mouse_speed_click_pre(start_time, finish_time, coordinates_ori=[], clicks_or
     # 最小のマウス速度pick_num個をピックし、その平均を返す
     pick_num = 30
     time_sum = 0
-    click_pre_list_sorted = sorted(click_pre_list, reverse=True)
+    click_pre_list_sorted = sorted(click_pre_list, reverse=False)
+    # False:min True:max
     if(len(click_pre_list_sorted) >= pick_num):
         for j in range(pick_num):
             time_sum += click_pre_list_sorted[j]
