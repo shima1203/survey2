@@ -258,7 +258,7 @@ sns.boxplot(x='variable', y='value', data=df_marged, hue='species', palette='Dar
 
 ax.set_xlabel('time  [ms]')
 ax.set_ylabel('ratio')
-# ax.set_ylim(-0.2, 10)
+ax.set_ylim(-0.1, 0.6)
 ax.legend()
 
 
