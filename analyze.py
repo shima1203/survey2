@@ -138,7 +138,6 @@ for i in range(len(answer_id_list)):
     # data_tmp['700~800'] = mouse_speed_scroll_rear(700, 800, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
     # data_tmp['800~900'] = mouse_speed_scroll_rear(800, 900, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
     # data_tmp['900~1000'] = mouse_speed_scroll_rear(900, 1000, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-    # data_set.append(data_tmp)
     
     # 選択直前
     # data_tmp['1000~900'] = mouse_speed_click_pre(1000, 900, coordinates_dict[answer_id_list[i]], checking_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
@@ -163,7 +162,9 @@ for i in range(len(answer_id_list)):
     # data_tmp['700~800'] = mouse_speed_click_rear(700, 800, coordinates_dict[answer_id_list[i]], checking_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
     # data_tmp['800~900'] = mouse_speed_click_rear(800, 900, coordinates_dict[answer_id_list[i]], checking_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
     # data_tmp['900~1000'] = mouse_speed_click_rear(900, 1000, coordinates_dict[answer_id_list[i]], checking_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-
+    
+    
+    data_set.append(data_tmp)
 
 
 df = pd.DataFrame(data = data_set)
