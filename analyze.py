@@ -19,7 +19,7 @@ questionnaire_id = 3
 # 3:スクール直後
 # 4:選択直前
 # 5:選択直後
-mode = 1
+mode = 4
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
