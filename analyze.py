@@ -301,6 +301,7 @@ fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
 sns.boxplot(x='variable', y='value', data=df_marged, hue='species', palette='Dark2', ax=ax)
 
+ax.set_xticks([1000,900,800,700,600,500,400,300,200,100,0])
 ax.set_xlabel('time  [ms]')
 ax.set_ylabel('ratio')
 # ax.set_ylim(-0.2, 4.0)
