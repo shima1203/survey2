@@ -284,6 +284,10 @@ fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
 sns.boxplot(x='variable', y='value', data=df_marged, hue='species', palette='Dark2', ax=ax)
 
+params = {'legend.fontsize': 16,
+        'legend.handlelength': 3}
+
+plt.rcParams.update(params)
 ax.set_xlabel('time  [ms]')
 ax.set_ylabel('ratio')
 # ax.set_ylim(-0.2, 4.0)
