@@ -262,7 +262,7 @@ plt.style.use('default')
 sns.set()
 sns.set_style('whitegrid')
 sns.set_palette('Set3')
-plt.rcParams["font.size"] = 20
+plt.rcParams["font.size"] = 30
 
 # 縦横転置
 df_a_t = df_a.T
