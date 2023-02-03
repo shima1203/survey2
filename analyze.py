@@ -262,6 +262,7 @@ plt.style.use('default')
 sns.set()
 sns.set_style('whitegrid')
 sns.set_palette('Set3')
+plt.rcParams["font.size"] = 20
 
 # 縦横転置
 df_a_t = df_a.T
@@ -283,8 +284,6 @@ df_marged = pd.concat([df_a_melt, df_b_melt], axis=0)
 fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
 sns.boxplot(x='variable', y='value', data=df_marged, hue='species', palette='Dark2', ax=ax)
-
-plt.rcParams["font.size"] = 20
 
 ax.set_xlabel('time  [ms]')
 ax.set_ylabel('ratio')
