@@ -19,7 +19,8 @@ questionnaire_id = 3
 # 3:スクール直後
 # 4:選択直前
 # 5:選択直後
-mode = 3
+# 6:スクロール直後(0~3000)
+mode = 6
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
@@ -174,6 +175,20 @@ for i in range(len(answer_id_list)):
         data_tmp['700~800'] = mouse_speed_click_rear(700, 800, coordinates_dict[answer_id_list[i]], checking_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
         data_tmp['800~900'] = mouse_speed_click_rear(800, 900, coordinates_dict[answer_id_list[i]], checking_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
         data_tmp['900~1000'] = mouse_speed_click_rear(900, 1000, coordinates_dict[answer_id_list[i]], checking_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    
+    if(mode == 6):
+        # スクロール直後(0~3000)
+        data_tmp['0~100'] = mouse_speed_scroll_rear(0, 300, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+        data_tmp['100~200'] = mouse_speed_scroll_rear(300, 600, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+        data_tmp['200~300'] = mouse_speed_scroll_rear(600, 900, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+        data_tmp['300~400'] = mouse_speed_scroll_rear(900, 1200, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+        data_tmp['400~500'] = mouse_speed_scroll_rear(1200, 1500, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+        data_tmp['500~600'] = mouse_speed_scroll_rear(1500, 1800, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+        data_tmp['600~700'] = mouse_speed_scroll_rear(1800, 2100, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+        data_tmp['700~800'] = mouse_speed_scroll_rear(2100, 2400, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+        data_tmp['800~900'] = mouse_speed_scroll_rear(2400, 2700, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+        data_tmp['900~1000'] = mouse_speed_scroll_rear(2700, 3000, coordinates_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+    
     
     data_set.append(data_tmp)
 
