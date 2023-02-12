@@ -219,7 +219,7 @@ print('＜集中＞')
 #df_a = df[df['target'] == 0].loc[:,['ratio_mouse_speed_click_pre','ratio_mouse_speed_click_rear','ratio_mouse_speed_scroll_rear']]
 if(mode == 1 or mode == 4):
     df_a = df[df['target'] == 0].loc[:,['1000~900','900~800','800~700','700~600','600~500','500~400','400~300','300~200','200~100','100~0']]
-if(mode == 2 or mode == 3 or mode == 5):
+if(mode == 2 or mode == 3 or mode == 5 or mode == 6):
     df_a = df[df['target'] == 0].loc[:,['0~100','100~200','200~300','300~400','400~500','500~600','600~700','700~800','800~900','900~1000']]
 print(df_a)
 sum_click_amount = 0
@@ -260,7 +260,7 @@ print('＜適当＞')
 #df_b = df[df['target'] == 1].loc[:,['ratio_mouse_speed_click_pre','ratio_mouse_speed_click_rear','ratio_mouse_speed_scroll_rear']]
 if(mode == 1 or mode == 4):
     df_b = df[df['target'] == 1].loc[:,['1000~900','900~800','800~700','700~600','600~500','500~400','400~300','300~200','200~100','100~0']]
-if(mode == 2 or mode == 3 or mode == 5):
+if(mode == 2 or mode == 3 or mode == 5 or mode == 6):
     df_b = df[df['target'] == 1].loc[:,['0~100','100~200','200~300','300~400','400~500','500~600','600~700','700~800','800~900','900~1000']]
 print(df_b)
 for data in data_set:
