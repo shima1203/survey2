@@ -356,7 +356,7 @@ params = {'legend.fontsize': 25,
 plt.rcParams.update(params)
 ax.set_xlabel('time  [ms]')
 ax.set_ylabel('ratio')
-ax.set_ylim(-0.02, 0.6)
+# ax.set_ylim(-0.02, 0.6)
 ax.legend()
 
 
