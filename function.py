@@ -221,10 +221,9 @@ def mouse_speed_scroll_rear(start_time, finish_time, coordinates_ori=[], scrolls
     coordinates = coordinates_ori.copy()
     scrolls = scrolls_ori.copy()
     scroll_pre_list = []
-    select_time = 100
+    select_time = 1000
     scroll_time_tmp = scrolls[0]['time']
     for scroll in scrolls:
-        i = 0
         if(scroll['time'] - scroll_time_tmp >= select_time):
             speed_pre = mouse_speed_period(1000, scroll_time_tmp + start_time, scroll_time_tmp + finish_time, coordinates, scrolls)
             if(speed_pre != None):
@@ -260,7 +259,6 @@ def mouse_speed_scroll_rear(start_time, finish_time, coordinates_ori=[], scrolls
         if(len(scroll_pre_list_sorted) != 0):
             return(time_sum / len(scroll_pre_list_sorted))
         else:
-            print("a")
             return(0)
 
 # スクロールイベント直後のマウスのイベント数を返す関数
