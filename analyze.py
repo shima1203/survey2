@@ -126,16 +126,16 @@ for i in range(len(answer_id_list)):
     
     if(mode == 2):
         # クリック直後
-        data_tmp['0~100'] = mouse_speed_click_rear(0, 100, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-        data_tmp['100~200'] = mouse_speed_click_rear(100, 200, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-        data_tmp['200~300'] = mouse_speed_click_rear(200, 300, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-        data_tmp['300~400'] = mouse_speed_click_rear(300, 400, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-        data_tmp['400~500'] = mouse_speed_click_rear(400, 500, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-        data_tmp['500~600'] = mouse_speed_click_rear(500, 600, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-        data_tmp['600~700'] = mouse_speed_click_rear(600, 700, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-        data_tmp['700~800'] = mouse_speed_click_rear(700, 800, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-        data_tmp['800~900'] = mouse_speed_click_rear(800, 900, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-        data_tmp['900~1000'] = mouse_speed_click_rear(900, 1000, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+        data_tmp['50'] = mouse_speed_click_rear(0, 100, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+        data_tmp['150'] = mouse_speed_click_rear(100, 200, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+        data_tmp['250'] = mouse_speed_click_rear(200, 300, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+        data_tmp['350'] = mouse_speed_click_rear(300, 400, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+        data_tmp['450'] = mouse_speed_click_rear(400, 500, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+        data_tmp['550'] = mouse_speed_click_rear(500, 600, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+        data_tmp['650'] = mouse_speed_click_rear(600, 700, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+        data_tmp['750'] = mouse_speed_click_rear(700, 800, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+        data_tmp['850'] = mouse_speed_click_rear(800, 900, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+        data_tmp['950'] = mouse_speed_click_rear(900, 1000, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
     
     if(mode == 3):
         # スクロール直後
@@ -248,7 +248,7 @@ print("--------------------予測結果--------------------")
 print('＜集中＞')
 #df_a = df[df['target'] == 0].loc[:,['ratio_mouse_speed_click_pre','ratio_mouse_speed_click_rear','ratio_mouse_speed_scroll_rear']]
 if(mode == 1 or mode == 4):
-    df_a = df[df['target'] == 0].loc[:,['1000~900','900~800','800~700','700~600','600~500','500~400','400~300','300~200','200~100','100~0']]
+    df_a = df[df['target'] == 0].loc[:,['950','850','750','650','550','450','350','250','150','50']]
 if(mode == 2 or mode == 3 or mode == 5):
     df_a = df[df['target'] == 0].loc[:,['0~100','100~200','200~300','300~400','400~500','500~600','600~700','700~800','800~900','900~1000']]
 if(mode == 6):
@@ -291,7 +291,7 @@ j = 0
 print('＜適当＞')
 #df_b = df[df['target'] == 1].loc[:,['ratio_mouse_speed_click_pre','ratio_mouse_speed_click_rear','ratio_mouse_speed_scroll_rear']]
 if(mode == 1 or mode == 4):
-    df_b = df[df['target'] == 1].loc[:,['1000~900','900~800','800~700','700~600','600~500','500~400','400~300','300~200','200~100','100~0']]
+    df_b = df[df['target'] == 1].loc[:,['950','850','750','650','550','450','350','250','150','50']]
 if(mode == 2 or mode == 3 or mode == 5):
     df_b = df[df['target'] == 1].loc[:,['0~100','100~200','200~300','300~400','400~500','500~600','600~700','700~800','800~900','900~1000']]
 if(mode == 6):
