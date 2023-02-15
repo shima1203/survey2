@@ -20,7 +20,7 @@ questionnaire_id = 3
 # 4:選択直前
 # 5:選択直後
 # 6:スクロール直後(0~3000)
-mode = 6
+mode = 1
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
@@ -113,16 +113,16 @@ for i in range(len(answer_id_list)):
 
     if(mode == 1):
         # クリック直前
-        data_tmp['1000~900'] = mouse_speed_click_pre(1000, 900, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-        data_tmp['900~800'] = mouse_speed_click_pre(900, 800, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-        data_tmp['800~700'] = mouse_speed_click_pre(800, 700, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-        data_tmp['700~600'] = mouse_speed_click_pre(700, 600, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
-        data_tmp['600~500'] = mouse_speed_click_pre(600, 500, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-        data_tmp['500~400'] = mouse_speed_click_pre(500, 400, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-        data_tmp['400~300'] = mouse_speed_click_pre(400, 300, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-        data_tmp['300~200'] = mouse_speed_click_pre(300, 200, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-        data_tmp['200~100'] = mouse_speed_click_pre(200, 100, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
-        data_tmp['100~0'] = mouse_speed_click_pre(100, 0, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+        data_tmp['950'] = mouse_speed_click_pre(1000, 900, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+        data_tmp['850'] = mouse_speed_click_pre(900, 800, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+        data_tmp['750'] = mouse_speed_click_pre(800, 700, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+        data_tmp['650'] = mouse_speed_click_pre(700, 600, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']  
+        data_tmp['550'] = mouse_speed_click_pre(600, 500, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+        data_tmp['450'] = mouse_speed_click_pre(500, 400, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+        data_tmp['350'] = mouse_speed_click_pre(400, 300, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+        data_tmp['250'] = mouse_speed_click_pre(300, 200, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+        data_tmp['150'] = mouse_speed_click_pre(200, 100, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
+        data_tmp['50'] = mouse_speed_click_pre(100, 0, coordinates_dict[answer_id_list[i]], click_dict[answer_id_list[i]], scroll_dict[answer_id_list[i]])/data_tmp['mouse_ave']
     
     if(mode == 2):
         # クリック直後
