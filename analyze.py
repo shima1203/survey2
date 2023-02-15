@@ -359,7 +359,7 @@ ax.set_ylabel('ratio')
 
 ax.set_xticks(range(1000))
 ax.set_xticklabels(range(1000))
-ax.set_xlim(1000,0)
+# ax.set_xlim(1000,0)
 
 # ax.set_ylim(-0.02, 0.6)
 ax.legend()
