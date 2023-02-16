@@ -341,7 +341,7 @@ lb = df_b_t.values.tolist()
 
 # merge the two data frames to one data frame
 df_a_melt = pd.melt(df_a)
-df_a_melt['species'] = 'concentrated response'
+df_a_melt['species'] = 'concentrated responses'
 df_b_melt = pd.melt(df_b)
 df_b_melt['species'] = 'inappropriate responses'
 df_marged = pd.concat([df_a_melt, df_b_melt], axis=0)
